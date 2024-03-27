@@ -1,10 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Test Code 2024\\test_2024_3_22\\",
+  "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_3_22\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{721AB40B-E94D-4813-B547-A26A8AD83F4E}|test_2024_3_22\\test_2024_3_22.vcxproj|E:\\Test Code 2024\\test_2024_3_22\\test_2024_3_22\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{721AB40B-E94D-4813-B547-A26A8AD83F4E}|test_2024_3_22\\test_2024_3_22.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_3_22\\test_2024_3_22\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{721AB40B-E94D-4813-B547-A26A8AD83F4E}|test_2024_3_22\\test_2024_3_22.vcxproj|solutionrelative:test_2024_3_22\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{721AB40B-E94D-4813-B547-A26A8AD83F4E}|test_2024_3_22\\test_2024_3_22.vcxproj|C:\\PROGRAM FILES (X86)\\WINDOWS KITS\\10\\INCLUDE\\10.0.22621.0\\UCRT\\STDIO.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +17,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 101,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,13 +25,24 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "stdio.h",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\stdio.h",
+              "ViewState": "AQIAAHkCAAAAAAAAAAAewIUCAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-27T07:21:34.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "test.c",
-              "DocumentMoniker": "E:\\Test Code 2024\\test_2024_3_22\\test_2024_3_22\\test.c",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_3_22\\test_2024_3_22\\test.c",
               "RelativeDocumentMoniker": "test_2024_3_22\\test.c",
-              "ToolTip": "E:\\Test Code 2024\\test_2024_3_22\\test_2024_3_22\\test.c",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_3_22\\test_2024_3_22\\test.c",
               "RelativeToolTip": "test_2024_3_22\\test.c",
-              "ViewState": "AQIAABIBAAAAAAAAAAAAACgBAAACAAAA",
+              "ViewState": "AQIAADkBAAAAAAAAAAAAAEsBAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-03-22T08:22:13.549Z",
               "EditorCaption": ""

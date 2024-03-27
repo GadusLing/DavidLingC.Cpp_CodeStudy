@@ -81,7 +81,7 @@
 //}
 
 
-#include <stdio.h>
+//#include <stdio.h>
 //int main()
 //{
 //	//Char 字符类型
@@ -273,31 +273,74 @@
 
 
 //数组
+//int main()
+//{
+//	//int a = 10;
+//	//int b = 10;
+//	//int c = 10;
+//	//0~9
+//	//int d = 0;
+//	//int e = 1;
+//	//...
+//	int arr[] = { 10,11,12,13,14,15,16,17,18,19};
+//	char ch[5];
+//	double d[30];
+//
+//	//数组在实际的内存空间里是有编号的，我们称之为数组的“下标”，下标从"0"开始计算
+//	//比如arr[8],就相当于访问了arr这个数组中的第8个元素
+//	//printf("%d\n", arr[8]);//18
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		printf("%d\n", arr[i]);
+//		i = i + 1;
+//	}
+//
+//	return 0;
+//}
+
+
+//Big(int x,int y)
+//{
+//	if (x > y)
+//		return x;
+//	else
+//		return y;	
+//}
+//
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;//初始化a b
+//	scanf("%d%d", &a, &b);//输入a b
+//	int BigNum = Big(a, b);//初始化BigNum值=Big函数运算结果
+//	printf("BigNum = %d", BigNum);//打印较大数
+//	
+//	return 0;
+//}
+
+
+#include <stdio.h>
 int main()
 {
-	//int a = 10;
-	//int b = 10;
-	//int c = 10;
-	//0~9
-	//int d = 0;
-	//int e = 1;
-	//...
-	int arr[] = { 10,11,12,13,14,15,16,17,18,19};
-	char ch[5];
-	double d[30];
+	//输入
+	int x = 0;
+	int y = 0;
+	scanf("%d", &x);
+	//输出
+	if(x < 0)
+		y = 1;
+	else if (x == 0)
+		y = 0;
+	else
+		y = -1;
 
-	//数组在实际的内存空间里是有编号的，我们称之为数组的“下标”，下标从"0"开始计算
-	//比如arr[8],就相当于访问了arr这个数组中的第8个元素
-	//printf("%d\n", arr[8]);//18
-	int i = 0;
-	while (i < 10)
-	{
-		printf("%d\n", arr[i]);
-		i = i + 1;
-	}
+    printf("%d\n", y);
 
 	return 0;
 }
+
+
 
 
 
