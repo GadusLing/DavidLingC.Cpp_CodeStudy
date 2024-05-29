@@ -102,7 +102,7 @@
 	//	int a = 10;
 	//	int a=10;//密集，不舒服
 
-    //  return 0;
+	//  return 0;
 	//}
 
 //int test()
@@ -164,6 +164,170 @@
 //			printf("%d ", num);
 //		num+=2;//+2一样也是奇数，从数理角度避免了枚举过程，减少了损耗
 //	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int day = 0;
+//	scanf("%d", &day);
+//	//if (1 == day)
+//	//{
+//	//	printf("星期一\n");
+//	//}
+//	//else if (2 == day)
+//	//{
+// //       printf("星期二\n");
+//	//}   
+//	//else if (3 == day) 
+//	//{
+//	//	printf("星期三\n");
+//	//}
+//	//else if (4 == day)
+//	//{
+//	//	printf("星期四\n");
+//	//}
+//	//else if (5 == day)
+//	//{
+//	//	printf("星期五\n");
+//	//}
+//	//else if (6 == day)
+//	//{
+//	//	printf("星期六\n");
+//	//}
+//	//else if (7 == day)
+//	//{
+//	//	printf("星期天\n");
+//	//}
+//
+//	switch (day)
+//	{
+//	case 1:
+//	case 2:
+//	case 3:
+//	case 4:
+//	case 5:
+//		printf("weekday\n");
+//		break;
+//	case 6:
+//	case 7:
+//		printf("weekend\n");
+//		break;
+//	default:
+//		printf("输入有误，请重新输入\n");
+//		break;
+//	}
+//
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int n = 1;
+//	int m = 2;
+//	switch (n)
+//	{
+//		case 1:m++;
+//		case 2:n++;
+//		case 3:
+//			switch (n)
+//			{//switch 允许嵌套使用
+//			case 1:n++;
+//			case 2:m++; n++;
+//				break;
+//			}
+//		case 4:
+//			m++;
+//			break;
+//		default:
+//			break;
+//	}
+//	printf("m = %d,n = %d", m, n);
+//	return 0;
+//}
+
+//int main()
+//{
+//	while (1)
+//	{
+//		printf("hehe\n");
+//	}
+//	return 0;
+//}
+
+//while循环中的
+//break是用于永久的终止循环
+//continue 跳过本次循环后面的代码，直接去判断部分，进行下一次循环的判断
+//int main()
+//{
+//	int i = 1;
+//	while (i <= 10)
+//	{
+//		i++;
+//		if (5 == i)
+//			continue;
+//
+//		printf("%d\n", i);
+//	}
+//
+//	return 0;
+//}
+//int main()
+//{
+//	//int ch = 0;
+//	//while (getchar())
+//	//EOF;//end of file
+//	//int ch = getchar();
+//	//printf("%c\n", ch);
+//	//putchar(ch);
+//
+//	//int ch = 0;
+//	//while ((ch = getchar()) != EOF)
+//	//{
+//	//	putchar(ch);
+//
+//	//}
+//
+//
+//	//举一个例子
+//	//假设密码是一个字符串
+//	char password[20] = { 0 };
+//	printf("请输入密码:>");//123456
+//	scanf("%s", password);
+//	
+//	//getchar();//读取了\n
+//	int ch = 0;
+//	while ((ch = getchar()) != '\n')
+//	{
+//		;
+//	}
+//
+//
+//	printf("请确认密码(Y/N):>");
+//	int ret = getchar();
+//	if ('Y' == ret)
+//	{
+//		printf("YES\n");
+//	}
+//	else
+//	{
+//		printf("No\n");
+//	}
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	char ch = '\0';
+//	while ((ch = getchar()) != EOF)
+//	{
+//		if (ch < '0' || ch > '9')
+//			continue;
+//		putchar(ch);
+//	}
+//	//只打印数字字符
 //	return 0;
 //}
 
