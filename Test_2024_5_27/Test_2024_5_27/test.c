@@ -144,15 +144,76 @@
 
 //编写代码，演示多个字符从两端移动，向中间汇聚
 //
+//int main()
+//{
+//	char arr1[] = "Hello World!";
+//	char arr2[] = "############";
+//
+//	char buf[] = "abc";
+//	//[a b c \0]
+//
+//	int left = 0;
+//	int right = strlen(buf) - 1;// strlen统计的是\0之前元素的个数，总数有3个，下标是从0开始算的，所以要-1
+//
+//	return 0;
+//}
+
+#include <windows.h>
+#include <stdlib.h>
+
+//int main()
+//{
+//	char arr1[] = "Hello,World!";
+//	char arr2[] = "############";
+//
+//	int size = sizeof(arr1) / sizeof(arr1[0]);
+//
+//	int left = 0;
+//	int right = size - 2;//[a b c \0] \0也算一个元素，除了之后结果是4，C对应的下标是2，所以要-2
+//	
+//	while (left <= right)
+//	{
+//		arr2[left] = arr1[left];
+//		arr2[right] = arr1[right];
+//		printf("%s\n", arr2);
+//		Sleep(1000);
+//		//清空平面
+//		system("cls");//system是一个函数库，可以执行系统命令
+//		left++;
+//		right--;
+//	}
+//	printf("%s\n", arr2);
+//
+//	return 0;
+//}
+
+
+//编写代码实现，模拟用户登录情景，并且只能登录三次。(只允许输入三次密码，如果密码正确则
+//提示登录成，如果三次均输入错误，则退出程序。
+
+#include <string.h>
 int main()
 {
-	char arr1[] = "Hello World!";
-	char arr2[] = "############";
-
-	int size = sizeof (arr1) / sizeof (arr1[0]);
-
-	int left = arr1[0];
-	int right = size-2;//int right = strlen(arr1) -1;
+	int i = 0;
+	char password[20] = { 0 };
+	for (i = 0; i < 3; i++)
+	{
+		printf("请输入密码:>");
+		scanf("%s", password);
+		if (strcmp(password, "lingdawei") == 0 ) //比较2个字符串是否相等，不能使用 == ，而应该使用一个库函数: strcmp  //strcmp函数的返回值为0表示两个字符串相同
+		{
+			printf("登陆成功");
+			break;
+		}
+		else
+		{
+			printf("密码错误\n");
+		}
+	}
+	if (i == 3)
+	{
+		printf("三次错误输入，程序暂时锁定，请稍后再试\n");
+	}
 
 	return 0;
 }
