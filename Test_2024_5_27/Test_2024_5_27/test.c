@@ -191,29 +191,103 @@
 //编写代码实现，模拟用户登录情景，并且只能登录三次。(只允许输入三次密码，如果密码正确则
 //提示登录成，如果三次均输入错误，则退出程序。
 
-#include <string.h>
-int main()
+//#include <string.h>
+//int main()
+//{
+//	int i = 0;
+//	char password[20] = { 0 };
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("请输入密码:>");
+//		scanf("%s", password);
+//		if (strcmp(password, "lingdawei") == 0 ) //比较2个字符串是否相等，不能使用 == ，而应该使用一个库函数: strcmp  //strcmp函数的返回值为0表示两个字符串相同
+//		{
+//			printf("登陆成功");
+//			break;
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//	}
+//	if (i == 3)
+//	{
+//		printf("三次错误输入，程序暂时锁定，请稍后再试\n");
+//	}
+//
+//	return 0;
+//}
+
+//电脑产生一个随机数（1~100）
+//猜数字
+//猜大了
+//猜小了
+//直到猜对了，结束
+
+#include <stdlib.h>
+#include <time.h>
+
+
+void menu()
 {
-	int i = 0;
-	char password[20] = { 0 };
-	for (i = 0; i < 3; i++)
+	printf("******************************\n");
+	printf("*********   1.PLAY   *********\n");
+	printf("*********   0.EXIT   *********\n");
+	printf("******************************\n");
+}
+//0 ~RAND_MAX(32767)
+void game()
+{
+	int guess = 0;
+	//生成随机数
+	int ret = rand()%100 + 1;//生成随机数的函数
+	//printf("%d\n",ret);
+	//猜数字
+
+	while (1)
 	{
-		printf("请输入密码:>");
-		scanf("%s", password);
-		if (strcmp(password, "lingdawei") == 0 ) //比较2个字符串是否相等，不能使用 == ，而应该使用一个库函数: strcmp  //strcmp函数的返回值为0表示两个字符串相同
+		printf("请猜数字:>");
+		scanf("%d", &guess);
+		if (guess < ret)
 		{
-			printf("登陆成功");
-			break;
+			printf("猜小了\n");
+		}
+		else if (guess > ret)
+		{
+			printf("猜大了\n");
 		}
 		else
 		{
-			printf("密码错误\n");
+			printf("恭喜你，猜对了\n");
+			break;
 		}
 	}
-	if (i == 3)
+	
+}
+
+int main()
+{
+	int input = 0;
+	srand((unsigned int)time(NULL));//调用时间戳在整个工程里面只用生成一次就行了，不用频繁调用
+
+	do
 	{
-		printf("三次错误输入，程序暂时锁定，请稍后再试\n");
-	}
+		menu();
+		printf("请选择:>");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();//猜数字的整个游戏逻辑
+			break;
+		case 0:
+			printf("退出游戏\n");
+			break;
+		default:
+			printf("输入有误，请重新输入\n");
+			break;
+		}
+	} while (input);
 
 	return 0;
 }
