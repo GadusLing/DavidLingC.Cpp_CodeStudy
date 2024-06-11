@@ -1,3 +1,2 @@
 ﻿  test.c
-E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_6_5\Test_2024_6_5\test.c(24,2): warning C4013: “system”未定义；假设外部返回 int
   Test_2024_6_5.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_6_5\x64\Debug\Test_2024_6_5.exe
