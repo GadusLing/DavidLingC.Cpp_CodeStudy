@@ -26,27 +26,115 @@
 //函数的声明
 //int Add(int x, int y);
 
-#include "add.h"
-#include "sub.h"
+//#include "add.h"
+//#include "sub.h"
 
-int main()
-{
-	int a = 0;
-	int b = 0;
-	scanf("%d %d", &a, &b);
-	//加法
-	int sum = Add(a, b);
-	printf("%d\n", sum);
-
-	int ret = Sub(a, b);
-	printf("%d\n", ret);//学到了头文件和源文件的模块划分
-
-
-	return 0;
-}
+//#pragma comment(lib, "add.lib")
+//
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d %d", &a, &b);
+//	//加法
+//	int sum = Add(a, b);
+//	printf("%d\n", sum);
+//
+//	//int ret = Sub(a, b);
+//	//printf("%d\n", ret);//学到了头文件和源文件的模块划分
+//
+//
+//	return 0;
+//}
 
 //函数的定义
 //int Add(int x, int y)
 //{
 //	return x + y;
 //}
+
+//接受一个整型值(无符号)，按照顺序打印它的每一位。
+//例如:
+//输入:1234，输出1 2 3 4.
+
+
+//%d 是打印有符号的整数(会有正负数)
+//%u 是打印无符号的整数
+//int main()
+//{
+//	unsigned int num = 0;
+//	scanf("%u", &num);//1234
+//	while (num)
+//	{
+//		printf("%d ", num % 10);
+//		num = num / 10;
+//	}
+//
+//	//1 2 3 4
+//	//printf("%u", num);
+//
+//	return 0;
+//}
+
+
+//递归法
+//void print(unsigned int n)
+//{
+//	if (n > 9)
+//	{
+//		print(n / 10);
+//	}	
+//	printf("%d ", n % 10);
+//	
+//}
+//
+//int main()
+//{
+//	unsigned int num = 0;
+//	scanf("%u", &num);//1234
+//	print(num);//让print这个函数接受一个整型值(无符号)，按照顺序打印它的每一位。
+//
+//	return 0;
+//}
+
+
+
+//编写函数不允许创建临时变量，求字符串的长度
+
+#include <string.h>
+
+//int my_strlen(char str[])//参数部分写出数组的形式
+//int my_strlen(char * str)//参数部分写成指针的形式,和上面两者没啥区别，写成哪种都可以
+//{
+//	int count = 0;//临时变量，但题目是不要临时变量，所以该怎么做呢？
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+
+//如何不创建临时变量用递归的方法求解
+int my_strlen(char* str)
+{
+	if (*str != '/0')
+	{
+		return 1 + my_strlen(str + 1);
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+
+int main()
+{
+	char arr[] = "abc";//[a b c \0]
+	int len = my_strlen(arr);
+	printf("%d\n", len);
+
+
+	return 0;
+}
