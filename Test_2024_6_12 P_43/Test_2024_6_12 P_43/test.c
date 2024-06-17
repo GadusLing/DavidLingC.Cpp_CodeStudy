@@ -116,25 +116,127 @@
 //}
 
 //如何不创建临时变量用递归的方法求解
-int my_strlen(char* str)
-{
-	if (*str != '/0')
-	{
-		return 1 + my_strlen(str + 1);
-	}
-	else
-	{
-		return 0;
-	}
-}
+//int my_strlen(char* str)
+//{
+//	if (*str != '/0')
+//	{
+//		return 1 + my_strlen(str + 1);
+//	}
+//	else
+//	{
+//		return 0;
+//	}
+//}
+//
+//
+//int main()
+//{
+//	char arr[] = "abc";//[a b c \0]
+//	int len = my_strlen(arr);
+//	printf("%d\n", len);
+//
+//
+//	return 0;
+//}
 
 
-int main()
-{
-	char arr[] = "abc";//[a b c \0]
-	int len = my_strlen(arr);
-	printf("%d\n", len);
+
+//解决阶乘问题
+//递归实现
+//int fac(int n)
+//{
+//	if (n <= 1)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return n * fac(n - 1);
+//	}
+//}
+
+//循环的方式来写————迭代实现
+//int fac(int n)
+//{
+//	int i = 0;
+//	int ret = 1;
+//	for (i = 1; i <= n ; i++)
+//	{
+//		ret *= i;
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = fac(n);
+//	printf("ret = %d\n", ret);
+//
+//	return 0;
+//}
 
 
-	return 0;
-}
+
+
+//求第n个斐波那契数的问题
+//斐波那契数列
+//1 1 2 3 5 8 13 21 34 55... 前两数之后等于后一位数
+
+//int Fib(int n)
+//{
+//	if (n <= 2)
+//	{
+//		return 1;
+//	}
+//	else
+//	{
+//		return Fib(n - 1) + Fib(n - 2);//这里用递归显然不合适了，复杂程度太大                 
+//	}
+//	
+//}
+
+//int Fib(int n)//试试迭代法
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//
+//	while (n >= 3)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//
+//	return c;
+//
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int ret = Fib(n);
+//	printf("ret = %d\n", ret);
+//
+//	return 0;
+//}
+
+
+//void test(int n)
+//{
+//	if (n < 10000)
+//	{
+//		test(n + 1);
+//	}
+//}
+//
+//int main()
+//{
+//
+//    test(1);
+//	return 0;
+//}//层次不深优先考虑递归，层次比较深就迭代
