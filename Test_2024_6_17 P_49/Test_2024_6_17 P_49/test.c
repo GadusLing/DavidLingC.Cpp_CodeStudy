@@ -162,6 +162,95 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a = 0, b = 0;
+//	for (a = 1, b = 1; a <= 100; a++)
+//	{
+//		if (b >= 20) break;
+//		if (b % 3 == 1)
+//		{
+//			b = b + 3;
+//			continue;
+//		}
+//		b = b - 5;
+//	}
+//	printf("%d\n", a);
+//	return 0;
+//}
+
+//编写程序数一下 1 到 100 的所有整数中出现多少个数字9
+
+//int countDigitNine(int n)
+//{
+//    int count = 0;
+//    while (n)
+//    {
+//        if (n % 10 == 9)
+//        {
+//            count++;
+//        }
+//        n /= 10;
+//    }
+//    return count;
+//}
+//
+//int main() 
+//{
+//    int totalCount = 0;
+//    for (int i = 1; i <= 100; i++) 
+//    {
+//        totalCount += countDigitNine(i);
+//    }
+//    printf("1-100中9的数量: %d\n", totalCount);
+//    return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 10 == 9)
+//		{
+//			count++;
+//		}
+//		if (i / 10 == 9)
+//		{
+//			count++;
+//		}
+//	}
+//	printf("1-100中9的数量: %d\n", count);
+//	return 0;
+//}
+
+
+//计算1/1 - 1/2 + 1/3 - 1/4 + 1/5......+1/99 - 1/100 的值，打印出结果
+//分子总是1
+//分母是1~100
+
+int main() 
+{
+    double sum = 0.0; // 初始化累加和为0  
+    int sign = 1;     // 用来表示正负号，初始为正  
+
+    // 遍历1到100的整数  
+    for (int i = 1; i <= 100; i++)
+    {
+        // 根据sign的值来决定是加还是减  
+        sum += sign * (1.0 / i);
+        // 更改sign的值，下次循环时取反  
+        sign *= -1;
+    }
+
+    // 打印结果  
+    printf("The result is: %f\n", sum);
+
+    return 0;
+}
+
+
 
 
 
