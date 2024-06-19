@@ -230,27 +230,92 @@
 //分子总是1
 //分母是1~100
 
-int main() 
-{
-    double sum = 0.0; // 初始化累加和为0  
-    int sign = 1;     // 用来表示正负号，初始为正  
+//int main() 
+//{
+//    double sum = 0.0; // 初始化累加和为0  
+//    int sign = 1;     // 用来表示正负号，初始为正  
+//
+//    // 遍历1到100的整数  
+//    for (int i = 1; i <= 100; i++)
+//    {
+//        // 根据sign的值来决定是加还是减  
+//        sum += sign * (1.0 / i);
+//        // 更改sign的值，下次循环时取反  
+//        sign *= -1;
+//    }
+//
+//    // 打印结果  
+//    printf("The result is: %f\n", sum);
+//
+//    return 0;
+//}
 
-    // 遍历1到100的整数  
-    for (int i = 1; i <= 100; i++)
-    {
-        // 根据sign的值来决定是加还是减  
-        sum += sign * (1.0 / i);
-        // 更改sign的值，下次循环时取反  
-        sign *= -1;
-    }
 
-    // 打印结果  
-    printf("The result is: %f\n", sum);
+//求 10 个整数中的最大值
 
-    return 0;
-}
+//int main()
+//{
+//	int numbers[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//    int max = numbers[0];
+//
+//    int i = 0; 
+//    for (i = 1; i < 10; i++) 
+//    {
+//        if (numbers[i] > max)
+//        {
+//            max = numbers[i];
+//        }
+//    }
+//    printf("最大的整数是：%d\n", max);
+//
+//	return 0;
+//}
 
 
+//在屏幕上输出9*9乘法口诀表
 
+//int main() {
+//    int i = 0;
+//    int j = 0;
+//    // 外层循环控制乘法口诀表的行数  
+//    for (i = 1; i <= 9; i++) {
+//        // 内层循环控制乘法口诀表的列数  
+//        for (j = 1; j <= i; j++) {
+//            // 打印乘法表达式和结果  
+//            printf("%d*%d=%-2d  ", j, i, i * j);
+//        }
+//        // 每打印完一行后换行  
+//        printf("\n");
+//    }
+//
+//    return 0;
+//}
+
+
+//实现一个函数，打印乘法口决表，口诀表的行数和列数自己指定
+//如 : 输入9，输出9 * 9口诀表，输出12，输出12 * 12的乘法口诀表。
+
+//void print_table(int n)
+//{
+//    int i = 0;
+//    int j = 0;
+//    for (i = 1; i <= n; i++) 
+//    {
+//        for (j = 1; j <= i; j++) 
+//        {
+//            printf("%d*%d=%-2d  ", j, i, i * j);
+//        }
+//        printf("\n");
+//    }
+//}
+//
+//int main() 
+//{
+//    int n = 0;
+//    scanf("%d", &n);
+//    print_table(n);
+//
+//    return 0;
+//}
 
 
