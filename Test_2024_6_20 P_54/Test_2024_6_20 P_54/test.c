@@ -29,14 +29,64 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	//不完全初始化，剩余的元素默认初始化为0
+//	int arr[10] = { 1,2,3 };
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,0 };
+//
+//	char ch1[10] = { 'a','b','c' };
+//	char ch2[10] = "abc";
+//	char ch3[] = { 'a','b','c' };
+//	char ch4[] = "abc";
+//
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	//[] - 下标引用操作符
+//	//printf("%d\n", arr[4]);
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d\n", arr[i]);
+//	}
+//	for (i = sz - 1; i >= 0; i--)
+//	{
+//		printf("%d\n", arr[i]);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//		{
+//			printf("&arr[%d] = %p\n", i, &arr[i]);
+//		}
+//	return 0;
+//}
+
+
+
+//1 2 3 4
+//2 3 4 5
+//3 4 5 6
+
 int main()
 {
-	//不完全初始化，剩余的元素默认初始化为0
-	int arr[10] = { 1,2,3 };
-	int arr1[10] = { 1,2,3,4,5,6,7,8,9,0 };
-
-	char ch1[10] = { 'a','b','c' };
-	char ch2[10] = "abc";
+	int arr1[3][4] = { 1,2,3,4,2,3,4,5,3,4,5,6 };//前面是行，后面是列
+	int arr2[3][4] = { {1,2},{3,4},{5,6} };	
+	int arr3[5][10];
+	int arr4[][4] = { {1,2,3,4},{2,3} };
 
 	return 0;
 }
+
