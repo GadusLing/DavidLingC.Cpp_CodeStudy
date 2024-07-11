@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|solutionrelative:game2\\game.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|solutionrelative:game2\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|solutionrelative:game2\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{93057C28-33FE-4003-B8BF-CD0919533491}|game2\\game2.vcxproj|solutionrelative:game2\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,13 +30,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "test.c",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\test.c",
               "RelativeDocumentMoniker": "game2\\test.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\test.c",
               "RelativeToolTip": "game2\\test.c",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACYAAAACAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-07-08T11:44:48.722Z",
               "EditorCaption": ""
@@ -49,20 +49,20 @@
               "RelativeDocumentMoniker": "game2\\game.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\game.c",
               "RelativeToolTip": "game2\\game.c",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADcAAAANAAAA",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAAAGsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-07-08T11:44:48.215Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "game.h",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\game.h",
               "RelativeDocumentMoniker": "game2\\game.h",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game2\\game2\\game.h",
               "RelativeToolTip": "game2\\game.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-07-08T11:44:47.503Z",
               "EditorCaption": ""

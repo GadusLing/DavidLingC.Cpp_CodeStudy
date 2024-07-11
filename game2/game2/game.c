@@ -53,19 +53,32 @@ void SetMine(char board[ROWS][COLS], int row, int col)
 
 int get_mine_count(char board[ROWS][COLS], int x, int y)
 {
-	board[x-1][]
+	return (board[x - 1][y] +
+		board[x - 1][y - 1] +
+		board[x][y - 1] +
+		board[x + 1][y - 1] +
+		board[x + 1][y] +
+		board[x + 1][y + 1] +
+		board[x][y + 1] +
+		board[x - 1][y + 1] - 8 * '0');
 }
 
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	while (1)
+	int win = 0;//找到非雷的个数
+	while (win < row * col - MINE_COUNT)
 	{
 		printf("请输入要排查的左边，先横后纵\n");
 		scanf("%d%d", &x, &y);
 		if (x >= 1 && x <= row && y >= 1 && y < col)
 		{
+			if (show[x][y] != '*')
+			{
+				printf("该位置已被排查过了\n");
+				continue;
+			}
 			if (mine[x][y] == '1')//如果是雷
 			{
 				printf("碰到地雷啦！！！BOOM！！！\n");
@@ -74,7 +87,10 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			}
 			else//如果不是雷
 			{
-				int count = get_mine_count(mine, x, y);
+				win++;
+				int count = get_mine_count(mine, x, y);//统计xy周围8格的雷数
+				show[x][y] = count + '0';//转换为字符字数
+				DisplayBoard(show, ROW, COL);
 			}
 
 		}
@@ -83,4 +99,14 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			printf("输入坐标有误，请重新输入\n");
 		}
 	}
+	if (win == row * col - MINE_COUNT)
+	{
+		printf("恭喜你排雷成功！！！\n");
+		DisplayBoard(mine, ROW, COL);
+	}
 }
+
+//基础的功能已然实现
+//接下来留几个任务
+//1.标记功能
+//2.一片展开的功能

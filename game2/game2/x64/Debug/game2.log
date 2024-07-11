@@ -1,5 +1,2 @@
 ﻿  game.c
-  test.c
-  正在生成代码...
-E:\GithubDownLoad\DavidLingC_CodeStudy\game2\game2\test.c(3,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
   game2.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\game2\x64\Debug\game2.exe
