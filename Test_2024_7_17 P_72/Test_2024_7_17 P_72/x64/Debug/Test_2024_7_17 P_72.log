@@ -1,0 +1,3 @@
+﻿  test.c
+E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_7_17 P_72\Test_2024_7_17 P_72\test.c(103,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  Test_2024_7_17 P_72.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_7_17 P_72\x64\Debug\Test_2024_7_17 P_72.exe
