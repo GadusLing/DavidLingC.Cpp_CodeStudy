@@ -87,39 +87,164 @@
 //}
 
 
+//#include <stdio.h>
+//int main()
+//{
+//	int a = 0x11223344;
+//	char* pc = (char*)&a;
+//	*pc = 0;
+//	printf("%x\n", a);
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 0,1,2,3,4 };
+//	int* p = &arr;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d\n", *(p + i));
+//	}
+//
+//	return 0;
+//}
 
 
 
+//#include <stdio.h>
+//
+//int main()
+//{
+//    char arr[10001] = { 0 };
+//    gets(arr);
+//
+//    int left = 0;
+//    int right = strlen(arr) - 1;
+//
+//    while (left < right)
+//    {
+//        char tmp = arr[left];
+//        arr[left] = arr[right];
+//        arr[right] = tmp;
+//
+//        left++;
+//        right--;
+//
+//    }
+//
+//    printf("%s\n", arr);
+//
+//    return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	scanf("%d %d", &a, &n);//2 5
+//	int sum = 0;
+//	int k = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		k = k * 10 + a;
+//		sum += k;
+//	}
+//	printf("%d\n", sum);
+//
+//	return 0;
+//}
 
 
 
+//#include <math.h>
+//
+//int main()
+//{
+//	for (int i = 0; i < 100000; i++)
+//	{
+//		int count = 0;
+//		int n = i;
+//		int sum = 0;
+//		int temp = 0;
+//
+//		while (n > 0)
+//		{
+//			count++;
+//			n /= 10;
+//		}
+//
+//		temp = i;
+//		for (int j = 0; j < count; j++)
+//		{
+//			int digit = temp % 10;
+//			sum += pow(digit, count);
+//			temp /= 10;
+//		}
+//
+//		if (sum == i)
+//		{
+//			printf("%d\n", sum);
+//		}		
+//	}
+//
+//	return 0;
+//}
 
 
-#include <stdio.h>  
+//#include <math.h>
+//
+//int is_narcissistic_number(int i)
+//{
+//	int n = 1;
+//	int tmp = i;
+//	int sum = 0;
+//	while (tmp / 10)
+//	{
+//		n++;
+//		tmp /= 10;
+//	}
+//
+//	tmp = i;
+//	while (tmp)
+//	{
+//		sum += pow(tmp % 10, n);
+//		tmp /= 10;
+//	}
+//	return sum == i;
+//}
+//int main()
+//{
+//	for (int i = 0; i <= 100000; i++)
+//	{
+//		if (is_narcissistic_number(i))
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//
+//	return 0;
+//}
 
-int gcd(int a, int b) //使用欧几里得算法求最大公约数的函数  
+
+int main()
 {
-    while (b != 0)
-    {
-        int temp = b;
-        b = a % b;
-        a = temp;
-    }
-    return a;
+	int line = 0;
+	scanf("%d", &line);
+
+	int i = 0;
+
+
+	return 0;
+
 }
 
-int main() 
-{
-    int num1, num2;
 
-    printf("请输入两个数（用空格分隔）: ");
-    scanf("%d %d", &num1, &num2);
 
-    //调用gcd函数并打印结果  
-    printf("%d 和 %d 的最大公约数是: %d\n", num1, num2, gcd(num1, num2));
 
-    return 0;
-}
 
 
 
