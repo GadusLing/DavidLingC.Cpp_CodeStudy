@@ -267,46 +267,130 @@
 //}
 
 
-#include <stdio.h>
+//#include <stdio.h>
+//
+//int main()
+//{
+//    char a = 0;
+//    scanf("%c", &a);
+//
+//    int n = 7;
+//    int i = 0;
+//    int j = 0;
+//    for (i = 0; i < n; i++)
+//    {
+//        for (j = 0; j < n - 1 - i; j++)
+//        {
+//            printf(" ");
+//        }
+//        for (j = 0; j < 2 * i + 1; j++)
+//        {
+//            printf("%c", a);
+//        }
+//        printf("\n");
+//    }
+//
+//    for (i = 0; i < n - 1; i++)
+//    {
+//        for (j = 0; j < i + 1; j++)
+//        {
+//            printf(" ");
+//        }
+//        for (j = 0; j < 2 * (n - 1 - i) - 1 ; j++)
+//        {
+//            printf("%c", a); 
+//        }
+//        printf("\n");
+//    }
+//
+//    return 0;
+//}
 
-int main()
-{
-    char a = 0;
-    scanf("%c", &a);
-
-    int n = 7;
-    int i = 0;
-    int j = 0;
-    for (i = 0; i < n; i++)
-    {
-        for (j = 0; j < n - 1 - i; j++)
-        {
-            printf(" ");
-        }
-        for (j = 0; j < 2 * i + 1; j++)
-        {
-            printf("%c", a);
-        }
-        printf("\n");
-    }
-
-    for (i = 0; i < n - 1; i++)
-    {
-        for (j = 0; j < i + 1; j++)
-        {
-            printf(" ");
-        }
-        for (j = 0; j < 2 * (n - 1 - i) - 1 ; j++)
-        {
-            printf("%c", a); 
-        }
-        printf("\n");
-    }
-
-    return 0;
-}
+//自写
+//int main()
+//{
+//	int money = 20;
+//	int n = 0;
+//	int k = 0;
+//
+//	for (money = 20; money > 0; money--)
+//	{
+//		n++;
+//		k++;
+//		if (k >= 2)
+//		{
+//			money++;
+//			k = 0;
+//		}
+//	}
+//
+//	printf("%d %d", n, k);
+//
+//
+//	return 0;
+//}
 
 
+//文心
+//#include <stdio.h>  
+//
+//int main() {
+//    int initialMoney = 20; // 初始金额  
+//    int n = 0; // 总共获得的汽水数量  
+//    int k = 0; // 当前持有的空瓶数量  
+//
+//    // 用初始金额购买汽水  
+//    n = initialMoney;
+//    k = initialMoney; // 购买后，同时也获得了相同数量的空瓶  
+//
+//    // 当有空瓶时，尝试用空瓶换汽水  
+//    while (k >= 2) {
+//        int newBottles = k / 2; // 每次可以换购的汽水数量  
+//        n += newBottles; // 更新总共获得的汽水数量  
+//        k = newBottles + k % 2; // 更新空瓶数量（包括新换得的和新剩余的）  
+//    }
+//
+//    // 输出结果  
+//    printf("总共可以喝到 %d 瓶汽水，最后剩下 %d 个空瓶。\n", n, k);
+//
+//    return 0;
+//}
+
+
+//教学
+//int main()
+//{
+//	int money = 20;
+//	int total = money;
+//	int empty = money;
+//	//置换
+//	while (empty >= 2)
+//	{
+//		total += empty / 2;
+//		empty = empty / 2 + empty % 2;
+//	}
+//
+//	printf("%d\n", total);
+//	
+//	return 0;
+//}
+
+//int main()
+//{
+//	int money = 20;
+//
+//	if (money > 0)
+//	{
+//		printf("%d\n", 2 * money - 1);
+//	}
+//	else
+//	{
+//		printf("%d\n", 0);
+//	}
+//	
+//
+//	return 0;
+//}
 
 
 
