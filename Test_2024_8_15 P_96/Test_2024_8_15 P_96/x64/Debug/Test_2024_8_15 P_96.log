@@ -1,2 +1,4 @@
 ﻿  test.c
+E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_8_15 P_96\Test_2024_8_15 P_96\test.c(104,5): warning C4013: “gets”未定义；假设外部返回 int
+E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_8_15 P_96\Test_2024_8_15 P_96\test.c(105,15): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   Test_2024_8_15 P_96.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\Test_2024_8_15 P_96\x64\Debug\Test_2024_8_15 P_96.exe
