@@ -1,18 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_8_15 P_97\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{FFAE601C-DC7F-44FD-8681-DF498EB8652A}|Test_2024_8_15 P_97\\Test_2024_8_15 P_97.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_8_15 P_97\\Test_2024_8_15 P_97\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FFAE601C-DC7F-44FD-8681-DF498EB8652A}|Test_2024_8_15 P_97\\Test_2024_8_15 P_97.vcxproj|solutionrelative:Test_2024_8_15 P_97\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include\\limits.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\float.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -20,44 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "float.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\float.h",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\float.h",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-04T00:24:32.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "limits.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include\\limits.h",
-              "ToolTip": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.29.30133\\include\\limits.h",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAABMAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-04T00:22:13.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "test.c",
-              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_8_15 P_97\\Test_2024_8_15 P_97\\test.c",
-              "RelativeDocumentMoniker": "Test_2024_8_15 P_97\\test.c",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\Test_2024_8_15 P_97\\Test_2024_8_15 P_97\\test.c",
-              "RelativeToolTip": "Test_2024_8_15 P_97\\test.c",
-              "ViewState": "AQIAAAEBAAAAAAAAAAAgwBoBAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-08-26T08:17:44.678Z",
-              "EditorCaption": ""
             }
           ]
         }
