@@ -126,43 +126,117 @@
 //}
 
 
-void print1(int arr[3][5], int r, int c)
-{
-	for (int i = 0; i < r; i++)
-	{
-		for (int j = 0; j < c; j++)
-		{
-			printf("%d ", arr[i][j]);
+//void print1(int arr[3][5], int r, int c)
+//{
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < c; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//void print2(int (*p)[5], int r, int c)
+//{
+//	for (int i = 0; i < r; i++)
+//	{
+//		for (int j = 0; j < c; j++)
+//		{
+//			printf("%d ", *((*p + i) + j));
+//
+//		}
+//		printf("\n");
+//	}
+//}
+// 
+//void print3(int* p)
+//{
+//
+//}
+//
+//
+//
+//int main()
+//{
+//	int arr[3][5] = { 1,2,3,4,5,2,3,4,5,6,3,4,5,6,7 };
+//	print1(arr, 3, 5);
+//	print2(arr, 3, 5);
+//
+//	int data[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	print3(data);
+//
+//
+//	return 0;
+//}
 
-		}
-		printf("\n");
-	}
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//
+//
+//
+//int main()
+//{
+//	//int a = 10;
+//	//int* pa = &a;
+//	//*pa = 20;
+//	//printf("%d\n", *pa);
+//
+//
+//	int arr[5] = { 0 };
+//	//&数组名 - 取出的数组的地址
+//	int(*p)[5] = &arr;//数组指针
+//
+//	//&函数名 - 取出的函数的地址？？
+//	//printf("%p\n", &Add);//打印出来的就是函数的地址
+//	//printf("%p\n", Add);
+//	//对于函数来说，&函数名和函数名都是函数的地址
+//
+//	int (*pf)(int, int) = &Add;
+//	//int ret = Add(2, 3);
+//	//int ret = (*pf)(2, 3);
+//	int ret = pf(2, 3);
+//	printf("%d\n", ret);
+//
+//
+//
+//	return 0;
+//
+//}
+
+
+
+int Add(int x, int y)
+{
+	return x + y;
 }
 
-void print2(int (*p)[5], int r, int c)
+void calc(int(*pf)(int,int))
 {
-	for (int i = 0; i < r; i++)
-	{
-		for (int j = 0; j < c; j++)
-		{
-			printf("%d ", *((*p + i) + j));
+	int a = 3;
+	int b = 5;
 
-		}
-		printf("\n");
-	}
+	int ret = pf(a, b);
+	printf("%d\n", ret);
+
 }
- 
 
 
 int main()
 {
-	int arr[3][5] = { 1,2,3,4,5,2,3,4,5,6,3,4,5,6,7 };
-	print1(arr, 3, 5);
-	print2(arr, 3, 5);
+	calc(Add);
 
 
 	return 0;
+
 }
+
+
+
 
 
 
