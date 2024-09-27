@@ -67,32 +67,31 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	int win = 0;//找到非雷的个数
-	while (win < row * col - MINE_COUNT)
+	int win = 0;//找到非雷方块的个数
+	while (win < row * col - MINE_COUNT)//81个格子减去9雷数
 	{
-		printf("请输入要排查的左边，先横后纵\n");
+		printf("请输入要排查的坐标，先横后纵\n");
 		scanf("%d%d", &x, &y);
-		if (x >= 1 && x <= row && y >= 1 && y < col)
+		if (x >= 1 && x <= row && y >= 1 && y < col)//限制输入坐标只能在棋盘范围内
 		{
-			if (show[x][y] != '*')
+			if (show[x][y] != '*')//原本演出棋盘上都是*，不是*那就肯定查过了
 			{
 				printf("该位置已被排查过了\n");
-				continue;
+				continue;//continue跳过接下来的判断，进入下一次循环
 			}
 			if (mine[x][y] == '1')//如果是雷
 			{
 				printf("碰到地雷啦！！！BOOM！！！\n");
-				DisplayBoard(mine, ROW, COL);
+				DisplayBoard(mine, ROW, COL);//玩家输了让他看看埋雷的位置
 				break;
 			}
 			else//如果不是雷
 			{
 				win++;
 				int count = get_mine_count(mine, x, y);//统计xy周围8格的雷数
-				show[x][y] = count + '0';//转换为字符字数
+				show[x][y] = count + '0';//count原本是个int，+'0'会转换为字符字数，才能显示在char类型的棋盘上
 				DisplayBoard(show, ROW, COL);
 			}
-
 		}
 		else
 		{

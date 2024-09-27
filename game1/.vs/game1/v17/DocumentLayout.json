@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "game1\\test.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\game1\\game1\\test.c",
               "RelativeToolTip": "game1\\test.c",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAlwCYAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-07-02T05:00:44.799Z",
               "IsPinned": true,
@@ -52,8 +52,7 @@
               "RelativeToolTip": "game1\\game.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-07-02T05:01:31.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-02T05:01:31.862Z"
             },
             {
               "$type": "Document",
@@ -65,8 +64,7 @@
               "RelativeToolTip": "game1\\game.c",
               "ViewState": "AQIAACcAAAAAAAAAAAAlwHgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-07-02T05:00:59.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-02T05:00:59.502Z"
             }
           ]
         }

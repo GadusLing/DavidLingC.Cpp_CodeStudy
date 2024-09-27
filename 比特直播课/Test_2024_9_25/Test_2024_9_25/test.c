@@ -432,51 +432,138 @@
 
 
 
-const char* my_strstr(const char* str1, const char* str2)
-{
-	assert(str1 && str2);
-	const char* s1 = str1;
-	const char* s2 = str2;
+//const char* my_strstr(const char* str1, const char* str2)
+//{
+//	assert(str1 && str2);
+//	const char* s1 = str1;
+//	const char* s2 = str2;
+//
+//	const char* cur = str1;//cur指针记录可能开始匹配的位置
+//	if (*str2 == '\0')
+//	{
+//		return str1;
+//	}
+//	while (*cur)
+//	{
+//		s1 = cur;
+//		s2 = str2;
+//		while (*s1 && *s2 && *s1 == *s2)
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		if (*s2 == '\0')
+//		{
+//			return cur;
+//		}
+//		cur++;
+//	}
+//	return NULL;
+//
+//}
+//
+//
+//int main()
+//{
+//	char arr1[20] = "abcdefabcdef";
+//	char arr2[20] = "def";
+//
+//
+//	const char* ret = my_strstr(arr1, arr2);
+//	if (ret == NULL)
+//	{
+//		printf("没找到\n");
+//	}
+//	else
+//	{
+//		printf("%s\n", ret);
+//	}
+//
+//	return 0;
+//}
 
-	const char* cur = str1;//cur指针记录可能开始匹配的位置
-	if (*str2 == '\0')
-	{
-		return str1;
-	}
-	while (*cur)
-	{
-		s1 = cur;
-		s2 = str2;
-		while (*s1 && *s2 && *s1 == *s2)
-		{
-			s1++;
-			s2++;
-		}
-		if (*s2 == '\0')
-		{
-			return cur;
-		}
-		cur++;
-	}
-	return NULL;
 
-}
+
+
+
+//int main()
+//{
+//	char arr1[20] = "abcdefabcdef";
+//	char arr2[20] = "def";
+//
+//
+//	const char* ret = my_strstr(arr1, arr2);
+//	if (ret == NULL)
+//	{
+//		printf("没找到\n");
+//	}
+//	else
+//	{
+//		printf("%s\n", ret);
+//	}
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	char arr1[] = "zpengwei@yeah.net";
+//	char sep[] = "@.";
+//	char buf[30] = { 0 };
+//	strcpy(buf, arr1);//拷贝后再用，否则很危险
+//
+//	char* p = strtok(buf, sep);
+//	printf("%s\n", p);
+//
+//	p = strtok(NULL, sep);
+//	printf("%s\n", p);
+//
+//	p = strtok(NULL, sep);
+//	printf("%s\n", p);
+//
+//	p = strtok(NULL, sep);
+//	printf("%s\n", p);
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//char arr1[] = "zpengwei@yeah.net";
+//	//char arr1[] = "192.168.110.123";
+//	char arr1[] = "192@168#110.123";
+//	char sep[] = "@#.";
+//	char buf[30] = { 0 };
+//	strcpy(buf, arr1);//拷贝后再用，否则很危险
+//
+//	char* p = NULL;
+//	for (p = strtok(buf, sep); p != NULL; p = strtok(NULL, sep))
+//	{
+//		printf("%s\n", p);
+//	}
+//
+//	return 0;
+//}
+
+
 
 
 int main()
 {
-	char arr1[20] = "abcdefabcdef";
-	char arr2[20] = "def";
+	//char arr1[] = "zpengwei@yeah.net";
+	//char arr1[] = "192.168.110.123";
+	char arr1[] = "192@168#110.123";
+	char sep[] = "@#.";
+	char buf[30] = { 0 };
+	strcpy(buf, arr1);//拷贝后再用，否则很危险
 
-
-	const char* ret = my_strstr(arr1, arr2);
-	if (ret == NULL)
+	char* p = NULL;
+	for (p = strtok(buf, sep); p != NULL; p = strtok(NULL, sep))
 	{
-		printf("没找到\n");
-	}
-	else
-	{
-		printf("%s\n", ret);
+		printf("%s\n", p);
 	}
 
 	return 0;

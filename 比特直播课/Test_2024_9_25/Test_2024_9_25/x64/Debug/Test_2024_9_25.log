@@ -1,10 +1,2 @@
 ﻿  test.c
-E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\Test_2024_9_25\Test_2024_9_25\test.c(479,10): warning C4473: “printf”: 没有为格式字符串传递足够的参数
-  E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\Test_2024_9_25\Test_2024_9_25\test.c(479,10):
-  占位符和其参数预计 2 可变参数，但提供的却是 1 参数
-  E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\Test_2024_9_25\Test_2024_9_25\test.c(479,10):
-  缺失的可变参数 2 为格式字符串“%*s”所需
-  E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\Test_2024_9_25\Test_2024_9_25\test.c(479,10):
-  此参数由转换说明符使用
-  
   Test_2024_9_25.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\Test_2024_9_25\x64\Debug\Test_2024_9_25.exe
