@@ -551,20 +551,74 @@
 
 
 
+//int main()
+//{
+//	//char arr1[] = "zpengwei@yeah.net";
+//	//char arr1[] = "192.168.110.123";
+//	char arr1[] = "192@168#110.123";
+//	char sep[] = "@#.";
+//	char buf[30] = { 0 };
+//	strcpy(buf, arr1);//拷贝后再用，否则很危险
+//
+//	char* p = NULL;
+//	for (p = strtok(buf, sep); p != NULL; p = strtok(NULL, sep))
+//	{
+//		printf("%s\n", p);
+//	}
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d: %s\n", i, strerror(i));
+//	}
+//
+//	return 0;
+//}
+
+//#include <errno.h>
+//int main()
+//{
+//	//打开文件 -- 如果文件不存在打开就会失败
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		printf("文件打开失败，原因是：");
+//		printf("%s\n", strerror(errno));
+//		return 1;//错误返回
+//	}
+//	//打开成功
+//	//...
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+#include <errno.h>
 int main()
 {
-	//char arr1[] = "zpengwei@yeah.net";
-	//char arr1[] = "192.168.110.123";
-	char arr1[] = "192@168#110.123";
-	char sep[] = "@#.";
-	char buf[30] = { 0 };
-	strcpy(buf, arr1);//拷贝后再用，否则很危险
-
-	char* p = NULL;
-	for (p = strtok(buf, sep); p != NULL; p = strtok(NULL, sep))
+	//打开文件 -- 如果文件不存在打开就会失败
+	FILE* pf = fopen("test.txt", "r");
+	if (pf == NULL)
 	{
-		printf("%s\n", p);
+		perror("文件打开失败，原因是");
+		return 1;//错误返回
 	}
+	//打开成功
+	//...
+
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
 
 	return 0;
 }
