@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\",
+  "WorkspaceRootPath": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CEC9B89-CA4A-43EB-8383-026CCB446212}|Test_2024_9_29\\Test_2024_9_29.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{9CEC9B89-CA4A-43EB-8383-026CCB446212}|Test_2024_9_29\\Test_2024_9_29.vcxproj|D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9CEC9B89-CA4A-43EB-8383-026CCB446212}|Test_2024_9_29\\Test_2024_9_29.vcxproj|solutionrelative:Test_2024_9_29\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -14,21 +14,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "test.c",
-              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c",
+              "DocumentMoniker": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c",
               "RelativeDocumentMoniker": "Test_2024_9_29\\test.c",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c",
+              "ToolTip": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\Test_2024_9_29\\Test_2024_9_29\\test.c",
               "RelativeToolTip": "Test_2024_9_29\\test.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAwGQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-09-29T10:37:43.151Z",
               "EditorCaption": ""
