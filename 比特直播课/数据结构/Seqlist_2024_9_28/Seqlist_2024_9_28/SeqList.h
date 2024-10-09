@@ -26,7 +26,5 @@ typedef struct SeqList
 void SLInit(SL* ps);
 
 //Î²²å
-void SLPushBack(SL* ps, SLDataType x)
-{
-	ps->arr[ps->size++]
-}
+void SLPushBack(SL* ps, SLDataType x);
+
