@@ -1,8 +1,10 @@
 #pragma once
 #include <stdio.h>
+#include <stdlib.h> 
+#include <assert.h> 
 
 #define N 1000
-typedef char SLDataType;
+typedef int SLDataType;
 ////¾²Ì¬Ë³Ðò±í
 //typedef struct SeqList
 //{
@@ -11,7 +13,6 @@ typedef char SLDataType;
 //}SL;
 
 //typedef struct SeqList SL
-
 
 
 //¶¯Ì¬Ë³Ðò±í
@@ -28,3 +29,5 @@ void SLInit(SL* ps);
 //Î²²å
 void SLPushBack(SL* ps, SLDataType x);
 
+//Í·²å
+void SLPushFront(SL* ps, SLDataType x);
