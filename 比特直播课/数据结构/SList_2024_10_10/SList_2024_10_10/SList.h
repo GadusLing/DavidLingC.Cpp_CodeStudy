@@ -12,3 +12,11 @@ typedef struct SListNode
 }SLTNode;
 
 void SLTprint(SLTNode* phead);
+
+//Î²²å
+void SLTPushBack(SLTNode** pphead, SLTDataType x);
+//Í·²å
+void SLTPushFront(SLTNode** pphead, SLTDataType x);
+//Î²É¾
+void SLTPopBack(SLTNode** pphead);
+

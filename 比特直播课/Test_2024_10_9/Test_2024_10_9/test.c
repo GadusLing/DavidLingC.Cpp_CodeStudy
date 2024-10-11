@@ -135,14 +135,31 @@
 
 
 
-#include <stdio.h>
-//X86环境 ⼩端字节序
+//#include <stdio.h>
+////X86环境 ⼩端字节序
+//
+//int main()
+//{
+//	int a[4] = { 1, 2, 3, 4 };
+//	int* ptr1 = (int*)(&a + 1);
+//	int* ptr2 = (int*)((int)a + 1);
+//	printf("%#x,%#x", ptr1[-1], *ptr2);
+//	return 0;
+//}
 
+
+
+#include <stdio.h>
 int main()
 {
-	int a[4] = { 1, 2, 3, 4 };
-	int* ptr1 = (int*)(&a + 1);
-	int* ptr2 = (int*)((int)a + 1);
-	printf("%#x,%#x", ptr1[-1], *ptr2);
+	int n = 9;
+	float* pFloat = (float*)&n;
+	printf("n的值为:%d\n",n);//
+	printf("*pFloat的值为：%f\n",*pFloat);//
+	
+	* pFloat = 9.0;
+	printf("num的值为：%d\n",n);//
+	printf("*pFloat的值为：%f\n",*pFloat);//
 	return 0;
-}
+ }
+ 
