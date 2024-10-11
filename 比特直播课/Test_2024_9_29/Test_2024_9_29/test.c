@@ -108,35 +108,38 @@
 
 
 
-////实现内存块的拷贝，具体拷贝什么数据是未知的
-//my_memmove(void* dest, void* src, size_t num)
-//{
-//	if (dest < src)//前 -> 后
-//	{
-//		while (num--)
-//		{
-//			*(char*)dest = *(char*)src;
-//			dest = (char*)dest + 1;
-//			src = (char*)src + 1;
-//		}
-//	}
-//	else//后 -> 前
-//	{
-//		while (num--)
-//		{
-//			*((char*)dest + num) = *((char*)src + num);
-//		}
-//	}
-//}
-//
-//int main()
-//{
-//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-//	my_memmove(arr, arr + 2, 5 * sizeof(int));
-//
-//
-//	return 0;
-//}
+//实现内存块的拷贝，具体拷贝什么数据是未知的
+my_memmove(void* dest, const void* src, size_t num)
+{
+	void* ret = dest;
+	assert(dest && src);
+	if (dest < src)//前 -> 后
+	{
+		while (num--)
+		{
+			*(char*)dest = *(char*)src;
+			dest = (char*)dest + 1;
+			src = (char*)src + 1;
+		}
+	}
+	else//后 -> 前
+	{
+		while (num--)
+		{
+			*((char*)dest + num) = *((char*)src + num);
+		}
+	}
+	return ret;
+}
+
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	my_memmove(arr, arr + 2, 5 * sizeof(int));
+
+
+	return 0;
+}
 
 
 
@@ -168,15 +171,15 @@
 //}
 
 
-int main()
-{
-	int arr1[] = { 1,2,3,4,5,6,7,8,9,10 };
-	//01 00 00 00 02 00 00 00 03 00 00 00 04 00 00 00 ...
-	//01 00 00 00 02 00 00 00 03 00 00 00 03 00 00 00 ...
-	int arr2[] = { 1,2,3,3 };
-	int ret = memcmp(arr1, arr2, 13);//memory set
-	printf("%d\n", ret);
-
-	return 0;
-}
+//int main()
+//{
+//	int arr1[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	//01 00 00 00 02 00 00 00 03 00 00 00 04 00 00 00 ...
+//	//01 00 00 00 02 00 00 00 03 00 00 00 03 00 00 00 ...
+//	int arr2[] = { 1,2,3,3 };
+//	int ret = memcmp(arr1, arr2, 13);//memory set
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
 
