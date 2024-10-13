@@ -27,23 +27,24 @@ void test()
 void test1()
 {
 	SLTNode* plist = NULL;
-	SLTPushBack(&plist, 1);
-	SLTprint(plist);
-	SLTPushBack(&plist, 2);
-	SLTprint(plist);
-	SLTPushBack(&plist, 3);
-	SLTprint(plist);
-	SLTPushBack(&plist, 4);
-	SLTprint(plist);
-	SLTPopBack(&plist);
-	SLTprint(plist);
-	SLTPopBack(&plist);
-	SLTprint(plist);
-	SLTPopBack(&plist);
-	SLTprint(plist);
-	SLTPopBack(&plist);
-	SLTprint(plist);
+	//SLTPushBack(&plist, 1);
+	//SLTprint(plist);
+	//SLTPushBack(&plist, 2);
+	//SLTprint(plist);
+	//SLTPushBack(&plist, 3);
+	//SLTprint(plist);
+	//SLTPushBack(&plist, 4);
+	//SLTprint(plist);
+	//SLTPopBack(&plist);
+	//SLTprint(plist);
+	//SLTPopBack(&plist);
+	//SLTprint(plist);
+	//SLTPopBack(&plist);
+	//SLTprint(plist);
+	//SLTPopBack(&plist);
+	//SLTprint(plist);
 
+	
 	//SLTPushFront(&plist, 1);
 	//SLTPushFront(&plist, 2);
 	//SLTPushFront(&plist, 3);

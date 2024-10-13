@@ -19,4 +19,7 @@ void SLTPushBack(SLTNode** pphead, SLTDataType x);
 void SLTPushFront(SLTNode** pphead, SLTDataType x);
 //βɾ
 void SLTPopBack(SLTNode** pphead);
+//ͷɾ
+void SLTPopFront(SLTNode** pphead);
+
 

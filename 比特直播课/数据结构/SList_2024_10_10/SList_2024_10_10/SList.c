@@ -57,7 +57,6 @@ void SLTPushFront(SLTNode** pphead, SLTDataType x)
 
 void SLTPopBack(SLTNode** pphead)
 {
-
 	assert(pphead && *pphead);
 	//只有一个节点时
 	if ((*pphead)->next == NULL)
@@ -78,5 +77,15 @@ void SLTPopBack(SLTNode** pphead)
 		free(ptail);
 		ptail = NULL;
 	}
+}
+
+void SLTPopFront(SLTNode** pphead)
+{
+	assert(pphead && *pphead);
+
+	SLTNode* next = (*pphead)->next;
+	free(*pphead);
+	*pphead = next;
+	
 }
 
