@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "SList.h"
 
-
+// 单链表打印
 void SLTprint(SLTNode* phead)
 {
 	SLTNode* pcur = phead;
@@ -13,6 +13,7 @@ void SLTprint(SLTNode* phead)
 	printf("NULL\n");
 }
 
+// 动态申请一个节点
 SLTNode* SLTBuyNode(SLTDataType x)
 {
 	SLTNode* node = (SLTNode*)malloc(sizeof(SLTNode));
@@ -27,6 +28,7 @@ SLTNode* SLTBuyNode(SLTDataType x)
 	return node;
 }
 
+// 单链表尾插
 void SLTPushBack(SLTNode** pphead, SLTDataType x)
 {
 	assert(pphead);
@@ -46,6 +48,7 @@ void SLTPushBack(SLTNode** pphead, SLTDataType x)
 	}
 }
 
+// 单链表头插
 void SLTPushFront(SLTNode** pphead, SLTDataType x)
 {
 	assert(pphead);
@@ -55,6 +58,7 @@ void SLTPushFront(SLTNode** pphead, SLTDataType x)
 	*pphead = newnode;
 }
 
+// 单链表尾删
 void SLTPopBack(SLTNode** pphead)
 {
 	assert(pphead && *pphead);
@@ -79,6 +83,7 @@ void SLTPopBack(SLTNode** pphead)
 	}
 }
 
+// 单链表头删
 void SLTPopFront(SLTNode** pphead)
 {
 	assert(pphead && *pphead);
