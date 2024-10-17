@@ -1,35 +1,35 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
-////½á¹¹ÌåÀàĞÍ
+////ç»“æ„ä½“ç±»å‹
 //struct Stu
 //{
 //	char name[20];
 //	int age;
 //	char id[12];
 //	double wight;
-//}; s4, s5, s6; // ÕâÀïµÄs4, s5, s6ÊÇÈ«¾Ö±äÁ¿
+//}; s4, s5, s6; // è¿™é‡Œçš„s4, s5, s6æ˜¯å…¨å±€å˜é‡
 //
 //
 //int main()
 //{
-//	struct Stu s1 = { "zhangsan",20,"20240101",75.2 };//Õâ¾Í½Ğ±äÁ¿µÄ³õÊ¼»¯
+//	struct Stu s1 = { "zhangsan",20,"20240101",75.2 };//è¿™å°±å«å˜é‡çš„åˆå§‹åŒ–
 //	struct Stu s2 = { .age = 18,.wight = 78.3,.name = "lisi",.id = "20230102" };
-//	//struct Stu s3;//ÕâÀï´´½¨µÄs1 s2 s3 ÊÇ¾Ö²¿±äÁ¿
+//	//struct Stu s3;//è¿™é‡Œåˆ›å»ºçš„s1 s2 s3 æ˜¯å±€éƒ¨å˜é‡
 //
-//	printf("Ãû×Ö£º%s ÄêÁä£º%d\n", s1.name, s1.age);//.µã²Ù×÷·û  ×ó±ßÊÇ½á¹¹Ìå±äÁ¿Ãû  ÓÒ±ßÊÇ½á¹¹ÌåÄÚµÄ³ÉÔ±Ãû
-//	printf("Ãû×Ö£º%s ÄêÁä£º%d\n", s2.name, s2.age);
-//	printf("Ãû×Ö£º%s ÄêÁä£º%d\n", (&s2)->name, (&s2)->age);//->¼ıÍ·²Ù×÷·û£¬µ±ÓÃ½á¹¹ÌåµÄµØÖ·À´Ñ°ÕÒ³ÉÔ±Ê±£¬ ×ó±ßÊÇ½á¹¹Ìå±äÁ¿Ãû  ÓÒ±ßÊÇ½á¹¹ÌåÄÚµÄ³ÉÔ±Ãû
+//	printf("åå­—ï¼š%s å¹´é¾„ï¼š%d\n", s1.name, s1.age);//.ç‚¹æ“ä½œç¬¦  å·¦è¾¹æ˜¯ç»“æ„ä½“å˜é‡å  å³è¾¹æ˜¯ç»“æ„ä½“å†…çš„æˆå‘˜å
+//	printf("åå­—ï¼š%s å¹´é¾„ï¼š%d\n", s2.name, s2.age);
+//	printf("åå­—ï¼š%s å¹´é¾„ï¼š%d\n", (&s2)->name, (&s2)->age);//->ç®­å¤´æ“ä½œç¬¦ï¼Œå½“ç”¨ç»“æ„ä½“çš„åœ°å€æ¥å¯»æ‰¾æˆå‘˜æ—¶ï¼Œ å·¦è¾¹æ˜¯ç»“æ„ä½“å˜é‡å  å³è¾¹æ˜¯ç»“æ„ä½“å†…çš„æˆå‘˜å
 //
 //	return 0;
 //}
 
 
-//½á¹¹ÌåµÄÌØÊâÉùÃ÷
-//ÄäÃû½á¹¹Ìå
+//ç»“æ„ä½“çš„ç‰¹æ®Šå£°æ˜
+//åŒ¿åç»“æ„ä½“
 
-//struct          //Õâ¾Í½ĞÄäÃû½á¹¹Ìå£¬Ã»ÓĞĞ´½á¹¹ÌåÃû×Ö´óS ÕâÖÖ½á¹¹ÌåÖ»ÄÜÓÃÒ»´Î
+//struct          //è¿™å°±å«åŒ¿åç»“æ„ä½“ï¼Œæ²¡æœ‰å†™ç»“æ„ä½“åå­—å¤§S è¿™ç§ç»“æ„ä½“åªèƒ½ç”¨ä¸€æ¬¡
 //{
 //	char c;
 //	int i;
@@ -70,7 +70,7 @@
 //struct Node
 //{
 //	int data;//4
-//	struct Node *next;//´æ·ÅÏÂÒ»¸ö½ÚµãµÄµØÖ·4or8
+//	struct Node *next;//å­˜æ”¾ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„åœ°å€4or8
 //};
 
 //typedef struct Node
@@ -124,7 +124,7 @@
 //}
 
 ////1 2 4 8
-//#pragma pack(2)//ĞŞ¸Ä¶ÔÆëÊı
+//#pragma pack(2)//ä¿®æ”¹å¯¹é½æ•°
 //struct S
 //{
 //	char c1;
@@ -141,39 +141,113 @@
 //}
 
 
-struct S
+//struct S
+//{
+//	int data[1000];
+//	int num;
+//};
+//
+//void print1(struct S ss)
+//{
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", ss.data[i]);
+//	}
+//	printf("\n");
+//	printf("num = %d\n", ss.num);
+//}
+//
+//void print2(struct S* ps)
+//{
+//	for (int i = 0; i < 5; i++)
+//	{
+//		printf("%d ", ps->data[i]);
+//	}
+//	printf("\n");
+//	printf("num = %d\n", ps->num);
+//}
+//
+//int main()
+//{
+//	struct S s = { {1,2,3,4,5},100 };
+//	//print1(s);
+//	print2(&s);
+//	return 0;
+//}
+
+
+//struct A
+//{
+//	int _a : 2;
+//	int _b : 5;
+//	int _c : 10;
+//	int _d : 30;
+//};
+//
+//int main()
+//{
+//	printf("%d\n", sizeof(struct A));
+//
+//	return 0;
+//}
+
+
+
+//struct S
+//{
+//	char a : 3;
+//	char b : 4;
+//	char c : 5;
+//	char d : 4;
+//};
+//
+//int main()
+//{
+//	struct S s = { 0 };
+//	printf("%d\n", sizeof(struct S));
+//	s.a = 10;
+//	s.b = 12;
+//	s.c = 3;
+//	s.d = 4;
+//	return 0;
+//
+//}
+
+struct A
 {
-	int data[1000];
-	int num;
+	int _a : 2;
+	int _b : 5;
+	int _c : 10;
+	int _d : 30;
 };
-
-void print1(struct S ss)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d ", ss.data[i]);
-	}
-	printf("\n");
-	printf("num = %d\n", ss.num);
-}
-
-void print2(struct S* ps)
-{
-	for (int i = 0; i < 5; i++)
-	{
-		printf("%d ", ps->data[i]);
-	}
-	printf("\n");
-	printf("num = %d\n", ps->num);
-}
 
 int main()
 {
-	struct S s = { {1,2,3,4,5},100 };
-	//print1(s);
-	print2(&s);
+	struct A sa = { 0 };
+	//scanf("%d", &sa._b);//è¿™æ˜¯é”™è¯¯çš„
+
+	//æ­£ç¡®çš„â½°èŒƒ
+	int b = 0;
+	scanf("%d", &b);
+	sa._b = b;
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
