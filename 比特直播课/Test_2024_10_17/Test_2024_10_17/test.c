@@ -248,6 +248,73 @@
 
 
 
+//int main()
+//{
+//	int* p = malloc(10 * sizeof(int));
+//	//int* p = (int*)calloc(10, sizeof(int));
+//	if (p == NULL)
+//	{
+//		perror("calloc");
+//		return 1;
+//	}
+//	//使用
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//
+//	//释放
+//	free(p);
+//	p = NULL;
+//
+//	return 0;
+//}
+
+
+
+int main()
+{
+	int* p = (int*)malloc(20);
+	if (p == NULL)
+	{
+		perror("malloc");
+		return 1;
+	}
+	//使用
+	for (int i = 0; i < 5; i++)
+	{
+		*(p + i) = i + 1;
+	}
+	//1 2 3 4 5
+	int* ptr = (int*)realloc(p, 40);
+	if (ptr != NULL)
+	{
+		p = ptr;
+	}
+	else
+	{
+		perror("realloc");
+		return 1;
+	}
+
+
+
+	
+	free(p);
+	p = NULL;
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
