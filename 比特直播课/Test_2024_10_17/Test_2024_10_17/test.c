@@ -296,12 +296,26 @@ int main()
 		perror("realloc");
 		return 1;
 	}
-
-
-
-	
+	for (int i = 5; i < 10; i++)
+	{
+		*(p + i) = i + 1;
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%d ", *(p + i));
+	}
+	//释放
 	free(p);
 	p = NULL;
+
+	return 0;
+}
+
+
+
+int main()
+{
+	realloc(NULL, 20);//此时realloc的功能等价于malloc(20)
 
 	return 0;
 }
