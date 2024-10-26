@@ -122,7 +122,6 @@ void SListInsertAfter(SLTNode* pos, SLTDataType x)
 		perror("SLTBuyNode failed");
 		return;
 	}
-
 	newnode->next = pos->next;
 	pos->next = newnode;       
 }
@@ -130,20 +129,13 @@ void SListInsertAfter(SLTNode* pos, SLTDataType x)
 // 单链表删除pos位置之后的值
 void SListEraseAfter(SLTNode* pos)
 {
-	assert(pos && pos->next);
-	if (pos->next->next == NULL)
-	{
+	assert(pos && pos->next); 
 
-	}
-
+	SLTNode* del = pos->next;
+	pos->next = del->next;
+	free(del);
+	del = NULL;
 }
-
-
-
-
-
-
-
 
 // 在pos的前面插入
 void SLTInsert(SLTNode** pphead, SLTNode* pos, SLTDataType x)
@@ -197,6 +189,23 @@ void SLTErase(SLTNode** pphead, SLTNode* pos)
 		free(pcur);              // 释放 pos
 	}
 }
+
+//销毁
+void SLTDestroy(SLTNode** pphead)
+{
+	assert(pphead && *pphead);
+	SLTNode* pcur = *pphead;
+
+	while (pcur != NULL)
+	{
+		SLTNode* next = pcur->next;
+		free(pcur);
+		pcur = next;
+	}
+
+	*pphead = NULL;
+}
+
 
 
 
