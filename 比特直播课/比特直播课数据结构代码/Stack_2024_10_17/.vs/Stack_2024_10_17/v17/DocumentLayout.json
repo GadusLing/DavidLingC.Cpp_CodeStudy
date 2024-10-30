@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|solutionrelative:Stack_2024_10_17\\Stack.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|solutionrelative:Stack_2024_10_17\\Stack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|solutionrelative:Stack_2024_10_17\\Test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0D26282A-CFEF-401C-BC5E-03CC856251D3}|Stack_2024_10_17\\Stack_2024_10_17.vcxproj|solutionrelative:Stack_2024_10_17\\Stack.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,38 +30,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Test.c",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Test.c",
               "RelativeDocumentMoniker": "Stack_2024_10_17\\Test.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Test.c",
               "RelativeToolTip": "Stack_2024_10_17\\Test.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-10-29T04:25:04.956Z"
+              "WhenOpened": "2024-10-29T04:25:04.956Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Stack.c",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.c",
               "RelativeDocumentMoniker": "Stack_2024_10_17\\Stack.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.c",
               "RelativeToolTip": "Stack_2024_10_17\\Stack.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAUAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-10-29T04:24:55.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Stack.h",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.h",
               "RelativeDocumentMoniker": "Stack_2024_10_17\\Stack.h",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Stack_2024_10_17\\Stack_2024_10_17\\Stack.h",
               "RelativeToolTip": "Stack_2024_10_17\\Stack.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-29T04:24:42.344Z",
               "EditorCaption": ""
