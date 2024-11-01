@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|solutionrelative:Queue_2024_10_20\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|solutionrelative:Queue_2024_10_20\\Queue.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E5A2FC03-42BD-416C-B14A-B6B75618E01F}|Queue_2024_10_20\\Queue_2024_10_20.vcxproj|solutionrelative:Queue_2024_10_20\\Queue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test.c",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\test.c",
+              "RelativeDocumentMoniker": "Queue_2024_10_20\\test.c",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\test.c",
+              "RelativeToolTip": "Queue_2024_10_20\\test.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-30T08:01:50.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Queue.c",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.c",
+              "RelativeDocumentMoniker": "Queue_2024_10_20\\Queue.c",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.c",
+              "RelativeToolTip": "Queue_2024_10_20\\Queue.c",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAWwFcAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-10-30T08:02:02.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Queue.h",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.h",
+              "RelativeDocumentMoniker": "Queue_2024_10_20\\Queue.h",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u6570\u636E\u7ED3\u6784\u4EE3\u7801\\Queue_2024_10_20\\Queue_2024_10_20\\Queue.h",
+              "RelativeToolTip": "Queue_2024_10_20\\Queue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-30T08:01:40.724Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
