@@ -79,11 +79,11 @@ void adjustDown(HPDataType* arr, int parent, int size)
 	int child = parent * 2 + 1;
 	while (child < size)
 	{
-		if (child + 1 < size && arr[child] > arr[child + 1])
+		if (child + 1 < size && arr[child] < arr[child + 1])
 		{
 			child++;
 		}
-		if (arr[child] < arr[parent])
+		if (arr[child] > arr[parent])
 		{
 			Swap(&arr[child], &arr[parent]);
 			parent = child;
@@ -120,7 +120,22 @@ int HeapSize(Heap* hp)
 	return hp->size;
 }
 
+//堆排序
 void HeapSort(int* arr, int n)
 {
+	for (int u = 0; u < n; u++)//向上调整算法建堆
+	{
+		adjustUp(arr, u);
+	}
 
+	//for (int i = (n - 1 - 1) / 2; i >= 0; i--)//向下调整算法建堆
+	//{
+	//	adjustDown(arr, i, n);
+	//}
+
+	for (int j = n; j > 1; j--)
+	{
+		Swap(&arr[0], &arr[j - 1]);
+		adjustDown(arr, 0, j- 1);
+	}
 }

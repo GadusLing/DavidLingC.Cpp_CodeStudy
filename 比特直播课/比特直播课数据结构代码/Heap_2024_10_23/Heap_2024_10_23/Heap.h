@@ -32,3 +32,15 @@ int HeapSize(Heap* hp);
 
 // 堆的判空
 int HeapEmpty(Heap* hp);
+
+//交换父子节点位置
+void Swap(int* x, int* y);
+
+//向上调整
+void adjustUp(HPDataType* arr, int child);
+
+//向下调整
+void adjustDown(HPDataType* arr, int parent, int size);
+
+//堆排序
+void HeapSort(int* arr, int n);
