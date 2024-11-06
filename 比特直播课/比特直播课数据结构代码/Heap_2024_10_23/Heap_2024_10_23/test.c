@@ -58,27 +58,44 @@ void PrintTopK(int k)
 		perror("fopen error");
 		exit(1);
 	}
-
+	//申请k大小的堆空间来存放大数据中所需要的k个值
 	int* minHeap = (int*)malloc(sizeof(int) * k);
 	if (minHeap == NULL)
 	{
 		perror("malloc error");
 		exit(2);
 	}
-
+	//遍历大数据中k个数据存放至堆中
 	for (int i = 0; i < k; i++)
 	{
-
+		fscanf(fout, "%d", &minHeap[i]);
 	}
-
+	//构建堆结构
+	for (int i = (k - 1 - 1) / 2; i >= 0; i--)
+	{
+		adjustDown(minHeap, i, k);
+	}
+	int x = 0;
+	while (fscanf(fout, "%d", &x) != EOF)
+	{
+		if (x > minHeap[0])
+		{
+			minHeap[0] = x;
+			adjustDown(minHeap, 0, k);
+		}
+	}
+	for (int i = 0; i < k; i++)
+	{
+		printf("%d ", minHeap[i]);
+	}
+	fclose(fout);
 }
 
 int main()
 {
 	//test1();
-	CreateNDate();
 	int k = 0;
-	void PrintTopK(int k);
+	PrintTopK(k);
 
 
 	return 0;

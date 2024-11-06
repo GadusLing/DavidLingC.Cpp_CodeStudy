@@ -79,11 +79,11 @@ void adjustDown(HPDataType* arr, int parent, int size)
 	int child = parent * 2 + 1;
 	while (child < size)
 	{
-		if (child + 1 < size && arr[child] < arr[child + 1])
+		if (child + 1 < size && arr[child] > arr[child + 1])
 		{
 			child++;
 		}
-		if (arr[child] > arr[parent])
+		if (arr[child] < arr[parent])
 		{
 			Swap(&arr[child], &arr[parent]);
 			parent = child;
