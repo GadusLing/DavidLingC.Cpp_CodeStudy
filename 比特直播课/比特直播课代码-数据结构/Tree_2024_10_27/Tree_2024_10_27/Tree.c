@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "Tree.h"
+#include "Queue.h"
 
 
 // 二叉树前序遍历 根左右
@@ -8,7 +9,7 @@ void BinaryTreePrevOrder(BTNode* root)
 {
 	if (root == NULL)
 	{
-		printf("NULL");
+		printf("NULL ");
 		return;
 	}
 	printf("%c ", root->data);
@@ -21,7 +22,7 @@ void BinaryTreeInOrder(BTNode* root)
 {
 	if (root == NULL)
 	{
-		printf("NULL");
+		printf("NULL ");
 		return;
 	}
 	BinaryTreeInOrder(root->left);
@@ -34,7 +35,7 @@ void BinaryTreePostOrder(BTNode* root)
 {
 	if (root == NULL)
 	{
-		printf("NULL");
+		printf("NULL ");
 		return;
 	}
 	BinaryTreePostOrder(root->left);
@@ -45,13 +46,52 @@ void BinaryTreePostOrder(BTNode* root)
 // 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
 BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi)
 {
+	// 如果遍历位置超出范围，或者当前字符是 '#', 返回 NULL
+	if (*pi >= n || a[*pi] == '#')
+	{
+		(*pi)++;
+		return NULL;
+	}
 
+	// 创建当前节点
+	BTNode* newNode = (BTNode*)malloc(sizeof(BTNode));
+	if (newNode == NULL) // 检查内存分配是否成功
+	{
+		perror("malloc failed");
+		exit(1);
+	}
+	newNode->data = a[*pi];
+	(*pi)++;
+
+	// 递归创建左、右子树
+	newNode->left = BinaryTreeCreate(a, n, pi);
+	newNode->right = BinaryTreeCreate(a, n, pi);
+
+	return newNode;
 }
+
 
 // 二叉树销毁
 void BinaryTreeDestory(BTNode** root)
 {
+	if (*root == NULL)
+	{
+		return;
+	}
+	BinaryTreeDestory(&((*root)->left));
+	BinaryTreeDestory(&((*root)->right));
+	free(*root);
+	*root = NULL;
+}
 
+// 二叉树节点个数
+int BinaryTreeSize(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	return 1 + BinaryTreeSize(root->left) + BinaryTreeSize(root->right);
 }
 
 // 二叉树叶子节点个数
@@ -123,23 +163,59 @@ BTNode* BinaryTreeFind(BTNode* root, BTDataType x)
 // 层序遍历
 void BinaryTreeLevelOrder(BTNode* root)
 {
-
-}
-
-// 二叉树节点个数
-int BinaryTreeSize(BTNode* root)
-{
-	if (root == NULL)
+	if (root == NULL) return;
+	//借助队列的结构来实现
+	Queue q;
+	QueueInit(&q);
+	QueuePush(&q, root);
+	while (!QueueEmpty(&q))
 	{
-		return 0;
+		BTNode* top = QueueFront(&q);
+		QueuePop(&q);
+		printf("%c ", top->data);
+		if (top->left)
+		{
+			QueuePush(&q, top->left);
+		}
+		if (top->right)
+		{
+			QueuePush(&q, top->right);
+		}
 	}
-	return 1 + BinaryTreeSize(root->left) + BinaryTreeSize(root->right);
+	QueueDestroy(&q);
 }
 
 // 判断二叉树是否是完全二叉树
-int BinaryTreeComplete(BTNode* root)
+bool BinaryTreeComplete(BTNode* root)
 {
-
+	if (root == NULL) 
+	{
+		return true;  // 空树是完全二叉树
+	}
+	Queue q;
+	bool foundNull = false;
+	QueueInit(&q);
+	QueuePush(&q, root);
+	while (!QueueEmpty(&q))
+	{
+		BTNode* top = QueueFront(&q);
+		QueuePop(&q);
+		if (!top)
+		{
+			foundNull = true;
+		}
+		else
+		{
+			if (foundNull)
+			{
+				return false;
+			}
+			QueuePush(&q, top->left);
+			QueuePush(&q, top->right);
+		}
+	}
+	QueueDestroy(&q);
+	return true;
 }
 
 //做好自己力所能及的事情，并且接受它可能事与愿违

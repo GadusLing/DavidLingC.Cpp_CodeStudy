@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Queue.c" />
     <ClCompile Include="test.c" />
     <ClCompile Include="Tree.c" />
   </ItemGroup>

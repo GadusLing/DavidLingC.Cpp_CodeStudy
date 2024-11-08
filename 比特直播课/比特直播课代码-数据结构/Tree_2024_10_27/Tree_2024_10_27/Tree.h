@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <stdbool.h>
+
 
 typedef char BTDataType;//二叉树储存的数据类型
 
@@ -15,7 +17,7 @@ typedef struct BinaryTreeNode
 }BTNode;
 
 // 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
-BTNode* BinaryTreeCreate(BTDataType* a, int n, int* pi);
+BTNode* BinaryTreeCreate(BTDataType* a, size_t n, int* pi);
 
 // 二叉树销毁
 void BinaryTreeDestory(BTNode** root);
@@ -48,4 +50,4 @@ void BinaryTreePostOrder(BTNode* root);
 void BinaryTreeLevelOrder(BTNode* root);
 
 // 判断二叉树是否是完全二叉树
-int BinaryTreeComplete(BTNode* root);
+bool BinaryTreeComplete(BTNode* root);
