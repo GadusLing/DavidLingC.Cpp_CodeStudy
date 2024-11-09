@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|solutionrelative:Tree_2024_10_27\\Tree.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|solutionrelative:Tree_2024_10_27\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|solutionrelative:Tree_2024_10_27\\Tree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|solutionrelative:Tree_2024_10_27\\test.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71DAB7BA-30D5-4527-891D-761BA6CCA02F}|Tree_2024_10_27\\Tree_2024_10_27.vcxproj|E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Queue.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -46,8 +46,7 @@
               "RelativeToolTip": "Tree_2024_10_27\\Queue.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-08T02:50:00.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T02:50:00.127Z"
             },
             {
               "$type": "Document",
@@ -59,20 +58,19 @@
               "RelativeToolTip": "Tree_2024_10_27\\Queue.c",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-08T02:49:59.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-08T02:49:59.221Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "test.c",
-              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c",
-              "RelativeDocumentMoniker": "Tree_2024_10_27\\test.c",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c",
-              "RelativeToolTip": "Tree_2024_10_27\\test.c",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-11-06T02:09:12.272Z",
+              "Title": "Tree.h",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.h",
+              "RelativeDocumentMoniker": "Tree_2024_10_27\\Tree.h",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.h",
+              "RelativeToolTip": "Tree_2024_10_27\\Tree.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-06T02:08:37.668Z",
               "EditorCaption": ""
             },
             {
@@ -83,7 +81,7 @@
               "RelativeDocumentMoniker": "Tree_2024_10_27\\Tree.c",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.c",
               "RelativeToolTip": "Tree_2024_10_27\\Tree.c",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAAALQAAAADAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-06T02:08:53.625Z",
               "EditorCaption": ""
@@ -91,14 +89,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Tree.h",
-              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.h",
-              "RelativeDocumentMoniker": "Tree_2024_10_27\\Tree.h",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\Tree.h",
-              "RelativeToolTip": "Tree_2024_10_27\\Tree.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-06T02:08:37.668Z",
+              "Title": "test.c",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c",
+              "RelativeDocumentMoniker": "Tree_2024_10_27\\test.c",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-\u6570\u636E\u7ED3\u6784\\Tree_2024_10_27\\Tree_2024_10_27\\test.c",
+              "RelativeToolTip": "Tree_2024_10_27\\test.c",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-06T02:09:12.272Z",
               "EditorCaption": ""
             }
           ]
