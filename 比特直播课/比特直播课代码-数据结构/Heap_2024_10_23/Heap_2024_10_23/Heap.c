@@ -123,15 +123,15 @@ int HeapSize(Heap* hp)
 //堆排序
 void HeapSort(int* arr, int n)
 {
-	for (int u = 0; u < n; u++)//向上调整算法建堆
-	{
-		adjustUp(arr, u);
-	}
-
-	//for (int i = (n - 1 - 1) / 2; i >= 0; i--)//向下调整算法建堆
+	//for (int u = 0; u < n; u++)//向上调整算法建堆
 	//{
-	//	adjustDown(arr, i, n);
+	//	adjustUp(arr, u);
 	//}
+
+	for (int i = (n - 1 - 1) / 2; i >= 0; i--)//向下调整算法建堆
+	{
+		adjustDown(arr, i, n);
+	}
 
 	for (int j = n; j > 1; j--)
 	{
