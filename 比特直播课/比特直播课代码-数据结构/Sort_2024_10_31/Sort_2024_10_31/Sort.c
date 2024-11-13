@@ -159,25 +159,85 @@ void HeapSort(int* a, int n)
 
 // 快速排序递归实现
 // 快速排序hoare版本
+int _PartSort1(int* a, int left, int right)
+{
+	int key = left;//设数组首元素为基准值
+	++left;//从首元素后一个数开始遍历
+	while (left <= right)
+	{
+		while (left <= right && a[right] > a[key])
+		{
+			right--;
+		}
+
+		while (left <= right && a[left] < a[key])
+		{
+			left++;
+		}
+
+		if (left <= right)
+		{
+			Swap(&a[left++], &a[right--]);
+		}
+	}
+	Swap(&a[key], &a[right]);
+	return right;
+}
+
 int PartSort1(int* a, int left, int right)
 {
+	if (left >= right)//在遍历过程中left会持续++，right会持续--，left从左找比基准值大，right从右找比基准值小，相互交换
+	{
+		return;
+	}
+	int key = _PartSort1(a, left, right);//找基准值
+	PartSort1(a, left, key - 1);
+	PartSort1(a, key + 1, right);
+
 
 }
 
 // 快速排序挖坑法
 int PartSort2(int* a, int left, int right)
 {
+	int hole = left;
+	int key = a[hole];
 
+	while (left < right)
+	{
+		while (left < right && a[right] > key)
+		{
+			right--;
+		}
+		a[hole] = a[right];
+		hole = right;
+		while (left < right && a[left] < key)
+		{
+			left++;
+		}
+		a[hole] = a[left];
+		hole = left;
+	}
+	a[hole] = key;
+	return hole;
 }
 
-// 快速排序前后指针法
+// 快速排序前后指针法(lomuto)
 int PartSort3(int* a, int left, int right)
 {
-
-}
-void QuickSort(int* a, int left, int right)
-{
-
+	//双指针法
+	int prev = left, cur = prev + 1;
+	int key = left;
+	while (cur <= right)
+	{
+		if (a[cur] < a[key] && ++prev != cur)
+		{
+			Swap(&a[cur], &a[prev]);
+		}
+		++cur;
+	}
+	Swap(&a[prev], &a[key]);
+	return prev;
 }
 
 // 快速排序 非递归实现

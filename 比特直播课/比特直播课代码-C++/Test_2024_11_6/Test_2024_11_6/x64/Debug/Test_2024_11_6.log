@@ -1,2 +1,4 @@
 ﻿  test.cpp
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_6\Test_2024_11_6\test.cpp(50,12): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int (__cdecl *)(void)”
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_6\Test_2024_11_6\test.cpp(50,12): warning C4313: "printf": 格式字符串中的 "%d" 与类型为 "int (__cdecl *)(void)" 的参数 1 冲突
   Test_2024_11_6.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_6\x64\Debug\Test_2024_11_6.exe
