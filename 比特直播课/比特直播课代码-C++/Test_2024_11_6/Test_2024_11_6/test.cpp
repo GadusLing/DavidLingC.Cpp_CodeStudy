@@ -117,24 +117,89 @@
 //    return 0;
 //}
 
-#include "Stack.h"
+//#include "Stack.h"
 
 //using namespace bit;//using展开全部命名空间和头文件展开不是一回事  命名空间展开的本质是影响查找规则 查找时除了局部查找和全局查找，还会到展开的这个namespace bit中去查找
 //这种命名空间全部展开的方式很危险，一般不要这样用啊，冲突就很麻烦了
 
 
 //那么除了::指定使用这种麻烦但是安全的用法 和全展开这种方便但是非常危险的用法，还有一种折中的方式，部分展开
-using bit::STPush;//只把命名空间中常用的方法展开出来，减少了一些危险
+//using bit::STPush;//只把命名空间中常用的方法展开出来，减少了一些危险
+//
+//int main()
+//{
+//
+//    bit::ST st2;
+//    printf("%d\n", sizeof(st2));
+//    bit::STInit(&st2, 10);
+//    STPush(&st2, 1);
+//    STPush(&st2, 2);
+//
+//    return 0;
+//}
+
+//#include <iostream>//C++的头文件一般都不带.h   除了特别早起的编译器比如20年前的vc6.0可以用带.h的写法，之后C++搞出了命名空间后，C++的便准库都包到std这个namespace里面去了，之后为了过渡和兼容.h这种写法就被弃用了
+//using namespace std;//一般练习时可以把std全展开，但是项目中最好不要这样做，只展开所需要的部分
+//
+//int main()
+//{
+//	//std::cin 是istream类的对象，它主要⾯向窄字符（narrowcharacters(oftypechar)）的标准输⼊流。
+//	// std::cout 是ostream类的对象，它主要⾯向窄字符的标准输出流。
+//	// std::endl 是⼀个函数，流插⼊输出时，相当于插⼊⼀个换⾏字符加刷新缓冲区。 endl == endline
+//	int i = 1;
+//	double d = 1.1;
+//	cin >> i >> d;
+//	cout << i << ' ' << d << '\n' << endl;
+//	cout << d << endl;
+//	cout << "Hello World!";
+//
+//
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//int main()
+//{
+//	// 在io需求⽐较⾼的地⽅，如部分⼤量输⼊的竞赛题中，加上以下3⾏代码
+//	// 可以提⾼C++IO效率
+//	ios_base::sync_with_stdio(false);
+//	cin.tie(nullptr);
+//	cout.tie(nullptr);
+//
+//	return 0;
+//}
+
+
+#include <iostream>
+#include <assert.h>
+using namespace std;
+
+#include "Stack.h"
+
+
+void Func(int a = 0)//这个地方的int a 就是缺省参数
+{
+	cout << a << endl;
+}
 
 int main()
 {
+	Func();// 没有传参时，使⽤参数的默认值
+	Func(10);// 传参时，使⽤指定的实参
+	bit::ST st1;
+	//知道要插入的数据量，比如1000个，就可以用这种方式，提前在Init时把空间开好，避免之后Push时反复再开辟空间的消耗
+	bit::STInit(&st1, 1000);
+	for (size_t i = 0; i < 1000; i++)
+	{
+		bit::STPush(&st1, i);
+	}
+	//但如果不知道呢？
+	bit::ST st2;
+	bit::STInit(&st2);//在Stack.h中加了缺省参数
+	//缺省参数不能在函数声明和定义中同时出现，规定必须在函数 声明 给缺省值。声明就是头文件中那个部分
 
-    bit::ST st2;
-    printf("%d\n", sizeof(st2));
-    bit::STInit(&st2, 10);
-    STPush(&st2, 1);
-    STPush(&st2, 2);
 
-    return 0;
+	return 0;
 }
 

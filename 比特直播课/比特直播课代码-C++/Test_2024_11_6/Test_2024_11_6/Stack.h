@@ -17,7 +17,7 @@ namespace bit
         int capacity;
     }ST;
 
-    void STInit(ST* ps, int n);
+    void STInit(ST* ps, int n = 4);
     void STDestroy(ST* ps);
 
     void STPush(ST* ps, STDataType x);
