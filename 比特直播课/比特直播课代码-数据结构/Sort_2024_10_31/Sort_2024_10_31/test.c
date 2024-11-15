@@ -16,15 +16,20 @@ int main()
     int arr[] = { 34, 8, 64, 51, 32, 21 };
     int n = sizeof(arr) / sizeof(arr[0]);
 
-
-
+    //Ã°ÅÝ:
     printf("Array before sorting: ");
     PrintArray(arr, n);
-
-    ShellSort(arr, n);
-
+    BubbleSort(arr, n);
     printf("Array after sorting: ");
     PrintArray(arr, n);
+
+
+    ////Ï£¶û:
+    //printf("Array before sorting: ");
+    //PrintArray(arr, n);
+    //ShellSort(arr, n);
+    //printf("Array after sorting: ");
+    //PrintArray(arr, n);
 
     return 0;
 }

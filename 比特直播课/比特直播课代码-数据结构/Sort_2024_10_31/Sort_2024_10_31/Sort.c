@@ -2,25 +2,30 @@
 
 #include "Sort.h"
 
+void Swap(int* x, int* y)//辅助函数，负责交换
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
 //冒泡排序
 void BubbleSort(int* arr, int n)
 {
+	int index;//设置一个指示器，0表示未曾交换，1表示产生了交换
+
 	for (int i = 0; i < n - 1; i++)
 	{
-		int swapped = 0; // 标记本轮是否发生交换
+		index = 0;
 		for (int j = 0; j < n - 1 - i; j++)
 		{
-			if (arr[j] > arr[j + 1])
+			if (arr[j] > arr[j + 1])//冒泡成升序
 			{
-				// 交换 arr[j] 和 arr[j + 1]
-				int temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-				swapped = 1;
+				Swap(&arr[j], &arr[j + 1]);
+				index = 1;
 			}
 		}
-		// 如果没有发生交换，数组已经有序，可以提前结束
-		if (swapped == 0)
+		if (!index) // 如果一趟排序没有交换，说明已经是有序的
 			break;
 	}
 }
@@ -108,12 +113,7 @@ void SelectSort(int* a, int n)
 
 
 // 堆排序
-void Swap(int* x, int* y)//辅助函数，负责交换父子节点
-{
-	int temp = *x;
-	*x = *y;
-	*y = temp;
-}
+
 
 void AdjustDwon(int* a, int n, int root)
 {

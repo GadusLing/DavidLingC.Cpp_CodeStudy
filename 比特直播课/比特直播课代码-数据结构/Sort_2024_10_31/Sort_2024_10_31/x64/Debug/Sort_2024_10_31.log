@@ -1,2 +1,4 @@
-﻿  test.c
+﻿  Sort.c
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-数据结构\Sort_2024_10_31\Sort_2024_10_31\Sort.c(191,3): warning C4033: “PartSort1”必须返回值
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-数据结构\Sort_2024_10_31\Sort_2024_10_31\Sort.c(198,1): warning C4716: “PartSort1”: 必须返回一个值
   Sort_2024_10_31.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-数据结构\Sort_2024_10_31\x64\Debug\Sort_2024_10_31.exe
