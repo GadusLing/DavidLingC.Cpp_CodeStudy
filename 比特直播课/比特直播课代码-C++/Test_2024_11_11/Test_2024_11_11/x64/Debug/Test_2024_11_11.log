@@ -1,2 +1,7 @@
-﻿  Test.cpp
+﻿  Stack.cpp
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_11\Test_2024_11_11\Stack.cpp(34,19): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  Test.cpp
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_11\Test_2024_11_11\Test.cpp(213,8): warning C4101: “st2”: 未引用的局部变量
+E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_11\Test_2024_11_11\Test.cpp(214,8): warning C4101: “st3”: 未引用的局部变量
+  正在生成代码...
   Test_2024_11_11.vcxproj -> E:\GithubDownLoad\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_11\x64\Debug\Test_2024_11_11.exe
