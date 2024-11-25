@@ -1,7 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 
-#include<iostream>
-using namespace std;
+#include"Date.h"
 
 //class Date
 //{
@@ -244,60 +243,207 @@ using namespace std;
 
 //运算符重载内容
  
-class Date
-{
-public:
-	Date(int year = 1, int month = 1, int day = 1)
-	{
-		_year = year;
-		_month = month;
-		_day = day;
-	}
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	//Date(const Date& d)
+//	//{
+//	//	cout << "Date(const Date& d)" << endl;
+//
+//	//	this->_year = d._year;
+//	//	this->_month = d._month;
+//	//	this->_day = d._day;
+//	//}
+//
+//	void Print()
+//	{
+//		cout << _year << "-" << _month << "-" << _day << endl;
+//	}
+//	//通常C++喜欢直接把运算符重载函数放在类中，这样就能直接访问私有成员了，但是此处要注意，重载运算符函数规定只能用一个参数，所以对比全局的重载，要稍稍改变一下写法
+//	bool operator==(const Date& d)
+//	{
+//		return this->_year == d._year//这里的this->可以不写，这里方便认知写上
+//			&& this->_month == d._month
+//			&& this->_day == d._day;
+//	}
+//
+//
+//	int GetYear() const //这也是一种解决私有成员无法访问的方式，JAVA中喜欢使用类似的方式
+//	{
+//		return _year;
+//	}
+//	int GetMonth() const
+//	{
+//		return _month;
+//	}
+//	int GetDay() const
+//	{
+//		return _day;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+////bool operator==(const Date& x1, const Date& x2)
+////{
+////	return x1.GetYear() == x2.GetYear()
+////		&& x1.GetMonth() == x2.GetMonth()
+////		&& x1.GetDay() == x2.GetDay();
+////}
+//
+//int operator-(const Date& x1,const Date& x2)
+//{
+//
+//	return 0;
+//}
+//
+//
+//int main()
+//{
+//	Date d1(2024, 11, 14);
+//	Date d2(2024, 11, 11);
+//
+//
+//	//bool ret1 = operator==(d1, d2);
+//	bool ret1 = d1 == d2;
+//	//bool ret2 = d1.operator==(d2);
+//	bool ret2 = d1 == d2;
+//	cout << ret1 << endl;
+//	cout << ret2 << endl;
+//
+//
+//	//int i = 1, j = 2;
+//
+//	//int ret1 = i + j;
+//	//bool ret2 = i == j;
+//	//bool ret3 = i ^ j;
+//
+//	//cout << ret1 << endl;
+//	//cout << ret2 << endl;
+//	//cout << ret3 << endl;
+//
+//
+//	return 0;
+//}
+///////////////////////////////////////////////////////////////////
 
-	//Date(const Date& d)
-	//{
-	//	cout << "Date(const Date& d)" << endl;
+////.*操作符，取成员函数指针
+//class A
+//{
+//public:
+//	void func1()
+//	{
+//		cout << "A::func1()" << endl;
+//	}
+//};
+//
+//void func2()
+//{
+//	cout << "func2()" << endl;
+//}
+//
+//typedef void(A::*PF)(); //成员函数指针类型
+//typedef void(*PF2)(); //普通函数指针类型
+//
+//int main()
+//{
+//	PF pf1 = &A::func1;// C++规定普通函数名就是函数指针，而成员函数要加&才能取到函数指针
+//	A obj;//定义ob类对象temp
+//	(obj.*pf1)();// 对象调⽤成员函数指针时，使⽤.*运算符
+//
+//	PF2 pf2 = func2;
+//	(*pf2)();//普通函数调用和成员函数调用最大的区别就是普通函数没有this指针
+//
+//
+//	return 0;
+//}
+///////////////////////////////////////////////////////////////////////
 
-	//	this->_year = d._year;
-	//	this->_month = d._month;
-	//	this->_day = d._day;
-	//}
-
-	void Print()
-	{
-		cout << _year << "-" << _month << "-" << _day << endl;
-	}
-
-private:
-	int _year;
-	int _month;
-	int _day;
-};
-
-bool operator== (Date x1, Date x2)
-{
-	return x1 == x2;
-}
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	Date(const Date& d)
+//	{
+//		cout << "Date(const Date& d)" << endl;
+//
+//		this->_year = d._year;
+//		this->_month = d._month;
+//		this->_day = d._day;
+//	}
+//
+//	void Print()
+//	{
+//		cout << _year << "-" << _month << "-" << _day << endl;
+//	}
+//
+//	bool operator==(const Date& d)
+//	{
+//		return _year == d._year
+//			&& _month == d._month
+//			&& _day == d._day;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+////d1 - d2
+//int operator-(const Date& d1, const Date& d2)//可以重载日期减日期，得出来的是天数int
+//{
+//	return 0;
+//}
+//
+////d1 - 100
+//Date operator-(const Date& d1, int day)//也可以重载日期减天数，得出来的是日期Date
+//{
+//	Date ret;
+//
+//	return ret;
+//}
+//
+//int main()
+//{
+//
+//
+//	return 0;
+//}
 
 
 int main()
 {
 	Date d1(2024, 11, 14);
-	Date d2(2024, 11, 11);
+	Date d2 = d1 + 50;
+	d2.Print();
+	d1.Print();
+	d1 += 50;
+	d1.Print();
+	cout << "\n" << endl;
 
-	bool ret1 = d1 == d2;
-	cout << ret1 << endl;
-
-
-	//int i = 1, j = 2;
-
-	//int ret1 = i + j;
-	//bool ret2 = i == j;
-	//bool ret3 = i ^ j;
-
-	//cout << ret1 << endl;
-	//cout << ret2 << endl;
-	//cout << ret3 << endl;
+	Date d3(2025, 1, 3);
+	Date d4 = d3 - 50;
+	d4.Print();
+	d3.Print();
+	d3 -= 50;
+	d3.Print();
 
 
 	return 0;
