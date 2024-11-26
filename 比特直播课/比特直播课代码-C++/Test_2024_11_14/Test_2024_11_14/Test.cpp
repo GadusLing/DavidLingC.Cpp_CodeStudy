@@ -434,16 +434,23 @@ int main()
 	Date d2 = d1 + 50;
 	d2.Print();
 	d1.Print();
-	d1 += 50;
+	d1 += 5000;
 	d1.Print();
 	cout << "\n" << endl;
 
-	Date d3(2025, 1, 3);
+	Date d3(2024, 11, 16);
 	Date d4 = d3 - 50;
 	d4.Print();
 	d3.Print();
-	d3 -= 50;
+	d3 -= 5000;
 	d3.Print();
+
+	cout << (d1 > d3) << endl;//cout << d1 > d2 << endl;这样编不过，因为流插入提取的优先级要高于比较符号，所以加个括号
+	cout << (d1 == d3) << endl;
+	cout << (d1 < d3) << endl;
+	cout << (d1 >= d3) << endl;
+	cout << (d1 <= d3) << endl;
+	cout << (d1 != d3) << endl;
 
 
 	return 0;

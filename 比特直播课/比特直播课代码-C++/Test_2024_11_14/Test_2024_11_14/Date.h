@@ -10,6 +10,16 @@ public:
 
 	void Print() const;
 
+	//Date& operator=(const Date& d)//这就是赋值运算符重载，但对于Date这种没用空间需求的，默认的赋值浅拷贝重载就够用了，所以这里不用写
+	//{
+	//	_year = d._year;
+	//	_month = d._month;
+	//	_day = d._day;
+	//	
+	//	return *this;
+	//}
+
+
 	//GetMonthDay直接在类中定义，因为是频繁调用的小函数，放入类中定义默认是内联，增加效率
 	int GetMonthDay(int year, int month) const//获取月份天数
 	{
@@ -37,9 +47,6 @@ public:
 	// d1 -= 天数
 	Date& operator-=(int day);
 	Date operator-(int day) const;
-
-
-
 
 private:
 	int _year;
