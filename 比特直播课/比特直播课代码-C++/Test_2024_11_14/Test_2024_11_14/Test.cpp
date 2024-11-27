@@ -452,6 +452,30 @@ int main()
 	cout << (d1 <= d3) << endl;
 	cout << (d1 != d3) << endl;
 
+	Date d5(2024, 11, 16);
+	Date d6= ++d5;
+	//Date d6= d5.operator++();
+	Date d7= d5++;
+	//Date d7= d5.operator++(5);//显式调用写出来就是这个样子，这里的int值随便你填，0，1，2....都行，只要是个int
+	d5.Print();
+	d6.Print();
+	d7.Print();
+
+	d6 = --d5;
+	d7 = d5--;
+	d5.Print();
+	d6.Print();
+	d7.Print();
+
+	Date d8(2035, 9, 15);
+	Date d9(2024, 11, 27);
+	cout << d9 - d8 << endl;
+
+	cout << d8 << " 和 " << d9 << endl << d5 << endl;
+
+
+	cin >> d8 >> d9;
+	cout << d8 << " 和 "  << d9 << endl;
 
 	return 0;
 }

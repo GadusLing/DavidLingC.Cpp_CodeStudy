@@ -179,3 +179,66 @@ Date Date::operator-(int day) const
 
     return tmp;
 }
+
+Date& Date::operator++()//前置
+{
+    *this += 1;
+    return *this;//前置是++后，返回++之后的值，所以可以引用返回
+}
+
+Date Date::operator++(int)//后置
+{
+    Date tmp = (*this);
+    *this += 1;
+
+    return tmp;//后置++，这里需要返回++之前的值，用一个临时变量来记录++前的值，所以这里必须要传值返回，因为tmp局部变量出了作用域就销毁了，不能传引用
+}
+
+Date& Date::operator--()//前置
+{
+    *this -= 1;
+    return *this;
+}
+
+Date Date::operator--(int)//后置
+{
+    Date tmp = (*this);
+    *this -= 1;
+
+    return tmp;
+}
+
+int Date::operator-(const Date& d) const
+{
+    int flag = 1;
+    Date max = *this;
+    Date min = d;
+    if (*this < d)
+    {
+        max = d;
+        min = *this;
+        flag = -1;
+    }
+
+    int n = 0;
+    while (min != max)
+    {
+        ++min;
+        ++n;
+    }
+    return n * flag;
+}
+
+ostream& operator<<(ostream& out, const Date& d) //ostream不支持拷贝，所以只能用引用传参和引用返回
+{
+    out << d._year << "年" << d._month << "月" << d._day << "日";
+    return out;
+}
+
+istream& operator>>(istream& in, Date& d)
+{
+    cout << "请依次输入年、月、日:" << endl;
+    in >> d._year >> d._month >> d._day;
+
+    return in;
+}

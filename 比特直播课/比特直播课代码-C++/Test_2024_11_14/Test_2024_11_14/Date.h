@@ -5,6 +5,9 @@ using namespace std;
 
 class Date
 {
+	friend ostream& operator<<(ostream& out, const Date& d);
+	friend istream& operator>>(istream& in, Date& d);
+	
 public:
 	Date(int year = 1900, int month = 1, int day = 1);//声明，缺省在这边给
 
@@ -40,6 +43,12 @@ public:
 	bool operator==(const Date& d) const;
 	bool operator!=(const Date& d) const;
 
+	Date& operator++();//前置，前置++返回++之后的值，所以可以用引用
+	Date operator++(int);//后置，C++规定这里的int只是为了形成一个重载，做区分作用，给不给值写不写int i都行，但一般不给，因为接不就收i都不会影响内部逻辑，内部不会用到这个参数，写个int纯粹是为了参数匹配去调用对应的函数
+
+	Date& operator--();
+	Date operator--(int);
+
 	// d1 += 天数
 	Date& operator+=(int day);
 	Date operator+(int day) const;
@@ -48,8 +57,15 @@ public:
 	Date& operator-=(int day);
 	Date operator-(int day) const;
 
+	//d1 - d2
+	int operator-(const Date& d) const;
+
 private:
 	int _year;
 	int _month;
 	int _day;
 };
+
+
+//流插入与流提取重载    不能放在类中重载哈,cout打印出来会反
+ostream& operator<<(ostream& out, const Date& d);
