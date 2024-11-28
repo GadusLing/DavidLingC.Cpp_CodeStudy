@@ -35,19 +35,15 @@ public:
 		}
 		return monthDayArray[month];
 	}
+	
+	bool CheckDate() const;
 
-	bool operator<(const Date& d) const;
-	bool operator<=(const Date& d) const;
+	bool operator<(const Date& d) const;//这个const是修饰*this，为了解决权限放大不能传参的问题
+	bool operator<=(const Date& d) const;//所有只读不修改内容的函数，都建议加上const
 	bool operator>(const Date& d) const;
 	bool operator>=(const Date& d) const;
 	bool operator==(const Date& d) const;
 	bool operator!=(const Date& d) const;
-
-	Date& operator++();//前置，前置++返回++之后的值，所以可以用引用
-	Date operator++(int);//后置，C++规定这里的int只是为了形成一个重载，做区分作用，给不给值写不写int i都行，但一般不给，因为接不就收i都不会影响内部逻辑，内部不会用到这个参数，写个int纯粹是为了参数匹配去调用对应的函数
-
-	Date& operator--();
-	Date operator--(int);
 
 	// d1 += 天数
 	Date& operator+=(int day);
@@ -56,6 +52,12 @@ public:
 	// d1 -= 天数
 	Date& operator-=(int day);
 	Date operator-(int day) const;
+
+	Date& operator++();//前置，前置++返回++之后的值，所以可以用引用
+	Date operator++(int);//后置，C++规定这里的int只是为了形成一个重载，做区分作用，给不给值写不写int i都行，但一般不给，因为接不就收i都不会影响内部逻辑，内部不会用到这个参数，写个int纯粹是为了参数匹配去调用对应的函数
+
+	Date& operator--();
+	Date operator--(int);
 
 	//d1 - d2
 	int operator-(const Date& d) const;
@@ -69,3 +71,5 @@ private:
 
 //流插入与流提取重载    不能放在类中重载哈,cout打印出来会反
 ostream& operator<<(ostream& out, const Date& d);
+
+istream& operator>>(istream& in, Date& d);

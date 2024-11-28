@@ -2,15 +2,28 @@
 
 #include"Date.h"
 
+bool Date::CheckDate() const
+{
+    if (_month < 1 || _month >12
+        || _day <1 || _day > GetMonthDay(_year, _month))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
 Date::Date(int year, int month, int day)
 {
     _year = year;
     _month = month;
     _day = day;
-    //if (!CheckDate())
-    //{
-    //    cout << "⽇期⾮法" << endl;
-    //}
+    if (!CheckDate())
+    {
+        cout << "日期非法:" << *this << endl;
+    }
 }
 
 void Date::Print() const
@@ -237,8 +250,18 @@ ostream& operator<<(ostream& out, const Date& d) //ostream不支持拷贝，所�
 
 istream& operator>>(istream& in, Date& d)
 {
-    cout << "请依次输入年、月、日:" << endl;
-    in >> d._year >> d._month >> d._day;
-
+    while (1)
+    {
+        cout << "请依次输入年、月、日:" << endl;
+        in >> d._year >> d._month >> d._day;
+        if (d.CheckDate())
+        {
+            break;
+        }
+        else
+        {
+            cout << "输入的日期非法，请重新输入" << endl;
+        }
+    }
     return in;
 }

@@ -467,8 +467,8 @@ int main()
 	d6.Print();
 	d7.Print();
 
-	Date d8(2035, 9, 15);
-	Date d9(2024, 11, 27);
+	Date d8(2035, 1, 15);
+	Date d9(2024, 1, 27);
 	cout << d9 - d8 << endl;
 
 	cout << d8 << " 和 " << d9 << endl << d5 << endl;
