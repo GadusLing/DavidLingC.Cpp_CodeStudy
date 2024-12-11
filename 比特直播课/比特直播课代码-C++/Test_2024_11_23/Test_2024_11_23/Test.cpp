@@ -237,7 +237,7 @@ void test_string1()
 		//等价 s2.operator[](i) += 1;
 	}
 	
-	for (size_t i = 0; i < s2.length(); i++)//size length效果是一样的，历史遗留原因，早起开发的时候写的是length，后面整合了之后就都用size了，了解一下即可
+	for (size_t i = 0; i < s2.length(); i++)//size length效果是一样的，历史遗留原因，早先开发的时候写的是length，后面整合了之后就都用size了，了解一下即可
 	{
 		cout << s2[i] << " ";
 	}
