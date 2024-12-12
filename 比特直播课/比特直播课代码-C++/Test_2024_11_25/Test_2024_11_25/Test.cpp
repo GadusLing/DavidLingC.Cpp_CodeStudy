@@ -21,6 +21,7 @@ namespace LDW
 		}
 
 	private:
+		char _buff[16];
 		char* _str;
 		size_t _size;
 		size_t _capacity;
@@ -135,9 +136,47 @@ void test_string3()
 	s1.append("yyyyy");
 	cout << s1 << endl;
 
+	string s2("hello world");
+	s1.append(s2.begin(), s2.end());//迭代器插入
+	cout << s1 << endl;
 
+	s1.append(s2.begin() + 6, s2.end());//迭代器从字符串中段插入，这里可以用+
+	cout << s1 << endl;
+
+	s1 += ' ';
+	s1 += "zzz";
+	s1 += s2;
+	cout << s1 << endl;//+=类似于C种的strcat 但strcat是个很矬的接口，少用
+	//一是因为strcat是遍历找到\0后追加，其次是它不会扩容，所以效率和实用性都很差
+	//但是+=是用string类里的size的地址去处理的，少了遍历效率高，并且会自己管理空间，不用手动调整
 
 }
+
+void test_string4()
+{
+	string s;
+	s.reserve(1000);//对于reserve的主要功能是，我知道我要插入多少数据，我提前把空间开好，减少扩容。
+
+	size_t sz = s.capacity();
+	cout << "capacity changed:" << sz << '\n';
+
+	cout << "making s grow:\n";
+	for (int i = 0; i < 100; ++i)
+	{	
+		//s.push back('c');
+		s += 'c';
+		if (sz != s.capacity())
+		{
+			sz = s.capacity();
+			cout << "capacity changed:" << sz << '\n';
+		}
+	}
+}//除了最开始是2倍增容，后面的结果基本上是一个1.5倍的增容
+//为了处理一些内存碎片的问题
+//string 内部有两段存储机制。当字符串的字符数小于 16 时，数据会直接存储在对象内部的数组中，不需要动态申请内存。这样就相当于数据存储在对象本身的 buffer 中。
+//而当字符数大于等于 16 时，就不再使用这种内置存储机制，而是通过动态分配内存的方式来存储数据，1.5倍实际是堆上的扩容机制;
+
+
 
 
 int main()
@@ -158,9 +197,10 @@ int main()
 	//	}
 	//}
 
-	test_string3();
+	//test_string3();
 
+	test_string4();
 
-
+	
 	return 0;
 }
