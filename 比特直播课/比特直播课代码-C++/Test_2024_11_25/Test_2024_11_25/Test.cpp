@@ -154,8 +154,19 @@ void test_string3()
 
 void test_string4()
 {
+	string s1("1111111");
+	string s2("22222222222222222222222222222222222222222222222");
+	s2.reserve(100);
+	cout << s2.size() << endl;
+	cout << s2.capacity() << endl;
+	s2.reserve(40);//vs下面的选择，当reserve传参比capacity小,或者比size小的时候，是不会缩的,但是Linux g++会缩
+	cout << s2.size() << endl;//缩也是缩到size的大小哈,因为reserve的核心就是不改变原内容,所以最多只能缩到原size的大小
+	cout << s2.capacity() << endl;
+	//日常用reserve主要是扩容而非缩容,缩容去调shrink_to_fit,因为reserve是否缩容不确定,取决编译器
+
+
 	string s;
-	s.reserve(1000);//对于reserve的主要功能是，我知道我要插入多少数据，我提前把空间开好，减少扩容。
+	s.reserve(1000);//reserve的主要功能是，我知道我要插入多少数据，我提前把空间开好，减少扩容。
 
 	size_t sz = s.capacity();
 	cout << "capacity changed:" << sz << '\n';
@@ -177,11 +188,55 @@ void test_string4()
 //而当字符数大于等于 16 时，就不再使用这种内置存储机制，而是通过动态分配内存的方式来存储数据，1.5倍实际是堆上的扩容机制;
 
 
+void test_string5()
+{
+	//resize
+
+	string s2("22222222");
+	cout << s2.size() << endl;
+	cout << s2.capacity() << endl << endl;
+	
+	s2.resize(3);
+	cout << s2.size() << endl;
+	cout << s2.capacity() << endl << endl;
+	
+	s2.resize(13);
+	cout << s2.size() << endl;
+	cout << s2.capacity() << endl << endl;
+
+	s2.resize(23);
+	cout << s2.size() << endl;
+	cout << s2.capacity() << endl << endl;
+	//size = 8,capacity = 15
+	//resize(3);//比size小，删除数据
+	//resize(13)比size大，插入数据，传了参就插参数字符，没传就插默认初始化字符\0。
+	//resize(20)比capacity还要大,扩容加插入数据。
+
+}
+
+void test_string6()
+{
+	string s1("22222222");
+	cout << s1 << endl;
+	//string少用头插和中插,因为连续的物理空间要挪数据,是一个On复杂度的接口
+	s1.insert(0, "hello");
+	cout << s1 << endl;
+
+	s1.insert(0, 1 , 'x');//在0位置插1个x,变相实现了头插
+	cout << s1 << endl;
+
+	s1.erase(5, 2);
+	cout << s1 << endl;
+
+	s1.erase(5);
+	cout << s1 << endl;
+
+}
 
 
 int main()
 {
-	//while (1)
+	//while (1) 
 	//{
 	//	try
 	//	{
@@ -199,7 +254,11 @@ int main()
 
 	//test_string3();
 
-	test_string4();
+	//test_string4();
+
+	//test_string5();
+
+	test_string6();
 
 	
 	return 0;
