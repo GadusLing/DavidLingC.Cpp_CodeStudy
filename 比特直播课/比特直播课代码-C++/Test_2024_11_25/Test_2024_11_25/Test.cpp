@@ -233,6 +233,20 @@ void test_string6()
 
 }
 
+void test_string7()
+{
+	string s1("22222222");
+	string s2("33333333");
+
+	//s1 = s2;
+	s1.assign(s2);
+
+	cout << s1 << endl;
+	cout << s2 << endl;
+}
+
+
+
 
 int main()
 {
@@ -258,7 +272,10 @@ int main()
 
 	//test_string5();
 
-	test_string6();
+	//test_string6();
+
+	test_string7();
+
 
 	
 	return 0;
