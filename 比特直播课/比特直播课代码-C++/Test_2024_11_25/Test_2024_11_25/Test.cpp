@@ -235,48 +235,164 @@ void test_string6()
 
 void test_string7()
 {
-	string s1("22222222");
-	string s2("33333333");
+	//string s1("22222222");
+	//string s2("33333333");
 
-	//s1 = s2;
-	s1.assign(s2);
+	////s1 = s2;
+	////s1.assign(s2);
+	//cout << s1 << endl;
+	//cout << s2 << endl;
 
-	cout << s1 << endl;
+	//s1.replace(0, 2, s2);//谨慎使用replace,在大多数情况下，replace是一个效率极低的一个设计
+	//cout << s1 << endl;//因为当替换内容长度不一时,会涉及到数据的挪移和覆盖
+	//cout << s2 << endl;
+
+	////将空格替换为%%
+	string s2("hello world hello bit");
+	//size_t pos = s2.find(' ');
+	//while (pos != string::npos)
+	//{
+	//	s2.replace(pos, 1, "%%");
+	//	pos = s2.find(' ', pos + 2);//实现是可以实现,但是效率很低,所以不要大量使用replace
+	//}
+	//cout << s2 << endl;
+
+	string s3;
+	for (auto ch : s2)
+	{
+		if (ch == ' ')
+		{
+			s3 += "%%";
+		}
+		else
+		{
+			s3 += ch;
+		}
+		//cout << s3 << endl;//这种方式就是空间换时间,新开一个s3,然后直接遍历s2赋值
+	}
+	cout << s3 << endl;
+
+	//s2 = s3;
+	s2.swap(s3);
+
 	cout << s2 << endl;
 }
 
+void test_string8()
+{
+	//假设我们现在有一个文件,我需要拿到它的后缀
+	string file("test.cpp.tar.zip");
+	size_t pos = file.rfind('.');//倒着找就可以用rfind
+	if (pos != string::npos)
+	{
+		//string str = file.substr(pos, file.size() - pos);
+		string str = file.substr(pos);//用了缺省参数 len = npos
+		cout << str << endl;
+	}
+
+	std::string str("Please, replace the vowels in this sentence by asterisks.");
+	std::size_t found = str.find_first_not_of("aeiou");//find_first_not_of是锁定找, not_of就是除外找
+	while (found != std::string::npos)
+	{
+		str[found] = '*';
+		found = str.find_first_not_of("aeiou", found + 1);
+	}
+
+	std::cout << str << '\n';
 
 
+	//在 C++ 开发过程中，经常会遇到需要调用 C 语言库接口 的情况。
+	//C++ 提供了功能强大的 std::string，而 C 语言使用的是 C 风格字符串（即字符数组，以 \0 作为结束标识）。
+	//当 C++ 程序需要调用 C 语言接口时，涉及到字符串传递，可能会遇到兼容性问题。
+	//假设当前程序是用 C++ 编写的，文件名等字符串信息会使用 C++ 的 std::string 类。
+	//但 C 语言库（例如文件操作接口 fopen）通常要求传递 C 风格字符串（const char* ）。
+	//这个时候就可以使用 string::c_str()
+	//string::c_str() 返回一个指向 std::string 内部字符数组的指针（const char*），该数组是 以 \0 结束的。
+	//可以将其安全地传递给 C 接口。
+
+	string filename("Test.cpp");// 定义一个 C++ 字符串对象 filename，存储文件名
+	FILE* fout = fopen(filename.c_str(), "r");// 使用 fopen 打开文件，返回一个文件指针 fout
+	// "r" 表示以只读模式打开文件
+	
+	// 判断文件是否成功打开
+	if (fout == nullptr) 
+	{
+		cout << "文件打开失败！" << endl;
+		throw runtime_error("文件打开失败！");  // 如果文件打开失败，抛异常
+	}
+
+	char ch = fgetc(fout); // 定义一个字符变量 ch 用于存储读取到的字符
+	while (ch != EOF) // 当 ch 不等于文件结束标志 EOF 时，循环读取文件
+	{
+		cout << ch;// 输出当前读取的字符
+		ch = fgetc(fout);// 继续读取下一个字符
+	}
+
+	// 读取完毕后关闭文件
+	fclose(fout);
+}
+
+void test_string9()
+{
+	string s1("22222222");
+	string s2("33333333");
+	
+	cout << (s1 < s2) << endl;
+	cout << (s1 < "1111111") << endl;
+	cout << ("11111111" < s2) << endl;
+
+	string s3 = s1 + "asassss";
+	string s4 = "asassss" + s1;
+	cout << s3 << endl;
+	cout << s4 << endl;	
+
+	string s;
+	getline(cin, s, '#');//geline不仅可以读取空格，还可以自定义终止符，这样的话类似\n之类的换行符都能提取
+	cout << s << endl;
+
+}	
+
+
+//int main()
+//{
+//	//while (1) 
+//	//{
+//	//	try
+//	//	{
+//	//		int i = 0;
+//	//		cin >> i;//这就是最典型的阻塞接口，不输入数据不执行下一步的
+//
+//	//		//test_string1();
+//	//		test_string2();
+//	//	}
+//	//	catch (const exception& e)
+//	//	{
+//	//		cout << e.what() << endl;
+//	//	}
+//	//}
+//
+//	//test_string3();
+//
+//	//test_string4();
+//
+//	//test_string5();
+//
+//	//test_string6();
+//
+//	//test_string7();
+//
+//	//test_string8();
+//
+//	test_string9();
+//
+//	
+//	return 0;
+//}
 
 int main()
 {
-	//while (1) 
-	//{
-	//	try
-	//	{
-	//		int i = 0;
-	//		cin >> i;//这就是最典型的阻塞接口，不输入数据不执行下一步的
-
-	//		//test_string1();
-	//		test_string2();
-	//	}
-	//	catch (const exception& e)
-	//	{
-	//		cout << e.what() << endl;
-	//	}
-	//}
-
-	//test_string3();
-
-	//test_string4();
-
-	//test_string5();
-
-	//test_string6();
-
-	test_string7();
 
 
-	
+
 	return 0;
 }
