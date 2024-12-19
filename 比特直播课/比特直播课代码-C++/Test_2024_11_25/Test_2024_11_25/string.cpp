@@ -136,7 +136,13 @@ namespace LDWT
 		string s1("hello world");
 		cout << s1.c_str() << endl;
 
+		s1.insert(11, 3, 'x');
+		cout << s1.c_str() << endl;
+
 		s1.insert(6, 3, 'x');
+		cout << s1.c_str() << endl;
+
+		s1.insert(0, 3, 'x');
 		cout << s1.c_str() << endl;
 	}
 }
