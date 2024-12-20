@@ -79,6 +79,7 @@ namespace LDWT
 	void string::insert(size_t pos, size_t n, char ch)
 	{
 		assert(pos <= _size);
+		assert(n > 0);
 		if (_size + n > _capacity)//检查当前容量 _capacity 是否足够容纳插入后的字符串长度。如果不够，则需要扩容。
 		{
 			//扩容
@@ -91,11 +92,18 @@ namespace LDWT
 			reserve(newCapacity);
 		}
 		//挪动数据
-		size_t end = _size;//end 初始化为字符串的最后一个字符索引 _size（实际存储为 '\0' 的位置）。
-		while (end >= pos)
+		//int end = _size;//end 初始化为字符串的最后一个字符索引 _size（实际存储为 '\0' 的位置）。
+		//while (end >= (int)pos)//强转为int比较,避免出现自动转换为size_t比较而产生的越界错误
+		//{
+		//	_str[end + n] = _str[end]; //将索引 end 的字符移动到 end + n 的位置，为新插入的字符腾出空间。
+		//	--end;//end 向前移动。
+		//}
+
+		int end = _size + n;
+		while (end > pos + n - 1)
 		{
-			_str[end + n] = _str[end]; //将索引 end 的字符移动到 end + n 的位置，为新插入的字符腾出空间。
-			--end;//end 向前移动。
+			_str[end] = _str[end - n];
+			--end;
 		}
 
 		for (size_t i = 0; i < n; ++i)
@@ -107,8 +115,33 @@ namespace LDWT
 
 	void string::insert(size_t pos, const char* str)
 	{
+		assert(pos <= _size);
 
+		size_t n = strlen(str);
+		if (_size + n > _capacity)//检查当前容量 _capacity 是否足够容纳插入后的字符串长度。如果不够，则需要扩容。
+		{
+			//扩容
+			size_t newCapacity = 2 * _capacity;
+			if (_size + n > 2 * _capacity)
+			{
+				newCapacity = _size + n;
+			}
 
+			reserve(newCapacity);
+		}
+
+		int end = _size + n;
+		while (end > pos + n - 1)
+		{
+			_str[end] = _str[end - n];
+			--end;
+		}
+
+		for (size_t i = 0; i < n; ++i)
+		{
+			_str[pos + i] = str[i];
+		}
+		_size += n;
 	}
 
 	void string::erase(size_t pos, size_t len)
@@ -144,5 +177,19 @@ namespace LDWT
 
 		s1.insert(0, 3, 'x');
 		cout << s1.c_str() << endl;
+
+		string s2("hello world");
+		cout << s2.c_str() << endl;
+
+		s2.insert(11, "yyy");
+		cout << s2.c_str() << endl;
+
+		s2.insert(6, "yyy");
+		cout << s2.c_str() << endl;
+
+		s2.insert(0, "yyy");
+		cout << s2.c_str() << endl;
+
 	}
+
 }
