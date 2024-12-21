@@ -21,6 +21,7 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 			//{}
 
 		string(const char* str = "");//È«È±Ê¡
+		string(size_t n, char ch);
 
 		const char* c_str() const//·µ»Ø×Ö·û´®µÄ C ·ç¸ñ±íÊ¾¡£
 		{
@@ -37,7 +38,10 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 
 		void insert(size_t pos, size_t n, char ch);
 		void insert(size_t pos, const char* str);
-		void erase(size_t pos = 0, size_t len = nops);
+		void erase(size_t pos = 0, size_t len = npos);
+
+		size_t find(char ch, size_t pos = 0);
+		size_t find(const char* ch, size_t pos = 0);
 
 	private:
 		//ÉùÃ÷
@@ -45,9 +49,11 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 		size_t _size;
 		size_t _capacity;
 
-		const static size_t nops;
+		const static size_t npos;
 	};
 
 	void test_string1();
 	void test_string2();
+	void test_string3();
+
 }

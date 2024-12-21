@@ -3,7 +3,19 @@
 
 namespace LDWT
 {
-	const size_t string::nops = -1;
+	const size_t string::npos = -1;
+
+	string::string(size_t n, char ch)
+		:_str(new char[n + 1])
+		,_size(n)
+		,_capacity(n)
+	{
+		for (size_t i = 0; i < n; i++)
+		{
+			_str[i] = ch;
+		}
+		_str[_size] = '\0';
+	}
 
 	string::string(const char* str)//全缺省
 		:_size(strlen(str))//使用 strlen 计算传入字符串的长度（不包括结束符 '\0'），存入 _size。
@@ -100,7 +112,7 @@ namespace LDWT
 		//}
 
 		int end = _size + n;
-		while (end > pos + n - 1)
+		while (end > pos + n - 1)//防止越界问题
 		{
 			_str[end] = _str[end - n];
 			--end;
@@ -111,44 +123,89 @@ namespace LDWT
 			_str[pos + i] = ch;
 		}
 		_size += n;
+
+	/*	string tmp(n, ch);
+		insert(pos, tmp.c_str());*/
+
 	}
 
 	void string::insert(size_t pos, const char* str)
 	{
-		assert(pos <= _size);
+		//assert(pos <= _size);
+
+		//size_t n = strlen(str);
+		//if (_size + n > _capacity)//检查当前容量 _capacity 是否足够容纳插入后的字符串长度。如果不够，则需要扩容。
+		//{
+		//	//扩容
+		//	size_t newCapacity = 2 * _capacity;
+		//	if (_size + n > 2 * _capacity)
+		//	{
+		//		newCapacity = _size + n;
+		//	}
+
+		//	reserve(newCapacity);
+		//}
+
+		//size_t end = _size + n;
+		//while (end > pos + n - 1)
+		//{
+		//	_str[end] = _str[end - n];
+		//	--end;
+		//}
+
+		//for (size_t i = 0; i < n; ++i)
+		//{
+		//	_str[pos + i] = str[i];
+		//}
+		//_size += n;
 
 		size_t n = strlen(str);
-		if (_size + n > _capacity)//检查当前容量 _capacity 是否足够容纳插入后的字符串长度。如果不够，则需要扩容。
-		{
-			//扩容
-			size_t newCapacity = 2 * _capacity;
-			if (_size + n > 2 * _capacity)
-			{
-				newCapacity = _size + n;
-			}
-
-			reserve(newCapacity);
-		}
-
-		int end = _size + n;
-		while (end > pos + n - 1)
-		{
-			_str[end] = _str[end - n];
-			--end;
-		}
-
-		for (size_t i = 0; i < n; ++i)
+		insert(pos, n, 'x');//先随便插对应数量的字符
+		for (size_t i = 0; i < n; ++i)//和单个ch insert一样的逻辑,只是多了一遍覆盖
 		{
 			_str[pos + i] = str[i];
 		}
-		_size += n;
-	}
 
+	}
+	//程序员美德之一:至少要对自己的程序进行冒烟测试,负责
 	void string::erase(size_t pos, size_t len)
 	{
+		if (len >= _size - pos)//要删的字符个数大于等于有效字符个数
+		{
+			//删完了
+			_str[pos] = '\0';
+			_size = pos;
+		}
+		else
+		{
+			size_t end = pos + len;
+			while (end <= _size)
+			{
+				_str[end - len] = _str[end];
+				++end;
+			}
+			_size -= len;
+		}
+	}
 
+	size_t string::find(char ch, size_t pos)
+	{
+		for (size_t i = pos; i < _size; i++)
+		{
+			if (_str[i] == ch)
+			{
+				return i;
+			}
+		}
+		return npos;
+	}
+
+	size_t string::find(const char* str, size_t pos)
+	{
+		const char* p = strstr(_str + pos, str);
 
 	}
+
 
 	void test_string1()
 	{
@@ -190,6 +247,21 @@ namespace LDWT
 		s2.insert(0, "yyy");
 		cout << s2.c_str() << endl;
 
+	}
+
+	void test_string3()
+	{
+		string s1("hello world");
+		cout << s1.c_str() << endl;
+
+		s1.erase(6, 2);
+		cout << s1.c_str() << endl;
+
+		s1.erase(6, 20);
+		cout << s1.c_str() << endl;
+
+		s1.erase(3);
+		cout << s1.c_str() << endl;
 	}
 
 }

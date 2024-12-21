@@ -393,8 +393,9 @@ using namespace std;
 
 int main()
 {
-	LDWT::test_string1();
-	LDWT::test_string2();
+	//LDWT::test_string1();
+	//LDWT::test_string2();
+	LDWT::test_string3();
 
 	return 0;
 }
