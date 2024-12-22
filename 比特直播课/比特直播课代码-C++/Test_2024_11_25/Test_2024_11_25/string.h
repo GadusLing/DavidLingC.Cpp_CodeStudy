@@ -14,6 +14,29 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 	class string
 	{
 	public:
+		typedef char* iterator;
+		typedef const char* const_iterator;//constµü´úÆ÷ÊÇµ¥¶ÀÓÃconst_ÃüÃûÅ¶
+
+		iterator begin()
+		{
+			return _str;
+		}
+
+		iterator end()
+		{
+			return _str + _size;//ÕâÀï×¢Òâendµü´úÆ÷·µ»ØµÄÊÇÒ»¸öchar*ÀàĞÍµÄÖ¸Õë,ËùÒÔ²»ÄÜÖ±½ÓĞ´return _size,ÒªÓÃ_str + _szie
+		}
+
+		const_iterator begin() const
+		{
+			return _str;
+		}
+
+		const_iterator end() const
+		{
+			return _str + _size;
+		}
+
 		//string()//ÎŞ²Î¹¹Ôìº¯Êı
 			//	:_str(new char[1]{'\0'})//new char[1]: ¶¯Ì¬·ÖÅäÒ»¸ö×Ö·ûÊı×é£¬´óĞ¡Îª 1¡£ {'\0'}: ³õÊ¼»¯Îª×Ö·û´®½áÊø·û '\0',Ïàµ±ÓÚÕ¼Î»·û
 			//	, _size(0)//_size: µ±Ç°×Ö·û´®µÄ³¤¶È£¨²»°üÀ¨½áÊø·û '\0'£©¡£
@@ -28,7 +51,19 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 			return _str;//·µ»Ø _str µÄµØÖ·£¬¹©Íâ²¿·ÃÎÊ×Ö·û´®ÄÚÈİ¡£
 		}
 
+		string(const string& s);
+
+		string& operator=(const string& s);
+
 		~string();
+
+		void clear()
+		{
+			//erase();//µ÷Ò»ÏÂerase¾ÍĞĞÁË
+			_str[0] = '\0';//×Ô¼ºĞ´Ò²ºÜ¼òµ¥
+			_size = 0;
+
+		}
 
 		void reserve(size_t n);
 		void push_back(char ch);
@@ -43,6 +78,38 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 		size_t find(char ch, size_t pos = 0);
 		size_t find(const char* ch, size_t pos = 0);
 
+		size_t size() const
+		{
+			return _size;
+		}
+
+		size_t capacity() const
+		{
+			return _capacity;
+		}
+
+		char& operator[](size_t pos)
+		{
+			assert(pos < _size);
+			return _str[pos];
+		}
+
+		const char& operator[](size_t pos) const
+		{
+			assert(pos < _size);
+			return _str[pos];
+		}
+
+		string substr(size_t pos, size_t len = npos);
+
+		bool operator==(const string& s) const;
+		bool operator!=(const string& s) const;
+		bool operator<(const string& s) const;
+		bool operator<=(const string& s) const;
+		bool operator>(const string& s) const;
+		bool operator>=(const string& s) const;
+
+
 	private:
 		//ÉùÃ÷
 		char* _str;
@@ -52,8 +119,17 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 		const static size_t npos;
 	};
 
+	//Á÷²åÈëºÍÁ÷ÌáÈ¡,ÖØÔØÎªÈ«¾Ö¼ÇµÃ
+	ostream& operator<<(ostream& out, const string& s);
+	ostream& operator>>(ostream& out, string& s);
+
+
 	void test_string1();
 	void test_string2();
 	void test_string3();
+	void test_string4();
+	void test_string5();
+	void test_string6();
+
 
 }

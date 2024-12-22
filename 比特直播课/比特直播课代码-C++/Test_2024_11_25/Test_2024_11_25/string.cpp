@@ -25,6 +25,28 @@ namespace LDWT
 		strcpy(_str, str);//使用 strcpy 将字符串内容从 str 复制到 _str。
 	}
 
+	string::string(const string& s)//拷贝构造
+	{
+		_str = new char[s._capacity + 1];
+		strcpy(_str, s._str);
+		_size = s._size;
+		_capacity = s._capacity;
+	}
+
+	string& string::operator=(const string& s)//赋值=重载的深拷贝
+	{
+		if (this != &s)//防止一些神人自己给自己赋值,那上来就把自己的空间delete了
+		{
+			delete[] _str;
+			_str = new char[s._capacity + 1];//时刻记住开空间+1哈,因为capacity不包含\0
+			strcpy(_str, s._str);
+			_size = s._size;
+			_capacity = s._capacity;
+		}
+
+		return *this;
+	}
+
 	string::~string()
 	{
 		delete[] _str;
@@ -165,7 +187,7 @@ namespace LDWT
 		{
 			_str[pos + i] = str[i];
 		}
-
+		
 	}
 	//程序员美德之一:至少要对自己的程序进行冒烟测试,负责
 	void string::erase(size_t pos, size_t len)
@@ -203,8 +225,87 @@ namespace LDWT
 	size_t string::find(const char* str, size_t pos)
 	{
 		const char* p = strstr(_str + pos, str);
-
+		if (p == nullptr)
+		{
+			return npos;
+		}
+		else
+		{
+			return p - _str; //指针相减得到的是它们之间所差元素的个数，也就是下标数,用竖杠下标的方式来理解
+		}
 	}
+
+	string string::substr(size_t pos, size_t len)
+	{
+		size_t leftlen = _size - pos;
+		if (len > leftlen)
+		{
+			len = leftlen;
+		}
+		string tmp;
+		tmp.reserve(len);
+
+		for (size_t i = pos; i < pos + len; i++)//这里注意是pos+len哦
+		{
+			tmp += _str[i];
+		}
+		return tmp;//值传递要用拷贝构造哦,要写拷贝不然会报错,当然编译器够新会优化,但要注意这种实际语法上的错误
+	}
+
+	bool string::operator==(const string& s) const
+	{
+		return strcmp(_str, s._str) == 0;
+	}
+
+	bool string::operator!=(const string& s) const
+	{
+		return !(*this == s);
+	}
+
+	bool string::operator<(const string& s) const
+	{
+		return strcmp(_str, s._str) < 0;
+	}
+
+	bool string::operator<=(const string& s) const
+	{
+		return (*this < s || *this == s);
+	}
+
+	bool string::operator>(const string& s) const 
+	{
+		return !(*this <= s);
+	}
+
+	bool string::operator>=(const string& s) const
+	{
+		return !(*this < s);
+	}
+
+	ostream& operator<<(ostream& out, const string& s)//流插入,重载为全局记得
+	{
+		for (auto ch : s)
+		{
+			out << ch;
+		}
+		return out;
+	}
+
+	istream& operator>>(istream& in, string& s) //流提取
+	{
+		s.clear();
+		char ch;
+		//in >> ch; //std::cin 和 scanf 的行为类似,在默认情况下会自动跳过空格、换行符以及其他空白字符,所以这里不能用>>
+		ch = in.get();
+		while (ch != ' ' && ch != '\n')
+		{
+			s += ch;
+			//in >> ch;
+			ch = in.get();
+		}
+		return in;
+	}
+
 
 
 	void test_string1()
@@ -262,6 +363,95 @@ namespace LDWT
 
 		s1.erase(3);
 		cout << s1.c_str() << endl;
+
+		string s2("hello helleoo");
+		cout << s2.find('e') << endl;
+		cout << s2.find("helle") << endl;
 	}
 
+	void test_string4()
+	{
+		string s1("hello world");
+		for (size_t i = 0; i < s1.size(); i++)
+		{
+			s1[i]++;
+			cout << s1[i] << " ";
+		}
+		cout << endl;
+
+		string::iterator it = s1.begin();//迭代器的方式来控制
+		while (it != s1.end())//当然只有底层是数组的时候,物理区间上是连续的可以这么玩哈
+		{
+			cout << *it++ << " ";
+		}
+		cout << endl;
+
+		for (auto e : s1)//支持迭代器就支持范围for哦
+		{
+			cout << e << " ";
+		}
+		cout << endl;
+
+		const string s2("hello world");
+		for (auto e : s2)//这里const的串想实现范围for就要用const的迭代器哦,如果之前没有实现const迭代器,这里就会报错
+		{
+			cout << e << " ";
+		}
+		cout << endl;
+	}
+
+	void test_string5()
+	{
+		string s1("hello world");
+
+		string sub1 = s1.substr(6, 3);
+		cout << sub1.c_str() << endl;
+
+		string sub2 = s1.substr(6, 300);
+		cout << sub2.c_str() << endl;
+
+		string sub3 = s1.substr(6);
+		cout << sub3.c_str() << endl;
+
+		string s2("hello ldwxxxxxxxxxxxxxxxxxxx");
+		s1 = s2;
+		cout << s1.c_str() << endl;
+		cout << s2.c_str() << endl;
+
+		s1 = s1;
+		cout << s1.c_str() << endl;
+	}
+
+	void test_string6()
+	{
+		string s1("hello world");
+		string s2("hello dw");
+
+		cout << s1 << endl;
+		cout << s2 << endl;
+
+		string s3;
+		cin >> s3;
+		cout << s3 << endl;
+		
+		cin >> s1 >> s2;
+		cout << s1 << endl;
+		cout << s2 << endl;
+
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

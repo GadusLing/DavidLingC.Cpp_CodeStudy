@@ -395,7 +395,10 @@ int main()
 {
 	//LDWT::test_string1();
 	//LDWT::test_string2();
-	LDWT::test_string3();
+	//LDWT::test_string3();
+	//LDWT::test_string4();
+	//LDWT::test_string5();
+	LDWT::test_string6();
 
 	return 0;
 }
