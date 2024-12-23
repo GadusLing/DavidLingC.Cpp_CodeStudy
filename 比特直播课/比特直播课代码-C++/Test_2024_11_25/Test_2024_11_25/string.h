@@ -62,7 +62,6 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 			//erase();//µ÷Ò»ÏÂerase¾ÍĞĞÁË
 			_str[0] = '\0';//×Ô¼ºĞ´Ò²ºÜ¼òµ¥
 			_size = 0;
-
 		}
 
 		void reserve(size_t n);
@@ -122,6 +121,8 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 	//Á÷²åÈëºÍÁ÷ÌáÈ¡,ÖØÔØÎªÈ«¾Ö¼ÇµÃ
 	ostream& operator<<(ostream& out, const string& s);
 	ostream& operator>>(ostream& out, string& s);
+
+	istream& getline(istream& in, string& s, char delim = '\n');
 
 
 	void test_string1();

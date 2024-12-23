@@ -59,6 +59,7 @@ namespace LDWT
 	{
 		if (n > _capacity)
 		{
+			cout << "reserve:" << n << endl;
 			char* tmp = new char[n + 1];
 			strcpy(tmp, _str);
 			delete[] _str;
@@ -133,7 +134,7 @@ namespace LDWT
 		//	--end;//end 向前移动。
 		//}
 
-		int end = _size + n;
+		size_t end = _size + n;
 		while (end > pos + n - 1)//防止越界问题
 		{
 			_str[end] = _str[end - n];
@@ -294,18 +295,60 @@ namespace LDWT
 	istream& operator>>(istream& in, string& s) //流提取
 	{
 		s.clear();
+
+		const size_t N = 1024;
+		char buff[N];//开一段缓冲区,避免短串浪费空间,而长串也会从大基数开始增容,避免频繁增容
+		int i = 0;
 		char ch;
-		//in >> ch; //std::cin 和 scanf 的行为类似,在默认情况下会自动跳过空格、换行符以及其他空白字符,所以这里不能用>>
-		ch = in.get();
+		//in >> ch; //std::cin 和 scanf 的行为类似,在默认情况下会自动跳过空格、换行符以及其他空白字符,导致读不到终止符不能终止程序,所以这里不能用>>
+		ch = in.get();//用get会一个一个字符的去读,所以就能读到终止符了
 		while (ch != ' ' && ch != '\n')
 		{
-			s += ch;
-			//in >> ch;
+			buff[i++] = ch;
+			if (i == N - 1)
+			{
+				buff[i] = '\0';
+				s += buff;
+				i = 0;
+			}
 			ch = in.get();
+		}
+		if (i > 0)
+		{
+			buff[i] = '\0';
+			s += buff;
 		}
 		return in;
 	}
 
+	istream& getline(istream& in, string& s, char delim)
+	{
+		s.clear();
+
+		const size_t N = 1024;
+		char buff[N];
+		int i = 0;
+		char ch;
+		ch = in.get();
+		while (ch != delim)//这里终止符缺省是\n,由于get是一个字符一个字符去读,所以\n会被拆成\和n,此时就能在控制台打印出来的,但如果回车
+			//就会被视做\n换行符
+		{
+			buff[i++] = ch;
+			if (i == N - 1)
+			{
+				buff[i] = '\0';
+				s += buff;
+				i = 0;
+			}
+			ch = in.get();
+		}
+		if (i > 0)
+		{
+			buff[i] = '\0';
+			s += buff;
+		}
+		return in;
+	}
 
 
 	void test_string1()
@@ -424,22 +467,27 @@ namespace LDWT
 
 	void test_string6()
 	{
-		string s1("hello world");
-		string s2("hello dw");
+		//string s1("hello world");
+		//string s2("hello dw");
 
-		cout << s1 << endl;
-		cout << s2 << endl;
+		//cout << s1 << endl;
+		//cout << s2 << endl;
 
-		string s3;
-		cin >> s3;
-		cout << s3 << endl;
+		//string s3;
+		//cin >> s3;
+		//cout << s3 << endl;
 		
+		string s1, s2;
 		cin >> s1 >> s2;
 		cout << s1 << endl;
 		cout << s2 << endl;
 
+		string s3;
+		//getline(cin, s3,'\n');
+		getline(cin, s3, '!');
+		cout << s3 << endl;
+
 	}
-	
 }
 
 
