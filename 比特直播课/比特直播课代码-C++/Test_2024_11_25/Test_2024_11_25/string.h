@@ -43,6 +43,8 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 			//	,_capacity(0)//_capacity: µ±Ç°×Ö·û´®·ÖÅäµÄ´æ´¢¿Õ¼ä´óĞ¡¡£
 			//{}
 
+		void swap(string& s);
+
 		string(const char* str = "");//È«È±Ê¡
 		string(size_t n, char ch);
 
@@ -51,9 +53,10 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 			return _str;//·µ»Ø _str µÄµØÖ·£¬¹©Íâ²¿·ÃÎÊ×Ö·û´®ÄÚÈİ¡£
 		}
 
-		string(const string& s);
+		string(const string& s);//¿½±´
 
-		string& operator=(const string& s);
+		//string& operator=(const string& s);
+		string& operator=(string s);//¸ü¼ò½àµÄÏÖ´úĞ´·¨
 
 		~string();
 
@@ -111,9 +114,9 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 
 	private:
 		//ÉùÃ÷
-		char* _str;
-		size_t _size;
-		size_t _capacity;
+		char* _str = nullptr;
+		size_t _size = 0;
+		size_t _capacity = 0;
 
 		const static size_t npos;
 	};
@@ -131,6 +134,7 @@ namespace LDWT//´´½¨Ò»¸öÃüÃû¿Õ¼ä LDWT£¬ÓÃÓÚ½«ÄÚ²¿´úÂëÓëÆäËû´úÂë¸ôÀë£¬·ÀÖ¹ÃüÃû³åÍ
 	void test_string4();
 	void test_string5();
 	void test_string6();
+	void test_string7();
 
 
 }

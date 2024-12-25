@@ -25,27 +25,51 @@ namespace LDWT
 		strcpy(_str, str);//使用 strcpy 将字符串内容从 str 复制到 _str。
 	}
 
-	string::string(const string& s)//拷贝构造
+	//string::string(const string& s)//拷贝构造,传统写法
+	//{
+	//	_str = new char[s._capacity + 1];
+	//	strcpy(_str, s._str);
+	//	_size = s._size;
+	//	_capacity = s._capacity;
+	//}	
+	
+	void string::swap(string& s)//现代写法
 	{
-		_str = new char[s._capacity + 1];
-		strcpy(_str, s._str);
-		_size = s._size;
-		_capacity = s._capacity;
+		std::swap(_str, s._str);//要加std，因为搜索顺序是局部-全局，先搜局部自己调自己参数匹配不上，而我是要用std里面的swap
+		std::swap(_size, s._size);
+		std::swap(_capacity, s._capacity);
 	}
 
-	string& string::operator=(const string& s)//赋值=重载的深拷贝
+	string::string(const string& s)//拷贝构造,现代写法
 	{
-		if (this != &s)//防止一些神人自己给自己赋值,那上来就把自己的空间delete了
-		{
-			delete[] _str;
-			_str = new char[s._capacity + 1];//时刻记住开空间+1哈,因为capacity不包含\0
-			strcpy(_str, s._str);
-			_size = s._size;
-			_capacity = s._capacity;
-		}
+		string tmp(s._str);
+		swap(tmp);
+	}
 
+	//string& string::operator=(const string& s)//赋值  "="重载 的深拷贝
+	//{
+	//	if (this != &s)//防止一些神人自己给自己赋值,那上来就把自己的空间delete了
+	//	{
+	//		//现代写法
+	//		string tmp(s._str);
+	//		swap(tmp);
+
+	//		//传统写法
+	//		//delete[] _str;
+	//		//_str = new char[s._capacity + 1];//时刻记住开空间+1哈,因为capacity不包含\0
+	//		//strcpy(_str, s._str);
+	//		//_size = s._size;
+	//		//_capacity = s._capacity;
+	//	}
+	//	return *this;
+	//}	
+	
+	string& string::operator=(string s)//更简洁的赋值现代写法
+	{//没有用const引用 而是采用传值传参调用拷贝构造的特性来创建临时对象
+		swap(s);
 		return *this;
 	}
+
 
 	string::~string()
 	{
@@ -486,8 +510,22 @@ namespace LDWT
 		//getline(cin, s3,'\n');
 		getline(cin, s3, '!');
 		cout << s3 << endl;
+	}
+	void test_string7()
+	{
+		string s1("111111111111");
+		string s2(s1);
+		cout << s1 << endl;
+		cout << s2 << endl;
+
+		const string s3("2222222222222222222222222");
+		s1 = s3;
+		cout << s3 << endl;
+		cout << s1 << endl;
+
 
 	}
+
 }
 
 

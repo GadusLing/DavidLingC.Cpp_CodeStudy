@@ -398,7 +398,8 @@ int main()
 	//LDWT::test_string3();
 	//LDWT::test_string4();
 	//LDWT::test_string5();
-	LDWT::test_string6();
+	//LDWT::test_string6();
+	LDWT::test_string7();
 
 	return 0;
 }
