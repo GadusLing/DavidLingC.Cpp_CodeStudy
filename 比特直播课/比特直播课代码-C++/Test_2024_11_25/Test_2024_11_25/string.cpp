@@ -70,7 +70,6 @@ namespace LDWT
 		return *this;
 	}
 
-
 	string::~string()
 	{
 		delete[] _str;
