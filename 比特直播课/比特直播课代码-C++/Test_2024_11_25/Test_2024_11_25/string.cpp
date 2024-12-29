@@ -522,6 +522,10 @@ namespace LDWT
 		cout << s3 << endl;
 		cout << s1 << endl;
 
+		swap(s1, s2);
+		cout << s1 << endl;
+		cout << s2 << endl;
+
 
 	}
 
