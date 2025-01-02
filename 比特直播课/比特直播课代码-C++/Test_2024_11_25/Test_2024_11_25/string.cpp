@@ -510,7 +510,6 @@ namespace LDWT
 		getline(cin, s3, '!');
 		cout << s3 << endl;
 	}
-
 	void test_string7()
 	{
 		string s1("111111111111");

@@ -389,108 +389,17 @@ using namespace std;
 //	return 0;
 //}
 
-//#include"string.h"
-//
-//int main()
-//{
-//	//LDWT::test_string1();
-//	//LDWT::test_string2();
-//	//LDWT::test_string3();
-//	//LDWT::test_string4();
-//	//LDWT::test_string5();
-//	//LDWT::test_string6();
-//	//LDWT::test_string7();
-//
-//	//char a[] = "ABCD";//在内存中观察会发现是41 42 43 44(16进制,对应65 66...)
-//	////差插一个知识点,计算机内存地址为什么要用16进制数来表示?
-//	////最早规定ASCII字符集采用的就是8bit(也就是8个二进制位,后期扩展了,但是基础单位还是8bit)，8bit用2个16进制直接就能表达出来，不管阅读还是存储都比其他进制要方便
-//	//a[0]++;
-//	//cout << a << endl;
-//
-//	char a[] = "大伟";
-//	cout << sizeof(a) << endl;
-//	a[1]++;
-//	cout << a << endl;
-//	a[1]++;
-//	cout << a << endl;
-//	a[3]++;
-//	cout << a << endl;
-//	a[3]++;
-//	cout << a << endl;
-//	//编unicode的时候是把同音的尽量编在一起的,所以某些频闭词比如净网行动的屏蔽就是通过部分码以及周围同音词的组合屏蔽来实现的
-//
-//	wchar_t a1[] = L"大伟";
-//	char16_t a2[] = u"大伟";
-//	char32_t a3[] = U"大伟";
-//	cout << sizeof(a1) << endl;
-//	cout << sizeof(a2) << endl;
-//	cout << sizeof(a3) << endl;
-//
-//	return 0;
-//}
-
-//接下来是vector部分了,先不新建项目了,因为STL的设计有很高的相似性，使用上面也和string的接口大差不差，在这一章节将就一下
-#include <vector>
-
-//int main()
-//{
-//	vector<int> v1;
-//	vector<int> v2(10, 1);
-//	vector<int> v3 = { 10,20,30,40,50 };//取花括号内的值然后push_back
-//
-//	v1.push_back(1);
-//	v1.push_back(2);
-//	v1.push_back(3);
-//
-//	for (size_t i = 0; i < v1.size(); i++)
-//	{
-//		cout << v1[i] << " ";
-//	}
-//	cout << endl;
-//
-//	vector<int>::iterator it1 = v1.begin();
-//	while (it1 != v1.end())
-//	{
-//		cout << *it1 << " ";
-//		++it1;
-//	}
-//	cout << endl;
-//
-//	for (auto e : v3)
-//	{
-//		cout << e << " ";
-//	}
-//	cout << endl;
-// 
-//	return 0;
-//}
+#include"string.h"
 
 int main()
 {
-	vector<int> v1 = { 10,20,30,40,50 };
-
-	v1.insert(v1.begin(), 1);
-
-	for (auto e : v1)
-	{
-		cout << e << " ";
-	}
-	cout << endl;
-
-	v1.insert(v1.begin() + 3, 1);//为什么不用支持下标插入?因为在迭代器上+就行了
-
-	for (auto e : v1)
-	{
-		cout << e << " ";
-	}
-	cout << endl;
-
-	vector<char> v2 = { 'a','b','c' };
-	string s1("abc");
-	//std::vector<char> 和 std::string 的区别：
-	//std::string 结尾有空字符（'\0'）,并且自动处理了,通常在与 C 接口交互时使用（如传递 C 风格字符串）
-	//std::vector<char> 是一个通用的容器,但不支持字符的流插入流提取
-	//std::string 提供了许多处理字符串的专用接口（例如查找、拼接等），因此在处理文本时更为方便。
+	//LDWT::test_string1();
+	//LDWT::test_string2();
+	//LDWT::test_string3();
+	//LDWT::test_string4();
+	//LDWT::test_string5();
+	//LDWT::test_string6();
+	LDWT::test_string7();
 
 	return 0;
 }
