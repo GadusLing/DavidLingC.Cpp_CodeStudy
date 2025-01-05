@@ -113,8 +113,6 @@ void SelectSort(int* a, int n)
 
 
 // 堆排序
-
-
 void AdjustDwon(int* a, int n, int root)
 {
 	//堆排序核心即交换父节点与子节点的中较大（小）的值，以构成大（小）堆
@@ -157,7 +155,9 @@ void HeapSort(int* a, int n)
 	}
 }
 
+
 // 快速排序递归实现
+
 // 快速排序hoare版本
 int _PartSort1(int* a, int left, int right)
 {
@@ -245,3 +245,67 @@ void QuickSortNonR(int* a, int left, int right)
 {
 
 }
+
+
+//// C++版实现
+//#include <algorithm>
+//
+//void BubbleSort(std::vector<int>& a) {
+//	for (size_t i = 0; i < a.size() - 1; ++i)
+//		for (size_t j = 0; j < a.size() - 1 - i; ++j)
+//			if (a[j] > a[j + 1]) std::swap(a[j], a[j + 1]);
+//}
+//
+//// 快速排序 Hoare 版本
+//int PartSort1(std::vector<int>& a, int l, int r) {
+//	int p = a[l];
+//	while (l < r) {
+//		while (l < r && a[r] >= p) --r;
+//		a[l] = a[r];
+//		while (l < r && a[l] <= p) ++l;
+//		a[r] = a[l];
+//	}
+//	a[l] = p;
+//	return l;
+//}
+//
+//// 快速排序 挖坑法
+//int PartSort2(std::vector<int>& a, int l, int r) {
+//	int p = a[l], hole = l;
+//	while (l < r) {
+//		while (l < r && a[r] >= p) --r;
+//		a[hole] = a[r]; hole = r;
+//		while (l < r && a[l] <= p) ++l;
+//		a[hole] = a[l]; hole = l;
+//	}
+//	a[hole] = p;
+//	return hole;
+//}
+//
+//// 快速排序 前后指针法
+//int PartSort3(std::vector<int>& a, int l, int r) {
+//	int p = a[r], i = l - 1;
+//	for (int j = l; j < r; ++j)
+//		if (a[j] < p) std::swap(a[++i], a[j]);
+//	std::swap(a[++i], a[r]);
+//	return i;
+//}
+//
+//void QuickSort(std::vector<int>& a, int l, int r) {
+//	if (l < r) {
+//		int p = PartSort3(a, l, r);
+//		QuickSort(a, l, p - 1);
+//		QuickSort(a, p + 1, r);
+//	}
+//}
+//
+//void QuickSortNonR(std::vector<int>& a, int l, int r) {
+//	std::vector<int> s(r - l + 1); int t = -1;
+//	s[++t] = l; s[++t] = r;
+//	while (t >= 0) {
+//		r = s[t--]; l = s[t--];
+//		int p = PartSort3(a, l, r);
+//		if (p - 1 > l) { s[++t] = l; s[++t] = p - 1; }
+//		if (p + 1 < r) { s[++t] = p + 1; s[++t] = r; }
+//	}
+//}
