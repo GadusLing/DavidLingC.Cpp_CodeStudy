@@ -159,68 +159,65 @@ void HeapSort(int* a, int n)
 // 快速排序递归实现
 
 // 快速排序hoare版本
-int _PartSort1(int* a, int left, int right)
+int PartSort1(int* a, int left, int right) // 找基准值函数
 {
-	int key = left;//设数组首元素为基准值
-	++left;//从首元素后一个数开始遍历
-	while (left <= right)
+	int key = left; // 设数组首元素为基准值
+	++left; // 从首元素后一个数开始遍历
+	while (left <= right) // 当左指针小于等于右指针时
 	{
-		while (left <= right && a[right] > a[key])
+		while (left <= right && a[right] > a[key]) // 从右边找比基准值小的元素
 		{
-			right--;
+			right--; // 右指针左移
 		}
 
-		while (left <= right && a[left] < a[key])
+		while (left <= right && a[left] < a[key]) // 从左边找比基准值大的元素
 		{
-			left++;
+			left++; // 左指针右移
 		}
 
-		if (left <= right)
+		if (left <= right) // 如果左指针小于等于右指针，交换左右指针所指的元素
 		{
 			Swap(&a[left++], &a[right--]);
 		}
 	}
-	Swap(&a[key], &a[right]);
-	return right;
-}
-
-int PartSort1(int* a, int left, int right)
-{
-	if (left >= right)//在遍历过程中left会持续++，right会持续--，left从左找比基准值大，right从右找比基准值小，相互交换
-	{
-		return;
-	}
-	int key = _PartSort1(a, left, right);//找基准值
-	PartSort1(a, left, key - 1);
-	PartSort1(a, key + 1, right);
-
-
+	Swap(&a[key], &a[right]); // 将基准值和右指针指向的元素交换
+	return right; // 返回基准值所在的位置
 }
 
 // 快速排序挖坑法
 int PartSort2(int* a, int left, int right)
 {
+	// 初始化坑的位置，坑的位置从left开始，a[hole]是当前的基准值
 	int hole = left;
-	int key = a[hole];
+	int key = a[hole];  // 基准值，选取左边界元素作为基准值
 
+	// 遍历直到左右指针相遇
 	while (left < right)
 	{
+		// 从右边开始寻找一个小于基准值的元素，找到后放到洞的位置
 		while (left < right && a[right] > key)
 		{
-			right--;
+			right--;// 没找到比基准值小的，继续左移去找
 		}
-		a[hole] = a[right];
-		hole = right;
+		a[hole] = a[right];  // 把找到的右边小于基准值的元素放入“坑”位置
+		hole = right;  // 更新当前右标为新坑的位置
+
+		// 从左边开始寻找一个大于基准值的元素，找到后放到坑的位置
 		while (left < right && a[left] < key)
 		{
-			left++;
+			left++;  // 没找到比基准值大的，继续右移去找
 		}
-		a[hole] = a[left];
-		hole = left;
+		a[hole] = a[left];  // 把找到的左边大于基准值的元素放入“坑”位置
+		hole = left;  // 更新坑的位置
 	}
+
+	// 当左右指针相遇时，表示已经左小右大排完了，只有最终的一个坑位了，填入一开始记录的基准值key
 	a[hole] = key;
+
+	// 返回分区点（基准值所在位置）
 	return hole;
 }
+
 
 // 快速排序前后指针法(lomuto)
 int PartSort3(int* a, int left, int right)
@@ -240,6 +237,18 @@ int PartSort3(int* a, int left, int right)
 	return prev;
 }
 
+void QuickSort(int* a, int left, int right) // hoare版本的快速排序
+{
+	if (left >= right) // 如果左指针大于等于右指针，说明已经没有元素需要排序，递归结束
+	{
+		return;
+	}
+	int key = PartSort2(a, left, right); // 调用partSort函数得到基准值的最终位置
+	QuickSort(a, left, key - 1); // 对左边的子数组进行递归排序
+	QuickSort(a, key + 1, right); // 对右边的子数组进行递归排序
+	//看起来是不是很像二叉树的前序遍历————根左右，这就是分治法
+}
+
 // 快速排序 非递归实现
 void QuickSortNonR(int* a, int left, int right)
 {
@@ -247,65 +256,3 @@ void QuickSortNonR(int* a, int left, int right)
 }
 
 
-//// C++版实现
-//#include <algorithm>
-//
-//void BubbleSort(std::vector<int>& a) {
-//	for (size_t i = 0; i < a.size() - 1; ++i)
-//		for (size_t j = 0; j < a.size() - 1 - i; ++j)
-//			if (a[j] > a[j + 1]) std::swap(a[j], a[j + 1]);
-//}
-//
-//// 快速排序 Hoare 版本
-//int PartSort1(std::vector<int>& a, int l, int r) {
-//	int p = a[l];
-//	while (l < r) {
-//		while (l < r && a[r] >= p) --r;
-//		a[l] = a[r];
-//		while (l < r && a[l] <= p) ++l;
-//		a[r] = a[l];
-//	}
-//	a[l] = p;
-//	return l;
-//}
-//
-//// 快速排序 挖坑法
-//int PartSort2(std::vector<int>& a, int l, int r) {
-//	int p = a[l], hole = l;
-//	while (l < r) {
-//		while (l < r && a[r] >= p) --r;
-//		a[hole] = a[r]; hole = r;
-//		while (l < r && a[l] <= p) ++l;
-//		a[hole] = a[l]; hole = l;
-//	}
-//	a[hole] = p;
-//	return hole;
-//}
-//
-//// 快速排序 前后指针法
-//int PartSort3(std::vector<int>& a, int l, int r) {
-//	int p = a[r], i = l - 1;
-//	for (int j = l; j < r; ++j)
-//		if (a[j] < p) std::swap(a[++i], a[j]);
-//	std::swap(a[++i], a[r]);
-//	return i;
-//}
-//
-//void QuickSort(std::vector<int>& a, int l, int r) {
-//	if (l < r) {
-//		int p = PartSort3(a, l, r);
-//		QuickSort(a, l, p - 1);
-//		QuickSort(a, p + 1, r);
-//	}
-//}
-//
-//void QuickSortNonR(std::vector<int>& a, int l, int r) {
-//	std::vector<int> s(r - l + 1); int t = -1;
-//	s[++t] = l; s[++t] = r;
-//	while (t >= 0) {
-//		r = s[t--]; l = s[t--];
-//		int p = PartSort3(a, l, r);
-//		if (p - 1 > l) { s[++t] = l; s[++t] = p - 1; }
-//		if (p + 1 < r) { s[++t] = p + 1; s[++t] = r; }
-//	}
-//}

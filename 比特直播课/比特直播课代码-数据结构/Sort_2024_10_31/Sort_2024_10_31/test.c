@@ -17,11 +17,11 @@ int main()
     int n = sizeof(arr) / sizeof(arr[0]);
 
     //Ã°ÅÝ:
-    printf("Array before sorting: ");
-    PrintArray(arr, n);
-    BubbleSort(arr, n);
-    printf("Array after sorting: ");
-    PrintArray(arr, n);
+    //printf("Array before sorting: ");
+    //PrintArray(arr, n);
+    //BubbleSort(arr, n);
+    //printf("Array after sorting: ");
+    //PrintArray(arr, n);
 
 
     ////Ï£¶û:
@@ -30,6 +30,13 @@ int main()
     //ShellSort(arr, n);
     //printf("Array after sorting: ");
     //PrintArray(arr, n);
+
+    //¿ìËÙÅÅÐò
+    //hoare°æ±¾
+    QuickSort(arr, 0, n - 1);
+    printf("Array after sorting: ");
+    PrintArray(arr, n);
+
 
     return 0;
 }
