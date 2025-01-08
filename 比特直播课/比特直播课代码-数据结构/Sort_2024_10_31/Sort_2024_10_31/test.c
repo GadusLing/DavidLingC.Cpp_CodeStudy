@@ -31,11 +31,16 @@ int main()
     //printf("Array after sorting: ");
     //PrintArray(arr, n);
 
-    //快速排序
-    //hoare版本
-    QuickSort(arr, 0, n - 1);
+    ////快速排序递归三方法
+    //QuickSort(arr, 0, n - 1);
+    //printf("Array after sorting: ");
+    //PrintArray(arr, n);
+
+    //快速排序非递归
+    QuickSortNonR(arr, n);
     printf("Array after sorting: ");
     PrintArray(arr, n);
+
 
 
     return 0;

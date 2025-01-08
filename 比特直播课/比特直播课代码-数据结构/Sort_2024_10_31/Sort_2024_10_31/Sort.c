@@ -218,24 +218,28 @@ int PartSort2(int* a, int left, int right)
 	return hole;
 }
 
-
-// 快速排序前后指针法(lomuto)
+// 快速排序前后指针法 (Lomuto)
 int PartSort3(int* a, int left, int right)
 {
-	//双指针法
+	// prev指针指向已排序部分的最后一个元素
+	// cur指针用于扫描未排序部分
+	// key是当前选定的基准元素，初始为left位置
 	int prev = left, cur = prev + 1;
 	int key = left;
 	while (cur <= right)
 	{
+		// 若当前元素小于基准元素，并且prev指针不等于cur指针，则交换
 		if (a[cur] < a[key] && ++prev != cur)
 		{
 			Swap(&a[cur], &a[prev]);
 		}
-		++cur;
+		++cur;  // 移动cur指针继续扫描
 	}
+	// 将基准元素放到正确位置
 	Swap(&a[prev], &a[key]);
-	return prev;
+	return prev;  // 返回基准元素的位置
 }
+
 
 void QuickSort(int* a, int left, int right) // hoare版本的快速排序
 {
@@ -243,16 +247,72 @@ void QuickSort(int* a, int left, int right) // hoare版本的快速排序
 	{
 		return;
 	}
-	int key = PartSort2(a, left, right); // 调用partSort函数得到基准值的最终位置
+	int key = PartSort3(a, left, right); // 调用partSort函数得到基准值的最终位置
 	QuickSort(a, left, key - 1); // 对左边的子数组进行递归排序
 	QuickSort(a, key + 1, right); // 对右边的子数组进行递归排序
 	//看起来是不是很像二叉树的前序遍历————根左右，这就是分治法
 }
 
-// 快速排序 非递归实现
-void QuickSortNonR(int* a, int left, int right)
+// 快速排序 非递归实现,借助 栈 结构
+typedef struct 
 {
+	int left, right;
+} StackFrame;//定义一个类型用来存左右下标，一个StackFrame代表一个需要排序的区间
 
+void QuickSortNonR(int* a, int n) 
+{
+	// 动态分配栈内存
+	StackFrame* stack = (StackFrame*)malloc(n * sizeof(StackFrame));
+	if (!stack) 
+	{
+		printf("内存分配失败!\n");
+		return;
+	}
+
+	int top = -1;  // 栈顶指针，设置为-1代表指向栈顶，设置为0代表指向栈顶下一个空位置，有问题自己复习一下栈
+
+	// 初始化栈，推入初始区间
+	stack[++top] = (StackFrame){ 0, n - 1 };
+	//(StackFrame) { 0, n - 1 } 是一个结构体初始化的语法;stackFrame 是结构体类型，具有两个成员变量 low 和 high
+	//{0, n - 1} 是一个初始化列表，表示将 low 初始化为 0，将 high 初始化为 n - 1
+	//可以理解成
+	/*StackFrame initialFrame;
+	initialFrame.low = 0;
+	initialFrame.high = n - 1;
+	stack[++top] = initialFrame;*/
+
+	while (top >= 0) //若栈不为空则进入循环
+	{
+		StackFrame current = stack[top--];// 取栈顶存的StackFrame，即现在要排序的那个区间赋给新创建的current，待会儿用来排序，然后弹出栈顶
+		int left = current.left;//从刚刚得到的current数据里面获取用于排序的左右指针
+		int right = current.right;
+
+		int prev = left, cur = prev + 1;// 用Lomuto双指针进行基准值的排序
+		int key = left;
+		while (cur <= right)
+		{
+			// 若当前元素小于基准元素，并且prev指针不等于cur指针，则交换
+			if (a[cur] < a[key] && ++prev != cur)
+			{
+				Swap(&a[cur], &a[prev]);
+			}
+			++cur;  // 移动cur指针继续扫描
+		}
+		// 将基准元素放到正确位置
+		Swap(&a[prev], &a[key]);
+
+		// 将右侧区间和左侧区间继续推入栈中,实际上就是用栈来模拟递归中，需要排序区间被无限拆分成更小的过程
+		// 若没有更小的区间就不入栈，这样把栈清空，就代表整齐的排完了所有数据
+		if (key + 1 < right)
+		{
+			stack[++top] = (StackFrame){ key + 1, right };
+		}
+		if (key - 1 > left) 
+		{
+			stack[++top] = (StackFrame){ left, key - 1 };
+		}
+
+	}
+	// 释放栈内存
+	free(stack);
 }
-
-
