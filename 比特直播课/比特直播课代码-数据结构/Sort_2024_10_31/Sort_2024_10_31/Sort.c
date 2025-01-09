@@ -318,3 +318,23 @@ void QuickSortNonR(int* a, int n)
 	// ÊÍ·ÅÕ»ÄÚ´æ
 	free(stack);
 }
+
+//¹é²¢ÅÅÐò µÝ¹éÊµÏÖ
+void Divide(int* a, int left, int right)
+{
+	if (left >= right)
+	{
+		return;
+	}
+	int mid = (left + right) / 2;
+	Divide(a, left, mid);
+	Divide(a, mid + 1, right);
+}
+
+
+void mergeSort(int* a, int n)
+{
+
+
+
+}
