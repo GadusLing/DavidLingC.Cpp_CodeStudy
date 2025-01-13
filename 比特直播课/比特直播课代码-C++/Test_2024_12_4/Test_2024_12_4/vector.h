@@ -74,6 +74,14 @@ namespace LDW
 			++_finish;
 		}
 
+		void pop_back()
+		{
+			assert(_finish > _start);
+			++_finish;
+		}
+
+
+
 	private:
 		iterator _start;
 		iterator _finish;
