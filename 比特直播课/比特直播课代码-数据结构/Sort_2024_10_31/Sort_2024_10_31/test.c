@@ -36,11 +36,20 @@ int main()
     //printf("Array after sorting: ");
     //PrintArray(arr, n);
 
-    //快速排序非递归
-    QuickSortNonR(arr, n);
+    ////快速排序非递归
+    //QuickSortNonR(arr, n);
+    //printf("Array after sorting: ");
+    //PrintArray(arr, n);
+
+    ////归并排序 递归
+    //mergeSort(arr, n);
+    //printf("Array after sorting: ");
+    //PrintArray(arr, n);
+
+    //归并排序 非递归
+    mergeSortNonR(arr, n);
     printf("Array after sorting: ");
     PrintArray(arr, n);
-
 
 
     return 0;

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <string.h>
 
 
 //冒泡排序
@@ -34,3 +35,9 @@ void QuickSort(int* a, int left, int right);
 
 // 快速排序 非递归实现
 void QuickSortNonR(int* a, int n);
+
+// 归并排序 递归实现
+void mergeSort(int* a, int n);
+
+// 归并排序 非递归实现
+void mergeSortNonR(int* a, int n);

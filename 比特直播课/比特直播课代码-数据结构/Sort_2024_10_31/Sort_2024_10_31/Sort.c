@@ -195,7 +195,7 @@ int PartSort2(int* a, int left, int right)
 	while (left < right)
 	{
 		// 从右边开始寻找一个小于基准值的元素，找到后放到洞的位置
-		while (left < right && a[right] > key)
+		while (left < right && a[right] >= key)// 注意要>=，如果=也交换的话，若头尾数据一样会死循环，下面找小也是一样的道理
 		{
 			right--;// 没找到比基准值小的，继续左移去找
 		}
@@ -203,7 +203,7 @@ int PartSort2(int* a, int left, int right)
 		hole = right;  // 更新当前右标为新坑的位置
 
 		// 从左边开始寻找一个大于基准值的元素，找到后放到坑的位置
-		while (left < right && a[left] < key)
+		while (left < right && a[left] <= key)
 		{
 			left++;  // 没找到比基准值大的，继续右移去找
 		}
@@ -320,21 +320,124 @@ void QuickSortNonR(int* a, int n)
 }
 
 //归并排序 递归实现
-void Divide(int* a, int left, int right)
+void Divide(int* a, int left, int right, int* tmp)
 {
-	if (left >= right)
+	if (left >= right)// 递归返回条件，当分后的数组只剩一个数据则返回递归
+		//这里写成>=是因为虽然在数理上，不断二分的情况下left理论上只会无限接近right直至向下取整为==，但是在开发中不排除传参错误的情况
+		//所以>=会有更好的健壮性
 	{
 		return;
 	}
-	int mid = (left + right) / 2;
-	Divide(a, left, mid);
-	Divide(a, mid + 1, right);
-}
+	int mid = left + (right - left) / 2;// 数组二分，会向下取整，所以兼容奇数情况，这种写法防止数据溢出
+	Divide(a, left, mid, tmp);// 递归对左侧数据继续二分
+	Divide(a, mid + 1, right, tmp);// 对右侧数据二分
 
+	// 分至只剩一个数据，开始排序合并往回归
+	int begin1 = left, end1 = mid;
+	int begin2 = mid + 1, end2 = right;
+	int index = begin1;
+	while (begin1 <= end1 && begin2 <= end2)
+	{
+		if (a[begin1] <= a[begin2])// 这里用<=相比于<更具稳定性，相等的元素位置会保持原本的相对位置
+		{
+			tmp[index++] = a[begin1++];
+		}
+		else
+		{
+			tmp[index++] = a[begin2++];
+		}
+	}
+	// 将比较后剩余的数据放入tmp
+	while (begin1 <= end1)
+	{
+		tmp[index++] = a[begin1++];
+	}
+	while (begin2 <= end2)
+	{
+		tmp[index++] = a[begin2++];
+	}
+	// 将tmp保存的有序数据拷贝到原数组 用memcpy也行
+	//for (int i = left; i <= right; i++)
+	//{
+	//	a[i] = tmp[i];
+	//}
+	memcpy(a + left, tmp + left, sizeof(int) * (right - left + 1));
+}
 
 void mergeSort(int* a, int n)
 {
-
-
-
+	int* tmp = (int*)malloc(sizeof(int) * n);
+	if (!tmp)
+	{
+		perror("malloc fail\n");
+		exit(1);
+	}
+	Divide(a, 0, n - 1, tmp);
+	free(tmp);
 }
+
+
+// 归并排序 非递归实现
+void mergeSortNonR(int* a, int n) 
+{
+	int* tmp = (int*)malloc(sizeof(int) * n);
+	if (!tmp) 
+	{
+		perror("malloc fail\n");
+		exit(1);
+	}
+
+	int gap = 1;
+	while (gap < n) 
+	{
+		// 根据 gap 划分组，两两合并
+		for (int i = 0; i < n; i += 2 * gap) 
+		{
+			int begin1 = i;
+			int end1 = (i + gap - 1 < n - 1) ? i + gap - 1 : n - 1;//右序列不满gap个
+			int begin2 = i + gap;
+			int end2 = (i + 2 * gap - 1 < n - 1) ? i + 2 * gap - 1 : n - 1;
+
+			if (begin2 >= n) // 没有右序列
+			{
+				// 如果第二个子序列越界，跳过本次合并
+				break;
+			}
+
+			int index = begin1;
+			// 两个有序子序列合并
+			while (begin1 <= end1 && begin2 <= end2) 
+			{
+				if (a[begin1] <= a[begin2]) 
+				{
+					tmp[index++] = a[begin1++];
+				}
+				else 
+				{
+					tmp[index++] = a[begin2++];
+				}
+			}
+			while (begin1 <= end1) 
+			{
+				tmp[index++] = a[begin1++];
+			}
+			while (begin2 <= end2) 
+			{
+				tmp[index++] = a[begin2++];
+			}
+
+			// 拷贝合并后的结果回原数组
+			int copyLength = end2 - i + 1;
+			memcpy(a + i, tmp + i, sizeof(int) * copyLength);
+		}
+		gap *= 2;
+	}
+	free(tmp);
+}
+
+
+
+
+
+
+//计数排序（哈希的原理）
