@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_19\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B39ECF1-6E6D-48AB-89CF-3EB09317FE45}|Test_2024_11_19\\Test_2024_11_19.vcxproj|E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_19\\Test_2024_11_19\\Test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0B39ECF1-6E6D-48AB-89CF-3EB09317FE45}|Test_2024_11_19\\Test_2024_11_19.vcxproj|solutionrelative:Test_2024_11_19\\Test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Test.cpp",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_19\\Test_2024_11_19\\Test.cpp",
+              "RelativeDocumentMoniker": "Test_2024_11_19\\Test.cpp",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_19\\Test_2024_11_19\\Test.cpp",
+              "RelativeToolTip": "Test_2024_11_19\\Test.cpp",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAAAKAAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-28T07:11:35.43Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
