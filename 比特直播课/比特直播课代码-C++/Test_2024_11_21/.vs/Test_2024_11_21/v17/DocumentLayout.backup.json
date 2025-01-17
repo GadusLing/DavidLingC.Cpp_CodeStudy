@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_21\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7D6B3FDE-C950-4B9A-9E53-C1C2A10DC89F}|Test_2024_11_21\\Test_2024_11_21.vcxproj|D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_21\\Test_2024_11_21\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7D6B3FDE-C950-4B9A-9E53-C1C2A10DC89F}|Test_2024_11_21\\Test_2024_11_21.vcxproj|solutionrelative:Test_2024_11_21\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test.cpp",
+              "DocumentMoniker": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_21\\Test_2024_11_21\\test.cpp",
+              "RelativeDocumentMoniker": "Test_2024_11_21\\test.cpp",
+              "ToolTip": "D:\\DavidLingC_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_21\\Test_2024_11_21\\test.cpp",
+              "RelativeToolTip": "Test_2024_11_21\\test.cpp",
+              "ViewState": "AgIAAGgBAAAAAAAAAAAAAG4BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-02T05:10:44.07Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

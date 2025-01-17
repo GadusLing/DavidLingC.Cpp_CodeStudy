@@ -1,2 +1,3 @@
 ﻿  Test.cpp
-  Test_2024_11_19.vcxproj -> E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_19\x64\Debug\Test_2024_11_19.exe
+D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_19\Test_2024_11_19\Test.cpp(329,42): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  Test_2024_11_19.vcxproj -> D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_19\x64\Debug\Test_2024_11_19.exe

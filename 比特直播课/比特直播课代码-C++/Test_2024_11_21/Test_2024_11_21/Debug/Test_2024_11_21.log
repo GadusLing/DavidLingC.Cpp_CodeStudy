@@ -1,21 +1,2 @@
 ﻿  test.cpp
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244: “return”: 从“T2”转换到“T1”，可能丢失数据
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         with
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         [
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:             T2=double
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         ]
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         and
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         [
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:             T1=int
-E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14): warning C4244:         ]
-  E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(334,14):
-  模板实例化上下文(最早的实例化上下文)为
-  	E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Test_2024_11_21\test.cpp(341,2):
-  	查看对正在编译的函数 模板 实例化“T1 Add<int,double>(T1,T2)”的引用
-          with
-          [
-              T1=int,
-              T2=double
-          ]
-  
-  Test_2024_11_21.vcxproj -> E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Debug\Test_2024_11_21.exe
+  Test_2024_11_21.vcxproj -> D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_21\Debug\Test_2024_11_21.exe
