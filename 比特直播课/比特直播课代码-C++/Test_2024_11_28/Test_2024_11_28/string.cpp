@@ -1,12 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include"string.h"
-using namespace LDW
 
-LDW::string(const char* str)
+namespace LDW
 {
-	
-}
+	string::string(const char* str = "")
+		: _str = new char[strlen(str) + 1];
+		,_capacity;
+		,_size;
 
-string(const string& s)
-{
-	;
 }
