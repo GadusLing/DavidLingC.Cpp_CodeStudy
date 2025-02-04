@@ -436,8 +436,50 @@ void mergeSortNonR(int* a, int n)
 }
 
 
+void CountSort(int* a, int n)
+{
+	if (n <= 0)
+	{
+		return; // 处理空数组或无效输入
+	}
 
+	// 找到数组中的最大值和最小值
+	int min = a[0], max = a[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (a[i] < min)
+		{
+			min = a[i];
+		}
+		if (a[i] > max)
+		{
+			max = a[i];
+		}
+	}
 
+	// 计算数据范围并创建计数数组
+	int range = max - min + 1;
+	int* count = (int*)calloc(range, sizeof(int));//calloc自动置 0 确保计数数组初始全为零, 这样才能正确统计各个数字的出现次数
+	if (!count)
+	{
+		return; // 内存分配失败处理
+	}
 
+	// 统计每个元素出现次数
+	for (int i = 0; i < n; i++)
+	{
+		count[a[i] - min]++;
+	}
 
-//计数排序（哈希的原理）
+	// 根据计数数组重构原数组
+	int index = 0;
+	for (int j = 0; j < range; j++)
+	{
+		while (count[j]--)
+		{
+			a[index++] = j + min;
+		}
+	}
+
+	free(count); // 释放计数数组内存
+}
