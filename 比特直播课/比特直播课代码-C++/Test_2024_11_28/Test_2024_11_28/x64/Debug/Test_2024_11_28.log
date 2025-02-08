@@ -1,0 +1,15 @@
+﻿  test.cpp
+  string.cpp
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.cpp(128,44): error C2572: “LDW::string::resize”: 重定义默认参数 : 参数 1
+  E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.h(50,14):
+  参见“LDW::string::resize”的声明
+  
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.cpp(188,46): error C2572: “LDW::string::find”: 重定义默认参数 : 参数 1
+  E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.h(72,16):
+  参见“LDW::string::find”的声明
+  
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.cpp(192,53): error C2572: “LDW::string::find”: 重定义默认参数 : 参数 1
+  E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2024_11_28\Test_2024_11_28\string.h(73,16):
+  参见“LDW::string::find”的声明
+  
+  正在生成代码...

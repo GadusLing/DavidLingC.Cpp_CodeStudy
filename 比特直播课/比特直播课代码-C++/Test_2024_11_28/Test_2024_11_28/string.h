@@ -3,6 +3,7 @@
 #include <iostream>              // 包含输入输出流头文件
 #include <cstring>               // 包含C标准字符串操作函数，如strlen、strcpy等
 #include <assert.h>
+#include <string.h>
 
 using namespace std;
 
@@ -74,17 +75,19 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         /////////////////////////////////////////////////////////////
 
         // 插入操作
-        string& insert(size_t pos, char c); // 在 pos 位置插入字符 c
+        string& insert(size_t pos, size_t n, char c); // 在 pos 位置插入n个字符 c
         string& insert(size_t pos, const char* str); // 在 pos 位置插入字符串 str
 
         /////////////////////////////////////////////////////////////
 
         // 删除操作
-        string& erase(size_t pos, size_t len); // 从 pos 位置删除 len 个字符,并返回该元素的下一个位置
+        string& erase(size_t pos, size_t len = npos); // 从 pos 位置删除 len 个字符,并返回该元素的下一个位置
 
     private:
         char* _str; // 指向存储字符串的动态数组
         size_t _capacity; // 当前分配的空间大小（包含 null 终止符）
         size_t _size; // 当前字符串的长度（不包含 null 终止符）
+
+        const static size_t npos;
     };
 }

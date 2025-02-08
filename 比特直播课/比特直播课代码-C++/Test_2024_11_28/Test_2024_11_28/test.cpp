@@ -1,7 +1,5 @@
 
 #include"string.h"
-#include <cassert>
-#include <iostream>
 
 using namespace LDW;
 
