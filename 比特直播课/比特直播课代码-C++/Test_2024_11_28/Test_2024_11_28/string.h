@@ -11,10 +11,8 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 {
     class string
     {
-        // 友元函数，重载 << 和 >> 以支持标准输入输出流
         friend ostream& operator<<(ostream& _cout, const string& s);
         friend istream& operator>>(istream& _cin, string& s);
-
     public:
         typedef char* iterator; // 迭代器类型定义，用于遍历字符串
 
@@ -90,4 +88,5 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 
         const static size_t npos;
     };
+    
 }

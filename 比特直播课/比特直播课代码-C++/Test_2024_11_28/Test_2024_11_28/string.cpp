@@ -7,11 +7,14 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
     const size_t string::npos = -1;
 
     // 友元函数，重载 << 和 >> 以支持标准输入输出流
-    ostream& string::operator<<(ostream& _cout, const string& s)
+    ostream& operator<<(ostream& _cout, const string& s)
     {
-
+        for (auto ch : s)
+        {
+            cout << ch;
+        }
     }
-    istream& string::operator>>(istream& _cin, string& s)
+    istream& operator>>(istream& _cin, string& s)
     {
 
     }

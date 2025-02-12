@@ -30,13 +30,17 @@
               "Title": "string.cpp",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_25\\Test_2024_11_25\\string.cpp",
               "RelativeDocumentMoniker": "Test_2024_11_25\\string.cpp",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_25\\Test_2024_11_25\\string.cpp",
-              "RelativeToolTip": "Test_2024_11_25\\string.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAADAAAA",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2024_11_25\\Test_2024_11_25\\string.cpp*",
+              "RelativeToolTip": "Test_2024_11_25\\string.cpp*",
+              "ViewState": "AQIAAPsBAAAAAAAAAAAAANoAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-18T06:34:21.542Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
@@ -48,8 +52,7 @@
               "RelativeToolTip": "Test_2024_11_25\\Test.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-06T09:19:33.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-06T09:19:33.252Z"
             },
             {
               "$type": "Document",
@@ -61,12 +64,7 @@
               "RelativeToolTip": "Test_2024_11_25\\string.h",
               "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-06T09:19:32.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2025-02-06T09:19:32.292Z"
             }
           ]
         }
