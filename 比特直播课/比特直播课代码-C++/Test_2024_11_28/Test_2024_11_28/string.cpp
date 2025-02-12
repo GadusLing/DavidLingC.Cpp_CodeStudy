@@ -6,15 +6,15 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 {
     const size_t string::npos = -1;
 
-    //// 友元函数，重载 << 和 >> 以支持标准输入输出流
-    //ostream& string::operator<<(ostream& _cout, const string& s)
-    //{
+    // 友元函数，重载 << 和 >> 以支持标准输入输出流
+    ostream& string::operator<<(ostream& _cout, const string& s)
+    {
 
-    //}
-    //istream& string::operator>>(istream& _cin, string& s)
-    //{
+    }
+    istream& string::operator>>(istream& _cin, string& s)
+    {
 
-    //}
+    }
     
     string::string(const char* str) // 构造函数，默认构造空字符串 "",缺省写在h声明那边
         :_size(strlen(str))
@@ -34,7 +34,12 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 
     string& string::operator=(const string& s) // 赋值运算符重载
     {
-
+        if (this != &s)
+        {
+            string temp(s);
+            this->swap(temp);
+        }
+        return *this;
     }
 
     string::~string() // 析构函数，释放动态分配的内存
