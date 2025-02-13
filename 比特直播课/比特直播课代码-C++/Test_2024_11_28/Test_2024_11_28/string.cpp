@@ -19,7 +19,8 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 
     }
     
-    string::string(const char* str) // 构造函数，默认构造空字符串 "",缺省写在h声明那边
+    // 构造函数，默认构造空字符串 "",缺省写在h声明那边
+    string::string(const char* str) 
         :_size(strlen(str))
     {
         _capacity = _size;
@@ -27,7 +28,8 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         strcpy(_str, str);
     }
 
-    string::string(const string& s) // 拷贝构造函数
+    // 拷贝构造
+    string::string(const string& s)
         :_size(s._size)
         ,_capacity(s._capacity)
         ,_str(new char[s._capacity + 1])
@@ -35,7 +37,8 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         strcpy(_str, s._str);
     }
 
-    string& string::operator=(const string& s) // 赋值运算符重载
+    // 赋值运算符重载, 用一个string替换原本的字符串
+    string& string::operator=(const string& s) 
     {
         if (this != &s)
         {
@@ -45,14 +48,15 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         return *this;
     }
 
-    string::~string() // 析构函数，释放动态分配的内存
+    // 析构函数，释放动态分配的内存
+    string::~string() 
     {
         delete[] _str;
         _str = nullptr;// 虽然析构之后已经访问不到_str了,但是还是严谨的写比较好
         _size = 0;
         _capacity = 0;
     }
-    //////////////////////////////////////////////////////////////
+
 
     // 迭代器相关函数
     string::iterator string::begin() // 返回指向字符串首字符的迭代器
@@ -64,10 +68,11 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
     {
         return _str + _size;
     }
-    /////////////////////////////////////////////////////////////
+
 
     // 修改字符串的成员函数
-    void string::push_back(char c) // 尾插,在字符串末尾添加字符 c
+    // 尾插,在字符串末尾添加字符 c
+    void string::push_back(char c) 
     {
         if (_size == _capacity)// _size == _capacity则扩容,遵循2倍或1.5扩容都可,看个人习惯
         {
@@ -77,13 +82,14 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         _str[_size] = '\0';// 原本的\0被盖了,补个\0收尾
     }
 
-    string& string::operator+=(char c) // 重载 += 运算符，追加字符 c
+    // 重载 += 运算符，追加字符 c
+    string& string::operator+=(char c) 
     {
         push_back(c);
         return *this;
     }
-
-    void string::append(const char* str) // 追加 C 风格字符串
+    // 追加 C 风格字符串
+    void string::append(const char* str)
     {
         size_t len = strlen(str);
         if (_size + len > _capacity)
@@ -93,52 +99,53 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         strcpy(_str + _size, str);
         _size += len;
     }
-
-    string& string::operator+=(const char* str) // 重载 += 运算符，追加 C 风格字符串
+    // 重载 += 运算符，追加 C 风格字符串
+    string& string::operator+=(const char* str)
     {
         append(str);
         return *this;
     }
-
-    void string::clear() // 清空字符串内容
+    // 清空字符串内容
+    void string::clear()
     {
         _size = 0;
         _str[0] = '\0';
     }
-
-    void string::swap(string& s) // 交换当前字符串与 s 的内容
+    // 交换当前字符串与 s 的内容
+    void string::swap(string& s) 
     {
 
     }
-
-    const char* string::c_str() const // 获取 std::string 内部的 C 风格字符串（char* 类型，包含 \0 结尾）
+    // 获取 std::string 内部的 C 风格字符串（char* 类型，包含 \0 结尾）
+    const char* string::c_str() const
     {
         return _str;// 内部的char*数组就是\0结尾的c风格数组
     }
-    /////////////////////////////////////////////////////////////
+
 
     // 容量管理相关成员函数
-    size_t string::size() const// 返回当前字符串长度
+    // 返回当前字符串长度
+    size_t string::size() const
     {
 
     }
-
-    size_t string::capacity() const // 返回当前字符串容量
+    // 返回当前字符串容量
+    size_t string::capacity() const
     {
 
     }
-
-    bool string::empty() const // 判断字符串是否为空
+    // 判断字符串是否为空
+    bool string::empty() const
     {
 
     }
-
-    void string::resize(size_t n, char c) // 调整字符串size大小，多出的部分用 c 填充
+    // 调整字符串size大小，多出的部分用 c 填充
+    void string::resize(size_t n, char c)
     {
 
     }
-
-    void string::reserve(size_t n) // 预留至少 n 个字符的存储空间，避免频繁扩容, 实际上==扩容
+    // 预留至少 n 个字符的存储空间，避免频繁扩容, 实际上==扩容
+    void string::reserve(size_t n)
     {
         if (n > _capacity)
         {
@@ -150,7 +157,6 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         }
     }
 
-    /////////////////////////////////////////////////////////////
 
     // 访问元素
     char& string::operator[](size_t index) // 重载 [] 运算符，获取 index 位置的字符
@@ -162,35 +168,33 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 
     }
 
-    /////////////////////////////////////////////////////////////
 
     // 关系运算符重载（用于字符串比较）
-    bool string::operator<(const string& s) // 小于运算符
+    bool string::operator<(const string& s)
     {
 
     }
-    bool string::operator<=(const string& s) // 小于等于运算符
+    bool string::operator<=(const string& s)
     {
 
     }
-    bool string::operator>(const string& s) // 大于运算符
+    bool string::operator>(const string& s)
     {
 
     }
-    bool string::operator>=(const string& s) // 大于等于运算符
+    bool string::operator>=(const string& s)
     {
 
     }
-    bool string::operator==(const string& s) // 等于运算符
+    bool string::operator==(const string& s)
     {
 
     }
-    bool string::operator!=(const string& s) // 不等于运算符
+    bool string::operator!=(const string& s)
     {
 
     }
 
-    /////////////////////////////////////////////////////////////
 
     // 查找操作
     size_t string::find(char c, size_t pos = 0) const // 查找字符 c 第一次出现的位置
@@ -202,12 +206,13 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
 
     }
 
-    /////////////////////////////////////////////////////////////
 
     // 插入操作
-    string& string::insert(size_t pos, size_t n, char c) // 在 pos 位置插入n个字符 c
+     // 在 pos 位置插入n个字符 c
+    string& string::insert(size_t pos, size_t n, char c)
     {
         assert(pos <= _size);
+        assert(n > 0);
 
         if (_size + n > _capacity)
         {
@@ -225,17 +230,44 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
             _str[pos + i] = c;
         }
         _size += n;
+        return *this;// 返回自身引用，支持链式调用
     }
 
-    string& string::insert(size_t pos, const char* str) // 在 pos 位置插入字符串 str
+    // 在 pos 位置插入字符串 str
+    string& string::insert(size_t pos, const char* str)
     {
+        assert(pos <= _size);// 确保插入位置合法，pos 不能超过当前字符串长度
+        size_t n = strlen(str);// 获取待插入字符串的长度
 
+        //if (_size + n > _capacity)// 如果当前容量不足以容纳新字符串，扩容
+        //{
+        //    reserve(_size + n);// 扩展容量，使其至少能容纳新字符串
+        //}
+        ////挪动数据
+        //size_t end = _size;// 定义一个变量 end，初始化为当前字符串的大小 _size。end 将指向字符串末尾的 \0 字符
+        //while (end >= pos)// 从原字符串的末尾开始，依次将字符向后移动，以腾出足够的空间来插入新字符串。循环条件是 end 大于等于插入位置 pos。
+        //{
+        //    _str[end + n] = _str[end];// 将字符 _str[end] 复制到位置 end + n，也就是将字符从 end 到 pos 之间的数据挪动 n 个位置。
+        //    --end;// end 向前移动，继续处理下一个字符。
+        //}
+        insert(pos, n, 'x');// 换一种思路,复用上面的insert先都插成x,然后再把要插入的str覆盖上去,少写好多行
+        for (size_t i = 0; i < n; i++)
+        {
+            _str[pos + i] = str[i];
+        }
+        _size += n;
+        return *this;// 返回自身引用，支持链式调用
     }
-    /////////////////////////////////////////////////////////////
 
     // 删除操作
     string& string::erase(size_t pos, size_t len) // 从 pos 位置删除 len 个字符,并返回该元素的下一个位置
     {
+        assert(pos <= _size);// 确保插入位置合法，pos 不能超过当前字符串长度
+        len = pos + len <= _size ? len : _size - pos;// len的边界最多到最后一个字符,输入过大的数字也只会把后面删完就算了
+        for (size_t i = 0; i < len; i++)
+        {
+            _str[pos + i] = _str[pos + i + len];
+        }
 
     }
 }
