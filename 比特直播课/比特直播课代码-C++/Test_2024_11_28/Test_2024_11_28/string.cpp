@@ -264,10 +264,11 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
     {
         assert(pos <= _size);// 确保插入位置合法，pos 不能超过当前字符串长度
         len = pos + len <= _size ? len : _size - pos;// len的边界最多到最后一个字符,输入过大的数字也只会把后面删完就算了
-        for (size_t i = 0; i < len; i++)
+        for (size_t i = 0; pos + i + len < _size; i++)
         {
             _str[pos + i] = _str[pos + i + len];
         }
-
+        _size -= len;
+        return *this;
     }
 }
