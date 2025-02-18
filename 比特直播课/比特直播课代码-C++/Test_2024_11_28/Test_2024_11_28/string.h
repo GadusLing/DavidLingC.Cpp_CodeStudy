@@ -15,11 +15,13 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         friend istream& operator>>(istream& _cin, string& s);
     public:
         typedef char* iterator; // 迭代器类型定义，用于遍历字符串
+        typedef const char* const_iterator; // 迭代器类型定义const版本
 
     public:
         string(const char* str = ""); // 构造函数，默认构造空字符串 ""
         string(const string& s); // 拷贝构造函数
-        string& operator=(const string& s); // 赋值运算符重载
+        //string& operator=(const string& s); // 赋值运算符重载
+        string& operator=(string s);// 现代写法赋值运算符重载,传值传参
         ~string(); // 析构函数，释放动态分配的内存
 
         //////////////////////////////////////////////////////////////
@@ -27,6 +29,8 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         // 迭代器相关函数
         iterator begin(); // 返回指向字符串首字符的迭代器
         iterator end();   // 返回指向字符串末尾（\0）之后的迭代器
+        const_iterator begin() const;
+        const_iterator end() const;
 
         /////////////////////////////////////////////////////////////
 
@@ -79,14 +83,15 @@ namespace LDW // 这里用命名空间，防止和标准库中的 string 产生冲突
         /////////////////////////////////////////////////////////////
 
         // 删除操作
-        string& erase(size_t pos, size_t len = npos); // 从 pos 位置删除 len 个字符,并返回该元素的下一个位置
+        string& erase(size_t pos = 0, size_t len = npos); // 从 pos 位置删除 len 个字符,并返回该元素的下一个位置
 
     private:
-        char* _str; // 指向存储字符串的动态数组
-        size_t _capacity; // 当前分配的空间大小（包含 null 终止符）
-        size_t _size; // 当前字符串的长度（不包含 null 终止符）
+        char* _str = nullptr; // 指向存储字符串的动态数组
+        size_t _capacity = 0; // 当前分配的空间大小（包含 null 终止符）
+        size_t _size = 0; // 当前字符串的长度（不包含 null 终止符）
 
         const static size_t npos;
     };
+
     
 }
