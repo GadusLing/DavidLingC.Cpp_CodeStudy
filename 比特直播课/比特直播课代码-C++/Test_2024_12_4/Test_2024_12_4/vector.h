@@ -70,7 +70,7 @@ namespace LDW
 				reserve(capacity() == 0 ? 4 : capacity() * 2);
 			}
 
-			*_finish = x;
+			*_finish = x;// 解引用_finish, 将 x 的值赋给 _finish 所指向的内存位置
 			++_finish;
 		}
 
@@ -79,8 +79,6 @@ namespace LDW
 			assert(_finish > _start);
 			++_finish;
 		}
-
-
 
 	private:
 		iterator _start;
