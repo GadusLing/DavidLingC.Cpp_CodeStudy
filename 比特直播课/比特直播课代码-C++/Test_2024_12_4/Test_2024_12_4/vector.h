@@ -1,5 +1,6 @@
 #pragma once
 #include<assert.h>
+#include<iostream>
 
 namespace LDW
 {
@@ -8,6 +9,7 @@ namespace LDW
 	{
 	public:
 		typedef T* iterator;
+		typedef const T* const_iterator;
 
 		iterator begin()
 		{
@@ -15,6 +17,16 @@ namespace LDW
 		}
 
 		iterator end()
+		{
+			return _finish;
+		}
+		
+		const_iterator begin() const
+		{
+			return _start;// 从iterator* 变为返回const iterator* 本质是一种权限缩小
+		}
+
+		const_iterator end() const
 		{
 			return _finish;
 		}
@@ -53,6 +65,13 @@ namespace LDW
 			return _start[i];
 		}
 
+		const T& operator[](size_t i) const// const版本只能读不能写，所以需要两份都保留
+		{
+			assert(i < size());
+
+			return _start[i];
+		}
+
 		size_t size() const
 		{
 			return _finish - _start;
@@ -77,7 +96,23 @@ namespace LDW
 		void pop_back()
 		{
 			assert(_finish > _start);
+			--_finish;
+		}
+
+		void insert(iterator pos, cosnt T& x)
+		{
+			if (_finish == _end_of_storage)// 空间满了，需要扩容
+			{
+				reserve(capacity() == 0 ? 4 : capacity() * 2);
+			}
+			while (end >= pos)
+			{
+				*(end + 1) = *end;
+				--end;
+			}
+			*pos = x;
 			++_finish;
+
 		}
 
 	private:
