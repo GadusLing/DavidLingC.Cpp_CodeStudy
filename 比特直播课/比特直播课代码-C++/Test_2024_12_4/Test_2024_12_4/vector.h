@@ -1,6 +1,14 @@
 #pragma once
+
 #include<assert.h>
 #include<iostream>
+#include<iostream>
+#include<vector>
+#include<list>
+#include<string>
+#include<algorithm>
+
+using namespace std;
 
 namespace LDW
 {
@@ -32,10 +40,54 @@ namespace LDW
 		}
 
 		vector()
-			:_start(nullptr)
-			, _finish(nullptr)
-			, _end_of_storage(nullptr)
 		{}
+
+		// 拷贝构造 v2(v1)
+		vector(const vector<T>& v)
+		{
+			/*_start = new T[v.size()];
+			_finish = _start + v.size();
+			_end_of_storage = _start + v.size();
+			for (size_t i = 0; i < v.size(); ++i)
+			{
+				_start[i] = v._start[i];
+			}*/  // 传统拷贝的写法
+
+			reserve(v.size());
+			for (auto e : v)
+			{
+				push_back(e);
+			}// 现代写法
+
+
+		}
+
+		//vector<T>& operator=(const vector<T>& v)
+		//{
+		//	if (this != &v)
+		//	{
+		//		clear();
+		//		reserve(v.size());
+		//		for (auto e : v)
+		//		{
+		//			push_back(e);
+		//		}
+		//	}
+		//	return *this; // 传统写法
+		//}
+
+		void swap(vector<T>& v)
+		{
+			std::swap(_start, v._start);
+			std::swap(_finish, v._finish);
+			std::swap(_end_of_storage, v._end_of_storage);
+		}
+
+		vector<T>& operator=(vector<T> v)// 现代写法的关键————传值传参，通过中间所创建的临时对象来交换
+		{
+			swap(v);
+			return *this; // 现代写法
+		}
 
 		~vector()
 		{
@@ -43,13 +95,45 @@ namespace LDW
 			_start = _finish = _end_of_storage = nullptr;
 		}
 
+		void clear()
+		{
+			_finish = _start;
+		}
+
+
+		void resize(size_t n, const T& val = T()) // size_t n：新的大小。   const T& val = T()：新元素的默认值。如果没有提供 val，则使用类型 T 的默认构造函数来初始化新元素。
+		{
+			if (n > size())
+			{
+				// 如果新的大小 大于当前大小，则需要扩容并添加新元素
+				if (n > capacity())
+				{
+					reserve(n);
+				}
+				while (size() < n)
+				{
+					push_back(val);
+				}
+			}
+			else if (n < size())
+			{
+				// 如果新的大小 小于当前大小，则移除多余的元素
+				_finish = _start + n;
+			}
+		}
+
+
 		void reserve(size_t n)
 		{
 			if (n > capacity())
 			{
 				size_t oldSize = size();
 				T* tmp = new T[n];
-				memcpy(tmp, _start, sizeof(T) * size());
+				//memcpy(tmp, _start, sizeof(T) * size());// 这里潜藏着一个memcpy浅拷贝导致的问题，memcpy是一个一个字符拷贝，还是浅拷贝，是同一个地址
+				for (size_t i = 0; i < oldSize; i++)
+				{
+					tmp[i] = _start[i];// 所以要用=赋值来实现，string的=赋值是实现了深拷贝的
+				}
 				delete[] _start;
 
 				_start = tmp;
@@ -99,25 +183,47 @@ namespace LDW
 			--_finish;
 		}
 
-		void insert(iterator pos, cosnt T& x)
+		void insert(iterator pos, const T& x)
 		{
+			assert(pos >= _start);
+			assert(pos <= _finish);// insert 这里的检查和erase就不同，这里可以写成<= _finish 因为如果==_finish就相当于直接尾插了
+
 			if (_finish == _end_of_storage)// 空间满了，需要扩容
 			{
+				size_t len = pos - _start;// 防止迭代器失效，所以要计算一个相对位置
 				reserve(capacity() == 0 ? 4 : capacity() * 2);
+				pos = _start + len;
 			}
-			while (end >= pos)
+
+			iterator it = _finish - 1;// 等待扩容后再计算迭代器位置，确保位置不会失效
+
+			while (it >= pos)
 			{
-				*(end + 1) = *end;
-				--end;
+				*(it + 1) = *it;
+				--it;
 			}
 			*pos = x;
 			++_finish;
+		}
 
+		iterator erase(iterator pos)
+		{
+			assert(pos >= _start);
+			assert(pos < _finish);//erase这里不可以写成<= _finish 因为不能删除_finish，所以必须写成<_finish
+
+			iterator it = pos + 1; // 从 pos 的下一个位置开始
+			while (it < _finish) // 将 pos 之后的元素依次向前移动一个位置
+			{
+				*(it - 1) = *it;
+				++it;
+			}
+			--_finish; // 更新 _finish，表示数组的有效元素减少了一个
+			return pos;
 		}
 
 	private:
-		iterator _start;
-		iterator _finish;
-		iterator _end_of_storage;
+		iterator _start = nullptr;
+		iterator _finish = nullptr;
+		iterator _end_of_storage = nullptr;
 	};
 }
