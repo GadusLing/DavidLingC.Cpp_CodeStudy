@@ -271,24 +271,134 @@ void func(const LDW::vector<int>& v)// 很多时候会有这种情况，传参过来用了const引
 //	return 0;
 //}
 
+//int main()
+//{
+//	LDW::vector<string> v1;
+//
+//	v1.push_back("111111111111111111111");
+//	v1.push_back("111111111111111111111");
+//	v1.push_back("111111111111111111111");
+//	v1.push_back("111111111111111111111");
+//	v1.push_back("111111111111111111111");// 为啥第5行就茸了呢？应该是扩容的问题
+//
+//	for (const auto& e : v1)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	
+//	LDW::vector<int> v1 = { 1,2,3,4,5,6 };// C++11 之后的初始化方式————initializer_list
+//	// 上面其实是单参数构造 通过= 的隐式类型转换
+//	//LDW::vector<int> v2({ 1,2,3,4,5,6 });
+//    // 下面的是传initializer_list的参
+//
+//
+//
+//	//auto il = { 1,2,3,4,5,6 };
+//	////原理上和
+//	//int a[] = { 1,2,3,4,5,6 };// 很像
+//	//cout << typeid(il).name() << endl;
+//	//cout << il.begin() << endl;// 这里可以看出差别，initializer_list实际是在栈上开的空间
+//	//cout << a << endl;// 和这些栈上开的数组地址接近
+//	//const char* str = "hello world";// 而这种const常量位于常量区，地址相隔很远
+//	//cout << (void*)str << endl;
+//
+//
+//	for (const auto& e : v1)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//
+//	LDW::vector<int> v1 = { 1,2,3,4,5,6 };
+//	for (const auto& e : v1)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	LDW::vector<int> v2(v1.begin() + 1, v1.end() - 1);
+//	for (const auto& e : v2)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	string s1("hello world");
+//	LDW::vector<int> v3(s1.begin(), s1.end());
+//
+//	for (const auto& e : v3)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	int a[] = { 10,2,30,4,55,6 };
+//	LDW::vector<int> v4(a, a + 6);// 迭代器区间是可以传数组这样的原生指针的哦，因为迭代器模拟的就是指针的行为，所以原生指针就更可以当成迭代器了
+//	for (const auto& e : v4)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//	
+//	sort(v4.begin(), v4.end()); // sort能对容器的迭代器区间排序
+//	for (const auto& e : v4)
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//	sort(a, a + 6);
+//	for (const auto& e : a) // sort也能对指针数组排序
+//	{
+//		cout << e << " ";
+//	}
+//	cout << endl;
+//
+//
+//	return 0;
+//}
+
 int main()
 {
-	LDW::vector<string> v1;
 
-	v1.push_back("111111111111111111111");
-	v1.push_back("111111111111111111111");
-	v1.push_back("111111111111111111111");
-	v1.push_back("111111111111111111111");
-	v1.push_back("111111111111111111111");// 为啥第5行就茸了呢？应该是扩容的问题
-
+	LDW::vector<double> v1(10, 0.1);
 	for (const auto& e : v1)
 	{
 		cout << e << " ";
 	}
 	cout << endl;
 
+	LDW::vector<int> v2(10, 1);// C2100错误，类型匹配不对，匹配到vector(InputIterator first, InputIterator last)上了，因为他们更合适
+	for (const auto& e : v2)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+
+	LDW::vector<size_t> v3(10ULL, 1ULL);// ULL表示size_t
+	for (const auto& e : v3)
+	{
+		cout << e << " ";
+	}
+	cout << endl;
+
+
+
 	return 0;
 }
-
 
 

@@ -42,7 +42,40 @@ namespace LDW
 		vector()
 		{}
 
-		// 拷贝构造 v2(v1)
+		vector(initializer_list<T> il)// initializer_list构造
+		{
+			reserve(il.size());
+			for (const auto& e : il)
+			{
+				push_back(e);
+			}
+		}
+
+		//类模板的成员函数，也可以是一个函数模板
+		template <class InputIterator>
+		vector(InputIterator first, InputIterator last)// 迭代器区间构造
+		{
+			while (first != last)
+			{
+				push_back(*first);
+				++first;
+			}
+		}
+
+		vector(size_t n, const T& val = T())// n 个 value初始化
+		{
+			resize(n, val);
+		}
+
+		vector(int n, const T& val = T()) // 官方库里写了两个，size_t和int都有 ，避免了匹配问题
+		{
+			resize(n, val);
+		}
+
+	
+
+
+		// 拷贝构造 v2(v1)，上面的构造不能删哦，因为拷贝构造也是一种构造，当写了拷贝构造之后，系统提供的默认构造会失效，所以要留个壳子，让系统有构造可以调，哪怕默认参数都在private那边
 		vector(const vector<T>& v)
 		{
 			/*_start = new T[v.size()];
