@@ -54,6 +54,16 @@ namespace LDW
 			return _node != it._node;
 		}
 
+		bool operator==(const list_iterator<T>& it)// 重载==
+		{
+			return _node == it._node;
+		}
+
+		T* operator->()// 重载->  本来应该是两个箭头，编译器为了可读性省略了一个
+		{
+			return &_node->_data;
+		}
+
 	};
 
 
@@ -90,8 +100,6 @@ namespace LDW
 			newNode->_prev = _head->_prev;
 			_head->_prev = newNode;
 		}
-
-
 
 	private:
 		Node* _head;

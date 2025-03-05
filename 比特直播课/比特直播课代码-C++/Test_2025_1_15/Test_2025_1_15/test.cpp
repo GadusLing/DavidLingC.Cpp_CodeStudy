@@ -222,7 +222,7 @@ void test_list7()
 
 }
 
-void test_list8()
+void test_LDWlist1()
 {
 	LDW::list<int>lt1;
 	lt1.push_back(1);
@@ -239,7 +239,43 @@ void test_list8()
 		++it1;
 	}
 	cout << endl;
+}
 
+void Print(const LDW::list<A>& lt)
+{	//Print 函数的参数是 const LDW::list<A>& lt，所以这里lt.begin();必须是const迭代器的版本
+	LDW::list<A>::const_iterator it1 = lt.begin();
+	while (it1 != lt.end())
+	{
+		cout << it1->_a1 << ":" << it1->_a2 << endl;
+		++it1;
+	}
+	cout << endl;
+
+}
+
+
+
+void test_LDWlist2()
+{
+	LDW::list<A> lt1;
+	lt1.push_back({ 1,1 });
+	lt1.push_back({ 2,2 });
+	lt1.push_back({ 3,3 });
+	lt1.push_back({ 4,4 });
+
+
+	//LDW::list<A>::iterator it1 = lt1.begin();
+	//while (it1 != lt1.end())
+	//{
+	//	//cout << (*it1)._a1 << ":" << (*it1)._a2 << endl;
+	//	cout << it1->_a1 << ":" << it1->_a2 << endl; // 支持(*it1)._a1 的 . 就要支持->，所以->也得重载一份
+	//	//本来应该是两个箭头，编译器为了可读性省略了一个
+	//	//it->->_a1
+	//	//it.operator->()->_a1
+	//	++it1;
+	//}
+	//cout << endl;
+	Print(lt1);
 }
 
 
@@ -252,7 +288,8 @@ int main()
 	//test_list5();
 	//test_list6();
 	//test_list7();
-	test_list8();
+	//test_LDWlist1();
+	test_LDWlist2();
 
 
 

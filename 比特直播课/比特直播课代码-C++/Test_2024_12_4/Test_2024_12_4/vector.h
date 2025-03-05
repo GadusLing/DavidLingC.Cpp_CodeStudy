@@ -39,6 +39,14 @@ namespace LDW
 			return _finish;
 		}
 
+		// 适配器 -- 复用 // vector和list反向迭代器实现
+		template<class Iterator, class Ref, class Ptr>
+		struct Reverse_iterator
+		{
+			Iterator _it;
+		};
+		
+
 		vector()
 		{}
 
