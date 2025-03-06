@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include "list.h"
+#include <vector>
 
 
 using namespace std;
@@ -241,27 +242,25 @@ void test_LDWlist1()
 	cout << endl;
 }
 
-void Print(const LDW::list<A>& lt)
+void Print(const LDW::list<int>& lt)
 {	//Print 函数的参数是 const LDW::list<A>& lt，所以这里lt.begin();必须是const迭代器的版本
-	LDW::list<A>::const_iterator it1 = lt.begin();
+	LDW::list<int>::const_iterator it1 = lt.begin();
 	while (it1 != lt.end())
 	{
-		cout << it1->_a1 << ":" << it1->_a2 << endl;
+		cout << *it1 << endl;
 		++it1;
 	}
 	cout << endl;
 
 }
 
-
-
 void test_LDWlist2()
 {
-	LDW::list<A> lt1;
-	lt1.push_back({ 1,1 });
-	lt1.push_back({ 2,2 });
-	lt1.push_back({ 3,3 });
-	lt1.push_back({ 4,4 });
+	//LDW::list<A> lt1;
+	//lt1.push_back({ 1,1 });
+	//lt1.push_back({ 2,2 });
+	//lt1.push_back({ 3,3 });
+	//lt1.push_back({ 4,4 });
 
 
 	//LDW::list<A>::iterator it1 = lt1.begin();
@@ -275,9 +274,18 @@ void test_LDWlist2()
 	//	++it1;
 	//}
 	//cout << endl;
-	Print(lt1);
-}
 
+	LDW::list<int> lt2;
+	lt2.push_back(1);
+	lt2.push_back(2);
+	lt2.push_back(3);
+	lt2.push_back(4);
+	lt2.push_back(5);
+	lt2.push_back(6);
+
+	Print(lt2);
+
+}
 
 int main()
 {
@@ -290,7 +298,7 @@ int main()
 	//test_list7();
 	//test_LDWlist1();
 	test_LDWlist2();
-
+	cout << typeid(vector<int>::iterator).name() << endl;
 
 
 	return 0;

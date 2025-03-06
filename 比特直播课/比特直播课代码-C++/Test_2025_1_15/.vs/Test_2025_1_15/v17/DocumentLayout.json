@@ -18,8 +18,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "list.h",
+              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\list.h",
+              "RelativeDocumentMoniker": "Test_2025_1_15\\list.h",
+              "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\list.h",
+              "RelativeToolTip": "Test_2025_1_15\\list.h",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAhwMEAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-04T10:33:29.671Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
@@ -42,26 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "list.h",
-              "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\list.h",
-              "RelativeDocumentMoniker": "Test_2025_1_15\\list.h",
-              "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\list.h",
-              "RelativeToolTip": "Test_2025_1_15\\list.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-04T10:33:29.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "test.cpp",
               "DocumentMoniker": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\test.cpp",
               "RelativeDocumentMoniker": "Test_2025_1_15\\test.cpp",
               "ToolTip": "E:\\GithubDownLoad\\DavidLingC.C\u002B\u002B_CodeStudy\\\u6BD4\u7279\u76F4\u64AD\u8BFE\\\u6BD4\u7279\u76F4\u64AD\u8BFE\u4EE3\u7801-C\u002B\u002B\\Test_2025_1_15\\Test_2025_1_15\\test.cpp",
               "RelativeToolTip": "Test_2025_1_15\\test.cpp",
-              "ViewState": "AQIAANsAAAAAAAAAAAAhwPYAAAAYAAAA",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAhwAEBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-04T06:36:00.383Z",
               "EditorCaption": ""
