@@ -1,6 +1,13 @@
 #pragma once
 
 #include <iostream>
+#include <list>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <assert.h>
+
+using namespace std;
 
 namespace LDW
 {
@@ -190,16 +197,76 @@ namespace LDW
 			return const_iterator(_head);
 		}
 
-		list()// 带头双向构造
+		void empty_init()
 		{
 			_head = new Node;
 			_head->_next = _head;
 			_head->_prev = _head;
+			_size = 0;
 		}
 
-		size_t size()
+		list() // 带头双向构造
 		{
+			empty_init();
+		}
 
+		list(initializer_list<T> lt)
+		{
+			empty_init();
+			for (auto& e : lt)
+			{
+				push_back(e);
+			}
+		}
+
+		list(const list<T>& lt) // 深拷贝构造 lt2(lt1)
+		{
+			empty_init(); // 这里要初始化lt2 也就是*this，搞搞头节点、指向啥的， ，不能在一个构造函数内部再去调用类的构造函数，所以要把构造的初始化列表拆出来写个empty_init()
+			for (auto e : lt)
+			{
+				push_back(e);
+			}
+		}
+
+		list<T>& operator=(list<T> lt)// 现代写法这里用传值
+		{
+			swap(lt);
+			return *this;
+		}
+
+		void swap(list<T>& lt)
+		{
+			std::swap(_head, lt._head);
+			std::swap(_size, lt._size);
+		}
+
+		~list() // 析构
+		{
+			clear();
+			delete _head;
+			_head = nullptr;
+			_size = 0;
+		}
+
+		void clear()
+		{
+			iterator it = begin();
+			while (it != end())
+			{
+				it = erase(it);// erase后迭代器会失效，我们在那边写了erase返回了下个位置的迭代器，此时用it接收它相当于++了
+				// 这样不断erase就达到了清除的目的
+			}
+		}
+
+		size_t size() const
+		{
+			//size_t count = 0;
+			//for (auto it : *this)
+			//{
+			//	++count;
+			//}
+			//return count;
+			return _size;// 这样就可以直接返回数量了
 		}
 
 		void push_back(const T& x)// 尾插
@@ -239,21 +306,24 @@ namespace LDW
 			newNode->_prev = cur->_prev;
 			cur->_prev->_next = newNode;
 			cur->_prev = newNode;
+			++_size;
 		}
 
 		iterator erase(iterator pos)// erase会导致迭代器失效，返回一个“删除位下一个位置的迭代器”
 		{
 			assert(pos != end()); // erase一定要注意不能把哨兵位给erase了
 			Node* cur = pos._node;
+			Node* nextNode = cur->_next; // 保存下一个节点的指针
 			cur->_prev->_next = cur->_next;
 			cur->_next->_prev = cur->_prev;
 			delete cur;
-
-			return iterator(cur->_next);
+			--_size;
+			return iterator(nextNode); // 返回下一个节点的迭代器
 		}
 
 	private:
 		Node* _head;
+		size_t _size;// list如果需要求size每次都得完全遍历，那就很费效能，所以直接增加一个成员变量来计数size
 	};
 
 

@@ -1,12 +1,5 @@
-#include <list>
-#include <iostream>
-#include <algorithm>
+
 #include "list.h"
-#include <vector>
-
-
-using namespace std;
-
 
 void test_list1()
 {
@@ -247,7 +240,7 @@ void Print(const LDW::list<int>& lt)
 	LDW::list<int>::const_iterator it1 = lt.begin();
 	while (it1 != lt.end())
 	{
-		cout << *it1 << endl;
+		cout << *it1 << " ";
 		++it1;
 	}
 	cout << endl;
@@ -284,6 +277,40 @@ void test_LDWlist2()
 	lt2.push_back(6);
 
 	Print(lt2);
+	cout << typeid(vector<int>::iterator).name() << endl;
+}
+
+void test_LDWlist4()
+{
+
+
+	LDW::list<int> lt2;
+	lt2.push_back(1);
+	lt2.push_back(2);
+	lt2.push_back(3);
+	lt2.push_back(4);
+	lt2.push_back(5);
+	lt2.push_back(6);
+	Print(lt2);
+
+	LDW::list<int> lt3(lt2);
+
+	lt2.clear();
+
+	Print(lt2);
+
+	Print(lt3);
+
+	LDW::list<int> lt4 = { 10,20,30,40 };
+	//lt4.push_back(10);
+	//lt4.push_back(20);
+	//lt4.push_back(30);
+	//lt4.push_back(40);
+
+	lt2 = lt4;
+	Print(lt4);
+
+
 
 }
 
@@ -297,8 +324,10 @@ int main()
 	//test_list6();
 	//test_list7();
 	//test_LDWlist1();
-	test_LDWlist2();
-	cout << typeid(vector<int>::iterator).name() << endl;
+	//test_LDWlist2();
+	test_LDWlist4();
+
+
 
 
 	return 0;
