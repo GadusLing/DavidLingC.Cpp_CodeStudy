@@ -32,7 +32,7 @@
 //}
 
 template<class T>
-class Less
+class Less //仿函数/函数对象   就是一个类重载了operator()
 {
 public:
     bool operator()(const T& x, const T& y)
@@ -88,7 +88,7 @@ int main()
     std::cout << '\n';
 
 
-    LDW::priority_queue<int, vector<int>, LDW::Greater<int>> mypq2;
+    LDW::priority_queue<int, vector<int>, LDW::Greater<int>> mypq2;//加了仿函数参数的
 
     mypq2.push(30);
     mypq2.push(100);

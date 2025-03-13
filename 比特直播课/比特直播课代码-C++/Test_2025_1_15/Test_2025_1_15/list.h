@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include <assert.h>
+#include "iterator.h"
 
 using namespace std;
 
@@ -153,12 +154,12 @@ namespace LDW
 			return tmp;
 		}
 
-		bool operator!=(const Self& it)
+		bool operator!=(const Self& it) const
 		{
 			return _node != it._node;
 		}
 
-		bool operator==(const Self& it)// 重载==
+		bool operator==(const Self& it) const// 重载==
 		{
 			return _node == it._node;
 		}
@@ -176,6 +177,28 @@ namespace LDW
 
 		typedef list_iterator<T, T&, T*> iterator;
 		typedef list_iterator<T, const T&, const T*> const_iterator;// 通过模板参数的不同来搞定一份iterator
+		using reverse_iterator = ReverseIterator<iterator, T&, T*>;
+		using const_reverse_iterator = ReverseIterator<const_iterator, const T&, const T*>;
+
+		reverse_iterator rbegin()
+		{
+			return reverse_iterator(--end());
+		}
+
+		reverse_iterator rend()
+		{
+			return reverse_iterator(end());
+		}
+
+		const_reverse_iterator rbegin() const
+		{
+			return const_reverse_iterator(--end());
+		}
+
+		const_reverse_iterator rend() const
+		{
+			return const_reverse_iterator(end());
+		}
 
 		iterator begin()
 		{

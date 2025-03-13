@@ -247,6 +247,17 @@ void Print(const LDW::list<int>& lt)
 
 }
 
+void RPrint(const LDW::list<int>& lt)
+{
+	LDW::list<int>::const_reverse_iterator it1 = lt.rbegin();
+	while (it1 != lt.rend())
+	{
+		cout << *it1 << " ";
+		++it1;
+	}
+	cout << endl;
+}
+
 void test_LDWlist2()
 {
 	//LDW::list<A> lt1;
@@ -314,6 +325,31 @@ void test_LDWlist4()
 
 }
 
+void test_LDWlist_Ritertor1()
+{
+	LDW::list<int> lt2;
+	lt2.push_back(1);
+	lt2.push_back(2);
+	lt2.push_back(3);
+	lt2.push_back(4);
+	lt2.push_back(5);
+	lt2.push_back(6);
+	RPrint(lt2);
+
+	LDW::list<int> lt3(lt2);
+
+	lt2.clear();
+
+	RPrint(lt2);
+
+	RPrint(lt3);
+
+	LDW::list<int> lt4 = { 10,20,30,40 };
+
+	lt2 = lt4;
+	RPrint(lt4);
+}
+
 int main()
 {
 	//test_list1();
@@ -325,7 +361,9 @@ int main()
 	//test_list7();
 	//test_LDWlist1();
 	//test_LDWlist2();
-	test_LDWlist4();
+	//test_LDWlist4();
+	test_LDWlist_Ritertor1();
+
 
 
 
