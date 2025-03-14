@@ -348,6 +348,20 @@ void test_LDWlist_Ritertor1()
 
 	lt2 = lt4;
 	RPrint(lt4);
+
+	std::list<int> lt5 = { 10,20,30,40 };
+
+	LDW::list<int> lt6 = { 10,20,30,40 };
+
+	auto it = lt5.begin();
+	auto ite = lt5.end();
+	for(int i = 0; i < 4; ++i)
+	{
+		cout << *it << " ";
+		++it;
+	}
+	cout << *it << endl;
+
 }
 
 int main()
