@@ -6,7 +6,7 @@ bool Date::operator==(const Date& d) {
 		&& _day == d._day;
 }
 
-bool Date::operator<(const Date& d) {
+bool Date::operator<(const Date& d)const {
 	if (_year < d._year)
 	{
 		return true;

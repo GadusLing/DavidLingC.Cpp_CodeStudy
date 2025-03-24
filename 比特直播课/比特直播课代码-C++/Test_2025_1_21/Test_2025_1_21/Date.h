@@ -24,7 +24,7 @@ public:
 	}
 	//ÔËËã·ûÖØÔØ
 	bool operator==(const Date& d);
-	bool operator<(const Date& d);
+	bool operator<(const Date& d) const;
 	bool operator>(const Date& d);
 	bool operator<=(const Date& d);
 	bool operator>=(const Date& d);
