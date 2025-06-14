@@ -130,6 +130,8 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mymap.h" />
+    <ClInclude Include="myset.h" />
     <ClInclude Include="RBTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

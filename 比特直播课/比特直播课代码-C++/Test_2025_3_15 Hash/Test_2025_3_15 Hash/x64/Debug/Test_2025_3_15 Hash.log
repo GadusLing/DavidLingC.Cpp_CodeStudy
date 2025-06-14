@@ -1,0 +1,8 @@
+﻿  test.cpp
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(21,15): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(27,28): warning C4267: “参数”: 从“size_t”转换到“_Ty”，可能丢失数据
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(27,28): warning C4267:         with
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(27,28): warning C4267:         [
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(27,28): warning C4267:             _Ty=int
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\Test_2025_3_15 Hash\test.cpp(27,28): warning C4267:         ]
+  Test_2025_3_15 Hash.vcxproj -> E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_15 Hash\x64\Debug\Test_2025_3_15 Hash.exe
