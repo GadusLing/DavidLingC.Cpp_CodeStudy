@@ -1,2 +1,26 @@
 ﻿  test.cpp
-  Test_2025_3_18 HashTable.vcxproj -> E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\x64\Debug\Test_2025_3_18 HashTable.exe
+D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\Test_2025_3_18 HashTable\HashTable.h(105,70): warning C4267: “参数”: 从“size_t”转换到“unsigned long”，可能丢失数据
+  (编译源文件“test.cpp”)
+      D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\Test_2025_3_18 HashTable\HashTable.h(105,70):
+      模板实例化上下文(最早的实例化上下文)为
+          D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\Test_2025_3_18 HashTable\test.cpp(48,39):
+          查看对正在编译的 类 模板 实例化“open_address::HashTable<double,int,HashFunc<K>>”的引用
+          with
+          [
+              K=double
+          ]
+          D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\Test_2025_3_18 HashTable\HashTable.h(89,14):
+          在编译 类 模板 成员函数“bool open_address::HashTable<double,int,HashFunc<K>>::Insert(const std::pair<K,V> &)”时
+          with
+          [
+              K=double,
+              V=int
+          ]
+              D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\Test_2025_3_18 HashTable\test.cpp(49,11):
+              请参阅 "testHT2" 中对 "open_address::HashTable<double,int,HashFunc<K>>::Insert" 的第一个引用
+          with
+          [
+              K=double
+          ]
+  
+  Test_2025_3_18 HashTable.vcxproj -> D:\DavidLingC_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_18 HashTable\x64\Debug\Test_2025_3_18 HashTable.exe
