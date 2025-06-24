@@ -2,6 +2,7 @@
 #include<vector>
 #include<utility>
 #include <algorithm>
+
 using namespace std;
 
 // 哈希表扩容用的素数表
@@ -58,164 +59,248 @@ struct HashFunc<string>
     }
 };
 
-
-namespace open_address
-{
-    enum State
-    {
-        EXIST,   // 表示该位置有数据
-        EMPTY,   // 表示该位置为空
-        DELETE   // 表示该位置数据已被删除
-    };
-
-    template<class K, class V>
-    struct HashData
-    {
-        pair<K, V> _kv;       // 存储键值对
-        State _state = EMPTY;  // 初始状态为EMPTY //线性探测情况下，映射会有自然的错位，如果删除某些位置的数据，再探测，以空为条件结束，就会产生明明在表内却探测不到的情况
-        //所以需要添加一个状态，当状态为“被删除”时，依然会向后找，只有同时“空”并且“K值==对应位置”才确认了，哦，之前确实没有这个数，见3_15 map和set的封装 02:57:00 部分
-    };
-
-    template<class K, class V, class Hash = HashFunc<K>>
-    class HashTable
-    {
-    public:
-        HashTable(size_t size = NextPrime(0))
-            :_n(0)
-            , _tables(size)
-        {
-        }
-
-        bool Insert(const pair<K, V>& kv)
-        {
-            //一般负载因子到0.7左右就需要扩容了，不能等满了再扩
-            if ((double)_n / (double)_tables.size() >= 0.7)
-            {
-                //vector<HashData<K, V>> _newtables(_tables.size() * 2);
-                //for (size_t i = 0; i < _tables.size(); i++)
-                //{
-                //    if (_tables[i].state == EXIST)
-                //    {
-                //        //...手动遍历法
-                //    }
-                //}
-
-                //现代写法 复用，我不自己写，你写了，我换过来
-                //HashTable<K, V> newHT(_tables.size() * 2);
-                HashTable<K, V, Hash> newHT(NextPrime(_tables.size() + 1));
-                for (size_t i = 0; i < _tables.size(); i++)
-                {
-                    if (_tables[i]._state == EXIST)
-                    {
-                        newHT.Insert(_tables[i]._kv);
-                    }
-                }
-                _tables.swap(newHT._tables);
-            }
-            Hash hs;//用仿函数处理string or double类型无法比较的问题
-            size_t hash0 = hs(kv.first) % _tables.size();//这里的size是11哦，先前指定了vector<HashData<K, V>> _tables默认给了个11
-            size_t hashi = hash0;
-            size_t i = 1;
-            //线性探测
-            while (_tables[hashi]._state == EXIST)
-            {
-                hashi = (hashi + i) % _tables.size();
-                ++i;
-            }
-            _tables[hashi]._kv = kv;
-            _tables[hashi]._state = EXIST;
-            ++_n;
-
-            return true;
-        }
-
-        HashData<K, V>* Find(const K& key)
-        {
-            Hash hs;
-            size_t hash0 = hs(key) % _tables.size();
-            size_t hashi = hash0;
-            size_t i = 1;
-            //线性探测
-            while (_tables[hashi]._state != EMPTY)
-            {
-                if (_tables[hashi]._kv.first == key && _tables[hashi]._state != DELETE)
-                {
-                    return &_tables[hashi];
-                }
-
-                hashi = (hashi + i) % _tables.size();
-                ++i;
-            }
-            return nullptr;
-        }
-
-        bool Erase(const K& key)
-        {
-            HashData<K, V>* ret = Find(key);
-            if (ret)
-            {
-                ret->_state = DELETE;
-                return true;
-            }
-            else return false;
-        }
-
-    private:
-        vector<HashData<K, V>> _tables;  // 存储哈希节点的数组
-        size_t _n = 0;                  // 表中实际存储的数据个数
-    };
-}
-
 namespace hash_bucket
 {
-    template<class K, class V>
+    template<class T>
     struct HashNode
     {
-        pair<K, V> _kv;
-        HashNode<K, V>* _next;
+        T _data;
+        HashNode<T>* _next;
 
-        HashNode(const pair<K, V>& kv)
-            :_kv(kv)
-            , _next(nullptr)
+        HashNode(const T& data)
+            :_data(data)
+            ,_next(nullptr)
         {
         }
     };
 
-    template<class K, class V>
+    //解决HTIterator和HashTable相互依赖关系，用前置声明
+    template<class K, class T, class KeyOFT, class Hash >
+    class HashTable;
+
+    template<class K, class T, class Ref, class Ptr, class KeyOFT, class Hash>
+    struct HTIterator
+    {
+        typedef HashNode<T> Node;
+        typedef HashTable<K, T, KeyOFT, Hash> HT;//这里会出现 : 缺少“; ”(在“ < ”的前面) 实际是因为HTIterator和HashTable存在依赖的关系，编译时只会向上查找，但因为相互依赖，所以要用前置声明解决
+        typedef HTIterator<K, T, Ref, Ptr, KeyOFT, Hash> Self;
+
+        Node* _node;
+        const HT* _ht;
+
+        HTIterator(Node* node,const HT* ht)
+            :_node(node)
+            ,_ht(ht)
+        {}
+
+        Ref operator*()
+        {
+            return _node->_data;
+        }
+
+        Ptr operator->()
+        {
+            return &_node->_data;
+        }
+
+        Self& operator++()
+        {
+            if (_node->_next)
+            {
+                //当前桶迭代
+                _node = _node->_next;
+            }
+            else
+            {
+                // 找下一个桶的第一个节点
+                KeyOFT kot;
+                Hash hs;
+                size_t hashi = hs(kot(_node->_data)) % _ht->_tables.size();
+                ++hashi;
+                while (hashi < _ht->_tables.size())
+                {
+                    if (_ht->_tables[hashi])
+                    {
+                        _node = _ht->_tables[hashi];
+                        break;
+                    }
+                    else
+                    {
+                        ++hashi;
+                    }
+                }
+                // 当所有桶都走完了，nullptr去做end()
+                if (hashi == _ht->_tables.size())
+                {
+                    _node = nullptr;
+                }
+            }
+            return *this;
+        }
+
+        bool operator!=(const Self& s)
+        {
+            return _node != s._node;
+        }
+
+        bool operator==(const Self& s)
+        {
+            return _node == s._node;
+        }
+
+    };
+
+
+    template<class K, class T, class KeyOFT, class Hash>
     class HashTable
     {
-        typedef HashNode<K, V> Node;
+        template<class K, class T, class Ref, class Ptr, class KeyOFT, class Hash>// 模板类友元记得要把声明参数都带上
+        friend struct HTIterator;
+
+        typedef HashNode<T> Node;
     public:
+
+        typedef HTIterator<K, T, T&, T*, KeyOFT, Hash> Iterator;
+        typedef HTIterator<K, T, const T&, const T*, KeyOFT, Hash> ConstIterator;
+
+        Iterator Begin()
+        {
+            // 找第一个不为空的桶里面的第一个节点
+            for (size_t i = 0; i < _tables.size(); ++i)
+            {
+                if (_tables[i])
+                {
+                    return Iterator(_tables[i], this);
+                }
+            }
+            return End();
+        }
+
+        Iterator End()
+        {
+            return Iterator(nullptr, this);
+        }
+
+        ConstIterator Begin() const
+        {
+            for (size_t i = 0; i < _tables.size(); ++i)
+            {
+                if (_tables[i])
+                {
+                    return ConstIterator(_tables[i], this);
+                }
+            }
+            return End();
+        }
+
+        ConstIterator End() const
+        {
+            return ConstIterator(nullptr, this);
+        }
+
+
         HashTable(size_t size = NextPrime(0))
             :_tables(size, nullptr)
         {}
 
-        bool Insert(const pair<K, V>& kv)
+        ~HashTable()
         {
-            //扩容
+            for (size_t i = 0; i < _tables.size(); i++)
+            {
+                Node* cur = _tables[i];
+                while (cur)
+                {
+                    Node* next = cur->_next;
+                    delete cur;
+                    cur = next;
+                }
+                _tables[i] = nullptr;
+            }
+        }
+
+        pair<Iterator, bool> Insert(const T& data)
+        {
+            KeyOFT kot;
+            Iterator it = Find(kot(data));
+            if (it != End()) return { it, false };//这里false表示元素已存在;
+            
+            //扩容            
+            Hash hs;
             //负载因子到1，再扩容
             if (_n == _tables.size())
             {
-                HashTable<K, V> newHT(NextPrime(_tables.size() + 1));
+                vector<Node*> newtables(NextPrime(_tables.size() + 1), nullptr);
                 for (size_t i = 0; i < _tables.size(); i++)
                 {
                     Node* cur = _tables[i];
                     while (cur)
                     {
-                        newHT.Insert(cur->_kv);
-                        cur = cur->_next;
+                        //把旧表的节点插入到新表
+                        Node* next = cur->_next;
+                        size_t hashi = hs(kot(cur->_data)) % newtables.size();
+                        cur->_next = newtables[hashi];
+                        newtables[hashi] = cur;//换到新表原始的顺序会倒转，但是无所谓，不影响功能，甚至不只是倒转，连桶内的数量都变了
+                        cur = next;
                     }
+                    _tables[i] = nullptr;
                 }
-                _tables.swap(newHT._tables);
+                _tables.swap(newtables);
             }
-            //Hash hs;
-            size_t hashi = hs(kv.first) % _tables.size();
-            Node* newnode = new Node(kv);
+            size_t hashi = hs(kot(data)) % _tables.size();
+            Node* newnode = new Node(data);
             //选用头插，免得去找尾又
             newnode->_next = _tables[hashi];
             _tables[hashi] = newnode;
             ++_n;
+            return { {newnode, this}, true };
         }
+
+        Iterator Find(const K& key)
+        {
+            KeyOFT kot;
+            Hash hs;
+            size_t hashi = hs(key) % _tables.size();
+            Node* cur = _tables[hashi];
+            while (cur)
+            {
+                if (kot(cur->_data) == key)
+                {
+                    return Iterator(cur, nullptr);
+                }
+                cur = cur->_next;
+            }
+            return End();
+        }
+
+        bool Erase(const K& key)
+        {
+            KeyOFT kot;
+            Hash hs;
+            size_t hashi = hs(key) % _tables.size();
+            Node* prev = nullptr;
+            Node* cur = _tables[hashi];
+            while (cur)
+            {
+                if (kot(cur->_data) == key)
+                {
+                    if (prev == nullptr)
+                    {
+                        _tables[hashi] = cur->_next;
+                    }
+                    else
+                    {
+                        prev->_next = cur->_next;
+                    }
+                    --_n;
+                    delete cur;
+                    return true;
+                }
+                prev = cur;
+                cur = cur->_next;
+            }
+            return false;
+        }
+
     private:
         //vector<list<pair<K, V>>> _tables;//这是一种实现哈希桶的方式，但是不太利于之后封装unordered_xxx实现迭代器
         vector<Node*> _tables;// 所以用原生一些的结构，指针数组
