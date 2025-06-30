@@ -1,0 +1,7 @@
+﻿  test.cpp
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001: 内部编译器错误。
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001: (编译器文件“D:\a\_work\1\s\src\vctools\Compiler\CxxFE\sl\p1\c\error.h”，第 1291 行)
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001:  要解决此问题，请尝试简化或更改上面所列位置附近的程序。
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001: 如果可以，请在此处提供重现步骤: https://developercommunity.visualstudio.com 
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001: 请选择 Visual C++
+E:\GithubDownLoad\DavidLingC.C++_CodeStudy\比特直播课\比特直播课代码-C++\Test_2025_3_23 C++11\Test_2025_3_23 C++11\test.cpp(285,61): error C1001: “帮助”菜单上的“技术支持”命令，或打开技术支持帮助文件来获得详细信息。
